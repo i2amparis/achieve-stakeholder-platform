@@ -220,10 +220,9 @@ The Directus schema (`directus/snapshot.yaml`) implements the model above with t
 | Role | Studio | Can |
 | --- | --- | --- |
 | Public (no login) | — | Read published outputs, roadmaps and pages; all taxonomies; active feedback prompts; files in the "Public" folder. No internal fields, no feedback data. |
-| Editor (partners) | Yes | Create and edit outputs, visuals, webinars and roadmaps; delete drafts only. Read taxonomies, pages and prompts. No feedback data; cannot change taxonomies or import-owned fields. |
-| Feedback manager (Task 4.2) | Yes | Read feedback responses and sign-ups, triage and delete them (not rewrite them); manage feedback prompts and static pages; read content. |
-| Website service | No (API token) | Create feedback responses and sign-ups. Cannot read them back. An email is accepted only with a consent time. |
+| Editor | Yes | ACHIEVE partners. Create and edit outputs, visuals, webinars and roadmaps; delete drafts only. Read feedback responses (text, page context, a "wants follow-up" flag) and triage them with a status and note; cannot rewrite or delete them. No contact details, no community sign-ups. Cannot change taxonomies, static pages, feedback prompts or import-owned fields. |
+| Website service | No (API token) | Create feedback responses and sign-ups. Cannot read them back. An email is accepted only with a consent time, and the "wants follow-up" flag must match it. |
 | Import service | No (API token) | Manage content and taxonomies for the sheet import. No feedback data. |
-| Administrator (HOL) | Yes | Everything, including taxonomies and the schema. |
+| Administrator (HOL) | Yes | Everything: taxonomies, static and legal pages, feedback prompts, schema; the only role that sees follow-up emails and community sign-ups, and that deletes responses (for example on an erasure request). |
 
 The permission rules live in `directus/setup/permissions.ts`; `npm run setup` applies them.

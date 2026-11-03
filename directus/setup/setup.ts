@@ -9,7 +9,7 @@ import { randomBytes } from 'node:crypto';
 import { appendFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { Directus, qs } from './lib/client.ts';
-import { POLICIES, ROLES, SERVICE_USERS, PUBLIC_FILES_FOLDER, publicPermissions, type Permission } from './permissions.ts';
+import { POLICIES, RETIRED, ROLES, SERVICE_USERS, PUBLIC_FILES_FOLDER, publicPermissions, type Permission } from './permissions.ts';
 
 const PUBLIC_POLICY_ID = 'abf8a154-5b1c-4a46-ac9c-7300570f4f17'; // built-in public policy
 const ENV_FILE = resolve(import.meta.dirname, '../../.env');
@@ -70,6 +70,30 @@ for (const r of ROLES) {
 		await d.post('/access', { role: role.id, policy, sort: 1 });
 	}
 	console.log(`role ${r.name}: ${r.policies.join(', ')}`);
+}
+
+// --- retired roles and policies -------------------------------------------
+for (const name of RETIRED.roles) {
+	const [role] = await d.get<any[]>('/roles' + qs({ filter: { name: { _eq: name } } }));
+	if (!role) continue;
+	const users = await d.get<any[]>('/users' + qs({ filter: { role: { _eq: role.id } }, fields: 'id,email' }));
+	if (users.length) {
+		console.warn(`role ${name}: NOT removed, still assigned to ${users.length} user(s). Reassign them first.`);
+		continue;
+	}
+	await d.delete(`/roles/${role.id}`);
+	console.log(`role ${name}: removed (retired)`);
+}
+for (const name of RETIRED.policies) {
+	const [policy] = await d.get<any[]>('/policies' + qs({ filter: { name: { _eq: name } } }));
+	if (!policy) continue;
+	const access = await d.get<any[]>('/access' + qs({ filter: { policy: { _eq: policy.id } }, fields: 'id' }));
+	if (access.length) {
+		console.warn(`policy ${name}: NOT removed, still attached to ${access.length} role(s)/user(s).`);
+		continue;
+	}
+	await d.delete(`/policies/${policy.id}`);
+	console.log(`policy ${name}: removed (retired)`);
 }
 
 // --- service users ------------------------------------------------------

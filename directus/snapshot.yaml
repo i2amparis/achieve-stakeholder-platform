@@ -4343,6 +4343,50 @@ fields:
       has_auto_increment: false
       foreign_key_table: null
       foreign_key_column: null
+  - collection: feedback_responses
+    field: followup_requested
+    type: boolean
+    meta:
+      collection: feedback_responses
+      conditions: null
+      display: boolean
+      display_options: null
+      field: followup_requested
+      group: respondent
+      hidden: false
+      interface: boolean
+      note: >-
+        The respondent left an email for follow-up. Only admins can see the
+        address.
+      options:
+        label: Wants a follow-up
+      readonly: true
+      required: false
+      searchable: true
+      sort: 7
+      special:
+        - cast-boolean
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      name: followup_requested
+      table: feedback_responses
+      data_type: boolean
+      default_value: false
+      max_length: null
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: false
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
   - collection: languages
     field: code
     type: string

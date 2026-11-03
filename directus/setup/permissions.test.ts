@@ -5,7 +5,7 @@
 import { randomBytes } from 'node:crypto';
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 import { Directus, DirectusError, DIRECTUS_URL, loadDotEnv, qs } from './lib/client.ts';
-import { INTERNAL_OUTPUT_FIELDS } from './permissions.ts';
+import { INTERNAL_OUTPUT_FIELDS, PERSONAL_FEEDBACK_FIELDS } from './permissions.ts';
 
 const reachable = await fetch(`${DIRECTUS_URL}/server/ping`).then((r) => r.ok).catch(() => false);
 loadDotEnv();
@@ -27,8 +27,7 @@ describe.skipIf(!reachable)('Directus access model', () => {
 	let admin: Directus;
 	let writer: Directus;
 	let editor: Directus;
-	let manager: Directus;
-	const ids = { actor: 0, published: 0, draft: 0, prompt: 0, users: [] as string[] };
+	const ids = { actor: 0, published: 0, draft: 0, prompt: 0, page: 0, users: [] as string[] };
 
 	async function personWithRole(roleName: string): Promise<Directus> {
 		const [role] = await admin.get<any[]>('/roles' + qs({ filter: { name: { _eq: roleName } } }));
@@ -52,8 +51,8 @@ describe.skipIf(!reachable)('Directus access model', () => {
 		ids.published = (await admin.post('/items/outputs', output('published'))).id;
 		ids.draft = (await admin.post('/items/outputs', output('draft'))).id;
 		ids.prompt = (await admin.post('/items/feedback_prompts', { key: `${tag}-prompt`, question: 'Lorem ipsum?', stream: 'comment', placement: 'output_published', status: 'active' })).id;
+		ids.page = (await admin.post('/items/pages', { slug: `${tag}-page`, title: 'Lorem ipsum', workflow_state: 'draft' })).id;
 		editor = await personWithRole('Editor');
-		manager = await personWithRole('Feedback manager');
 	});
 
 	afterAll(async () => {
@@ -64,6 +63,7 @@ describe.skipIf(!reachable)('Directus access model', () => {
 		if (su.length) await admin.delete('/items/community_signups', su.map((r) => r.id));
 		await admin.delete('/items/outputs', [ids.published, ids.draft].filter(Boolean));
 		if (ids.prompt) await admin.delete(`/items/feedback_prompts/${ids.prompt}`);
+		if (ids.page) await admin.delete(`/items/pages/${ids.page}`);
 		if (ids.actor) await admin.delete(`/items/actors/${ids.actor}`);
 		if (ids.users.length) await admin.delete('/users', ids.users);
 	});
@@ -115,8 +115,15 @@ describe.skipIf(!reachable)('Directus access model', () => {
 		});
 
 		it.skipIf(!process.env.DIRECTUS_FEEDBACK_TOKEN)('rejects an email without a consent time', async () => {
-			expect(await status(writer.post('/items/feedback_responses', feedback({ followup_email: `${tag}@example.com` })))).toBe(400);
-			expect(await status(writer.post('/items/feedback_responses', feedback({ followup_email: `${tag}@example.com`, followup_consent_at: new Date().toISOString() })))).toBe(200);
+			const now = new Date().toISOString();
+			expect(await status(writer.post('/items/feedback_responses', feedback({ followup_email: `${tag}@example.com`, followup_requested: true })))).toBe(400);
+			expect(await status(writer.post('/items/feedback_responses', feedback({ followup_email: `${tag}@example.com`, followup_consent_at: now, followup_requested: true })))).toBe(200);
+		});
+
+		it.skipIf(!process.env.DIRECTUS_FEEDBACK_TOKEN)('keeps the follow-up flag in step with the email', async () => {
+			const now = new Date().toISOString();
+			expect(await status(writer.post('/items/feedback_responses', feedback({ followup_email: `${tag}@example.com`, followup_consent_at: now })))).toBe(400);
+			expect(await status(writer.post('/items/feedback_responses', feedback({ followup_requested: true })))).toBe(400);
 		});
 
 		it.skipIf(!process.env.DIRECTUS_FEEDBACK_TOKEN)('rejects an unknown stream', async () => {
@@ -131,10 +138,29 @@ describe.skipIf(!reachable)('Directus access model', () => {
 	});
 
 	describe('editor (partners)', () => {
-		it('sees drafts but no feedback data', async () => {
+		it('sees drafts', async () => {
 			expect(await status(editor.get(`/items/outputs/${ids.draft}`))).toBe(200);
-			expect(await status(editor.get('/items/feedback_responses'))).toBe(403);
+		});
+
+		it('reads and triages feedback, without contact details', async () => {
+			const rows = await editor.get<any[]>('/items/feedback_responses' + qs({ filter: { message: { _starts_with: tag } }, fields: '*' }));
+			expect(rows.length).toBeGreaterThan(0);
+			for (const f of PERSONAL_FEEDBACK_FIELDS) expect(rows[0]).not.toHaveProperty(f);
+			expect(rows.some((r) => r.followup_requested === true)).toBe(true);
+			expect(await status(editor.get('/items/feedback_responses?fields=followup_email'))).toBe(403);
+			expect(await status(editor.patch(`/items/feedback_responses/${rows[0].id}`, { triage_status: 'read', triage_note: 'Lorem ipsum' }))).toBe(200);
+			expect(await status(editor.patch(`/items/feedback_responses/${rows[0].id}`, { message: 'x' }))).toBe(403);
+			expect(await status(editor.delete(`/items/feedback_responses/${rows[0].id}`))).toBe(403);
+		});
+
+		it('has no access to community sign-ups', async () => {
 			expect(await status(editor.get('/items/community_signups'))).toBe(403);
+		});
+
+		it('cannot edit static pages or feedback prompts (admin only)', async () => {
+			expect(await status(editor.patch(`/items/pages/${ids.page}`, { title: 'x' }))).toBe(403);
+			expect(await status(editor.post('/items/pages', { slug: `${tag}-x`, title: 'x' }))).toBe(403);
+			expect(await status(editor.patch(`/items/feedback_prompts/${ids.prompt}`, { question: 'x' }))).toBe(403);
 		});
 
 		it('can edit content and the confirmed toggle, but not import-owned fields', async () => {
@@ -153,14 +179,6 @@ describe.skipIf(!reachable)('Directus access model', () => {
 		});
 	});
 
-	describe('feedback manager (Task 4.2)', () => {
-		it('reads responses and can triage them, but not rewrite them', async () => {
-			const rows = await manager.get<any[]>('/items/feedback_responses' + qs({ filter: { message: { _starts_with: tag } }, fields: 'id,message' }));
-			expect(rows.length).toBeGreaterThan(0);
-			expect(await status(manager.patch(`/items/feedback_responses/${rows[0].id}`, { triage_status: 'read' }))).toBe(200);
-			expect(await status(manager.patch(`/items/feedback_responses/${rows[0].id}`, { message: 'x' }))).toBe(403);
-		});
-	});
 
 	describe('no activity log for feedback data', () => {
 		it('records no activity for feedback responses', async () => {

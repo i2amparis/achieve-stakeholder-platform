@@ -1,4 +1,4 @@
-# achieve-stakeholder-platform
+# ACHIEVE Stakeholder Platform
 
 A platform for facilitating stakeholder interaction with the findings of the Horizon Europe project ACHIEVE (grant agreement 101137625).
 

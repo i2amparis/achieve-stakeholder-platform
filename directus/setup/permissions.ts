@@ -33,6 +33,14 @@ const ROADMAP_JUNCTIONS = ['roadmaps_outputs', 'roadmaps_principles', 'roadmaps_
 export const CONTENT = ['outputs', 'visuals', 'webinars', 'roadmaps', 'pages', 'feedback_prompts'];
 const CONTENT_TRANSLATIONS = ['outputs_translations', 'visuals_translations', 'roadmaps_translations', 'pages_translations', 'feedback_prompts_translations'];
 export const FEEDBACK_DATA = ['feedback_responses', 'community_signups'];
+/** Personal data: contact details. Readable by admins only. */
+export const PERSONAL_FEEDBACK_FIELDS = ['followup_email', 'followup_consent_at', 'consent_text_version'];
+/** What editors see of a response: the text and its context, never contact details. */
+export const EDITOR_FEEDBACK_FIELDS = [
+	'id', 'date_created', 'prompt', 'stream', 'message', 'page_path', 'context_output', 'context_actor', 'context_principle', 'context_dimension',
+	'context_roadmap', 'context_recommendation', 'context_filters', 'respondent_actor_type', 'respondent_region', 'respondent_country',
+	'followup_requested', 'triage_status', 'triage_note'
+];
 
 /** Fields that exist for editors and the import only. Never public. */
 export const INTERNAL_OUTPUT_FIELDS = ['confirmed', 'unconfirmed_fields', 'source_key', 'source_sheet', 'imported_at', 'confirmation', 'import_info'];
@@ -93,18 +101,20 @@ export const feedbackWriter: PolicySpec = {
 		{
 			collection: 'feedback_responses',
 			action: 'create',
-			fields: ['prompt', 'stream', 'message', 'page_path', 'context_output', 'context_actor', 'context_principle', 'context_dimension', 'context_roadmap', 'context_recommendation', 'context_filters', 'respondent_actor_type', 'respondent_region', 'respondent_country', 'followup_email', 'followup_consent_at', 'consent_text_version'],
+			fields: ['prompt', 'stream', 'message', 'page_path', 'context_output', 'context_actor', 'context_principle', 'context_dimension', 'context_roadmap', 'context_recommendation', 'context_filters', 'respondent_actor_type', 'respondent_region', 'respondent_country', 'followup_email', 'followup_consent_at', 'consent_text_version', 'followup_requested'],
 			validation: {
 				_and: [
 					{ stream: { _in: STREAMS } },
 					{ message: { _nnull: true } },
 					// an email is only accepted together with its consent timestamp
-					{ _or: [{ followup_email: { _null: true } }, { followup_consent_at: { _nnull: true } }] }
+					{ _or: [{ followup_email: { _null: true } }, { followup_consent_at: { _nnull: true } }] },
+					// the flag editors see must match whether an email was given
+					{ _or: [{ _and: [{ followup_email: { _null: true } }, { followup_requested: { _eq: false } }] }, { _and: [{ followup_email: { _nnull: true } }, { followup_requested: { _eq: true } }] }] }
 				]
 			},
 			// Directus validates only the fields present in the payload; presets make
 			// sure the consent fields are always there, so the rules above apply.
-			presets: { followup_email: null, followup_consent_at: null }
+			presets: { followup_email: null, followup_consent_at: null, followup_requested: false }
 		},
 		{
 			collection: 'community_signups',
@@ -134,10 +144,14 @@ export const importer: PolicySpec = {
 // People (Studio access → each active user takes a seat).
 // ---------------------------------------------------------------------------
 
-/** ACHIEVE partners: edit outputs, visuals, webinars and roadmaps. No feedback data, no taxonomy edits. */
+/**
+ * ACHIEVE partners: edit outputs, visuals, webinars and roadmaps, and triage feedback.
+ * They see a response's text and context, never contact details or community sign-ups
+ * (admins only). Taxonomies, static pages and feedback prompts are admin-only.
+ */
 export const editor: PolicySpec = {
 	name: 'Editor',
-	description: 'ACHIEVE partners: edit outputs, visuals, webinars and roadmaps. Cannot see feedback responses or change taxonomies.',
+	description: 'ACHIEVE partners: edit outputs, visuals, webinars and roadmaps; read and triage feedback responses without contact details.',
 	icon: 'edit',
 	app_access: true,
 	admin_access: false,
@@ -156,38 +170,14 @@ export const editor: PolicySpec = {
 		read('pages_translations'),
 		read('feedback_prompts'),
 		read('feedback_prompts_translations'),
-		...crud('directus_files', { delete: { permissions: { uploaded_by: { _eq: '$CURRENT_USER' } } } }),
-		read('directus_folders')
-	]
-};
-
-/** Task 4.2 team: read and triage feedback, manage prompts and static pages. */
-export const feedbackManager: PolicySpec = {
-	name: 'Feedback manager',
-	description: 'Task 4.2 team: reads and triages feedback responses and community sign-ups, manages feedback prompts and static pages.',
-	icon: 'forum',
-	app_access: true,
-	admin_access: false,
-	permissions: [
-		...TAXONOMIES.map((c) => read(c)),
-		...TAXONOMY_TRANSLATIONS.map((c) => read(c)),
-		...CONTENT.filter((c) => !['pages', 'feedback_prompts'].includes(c)).map((c) => read(c)),
-		...[...OUTPUT_JUNCTIONS, ...OUTPUT_PARTS, ...ROADMAP_PARTS, ...ROADMAP_JUNCTIONS].map((c) => read(c)),
-		...crud('pages'),
-		...crud('pages_translations'),
-		...crud('feedback_prompts'),
-		...crud('feedback_prompts_translations'),
-		read('feedback_responses'),
+		read('feedback_responses', null, EDITOR_FEEDBACK_FIELDS),
 		{ collection: 'feedback_responses', action: 'update', fields: ['triage_status', 'triage_note'] },
-		{ collection: 'feedback_responses', action: 'delete' },
-		read('community_signups'),
-		{ collection: 'community_signups', action: 'update', fields: ['unsubscribed_at'] },
-		{ collection: 'community_signups', action: 'delete' },
 		...crud('directus_files', { delete: { permissions: { uploaded_by: { _eq: '$CURRENT_USER' } } } }),
 		read('directus_folders')
 	]
 };
 
+/* Retired 2026-11-03: merged into Editor; personal data moved to admins only. */
 function editableOutputFields(): string[] {
 	// Directus has no field deny-list, so list what editors may write
 	// (everything except INTERNAL fields owned by the import).
@@ -198,12 +188,13 @@ function editableOutputFields(): string[] {
 	];
 }
 
-export const POLICIES: PolicySpec[] = [editor, feedbackManager, feedbackWriter, importer];
+export const POLICIES: PolicySpec[] = [editor, feedbackWriter, importer];
+/** Removed policies and roles; setup.ts deletes them if they still exist. */
+export const RETIRED = { policies: ['Feedback manager'], roles: ['Feedback manager'] };
 
 /** Roles group policies for assignment to users. */
 export const ROLES = [
-	{ name: 'Editor', icon: 'edit', description: 'ACHIEVE partners', policies: ['Editor'] },
-	{ name: 'Feedback manager', icon: 'forum', description: 'Task 4.2 team', policies: ['Feedback manager'] },
+	{ name: 'Editor', icon: 'edit', description: 'ACHIEVE partners: content and feedback triage', policies: ['Editor'] },
 	{ name: 'Website service', icon: 'dns', description: 'API-only account for the SvelteKit server', policies: ['Feedback writer'] },
 	{ name: 'Import service', icon: 'sync', description: 'API-only account for the content-sheet import', policies: ['Importer'] }
 ];

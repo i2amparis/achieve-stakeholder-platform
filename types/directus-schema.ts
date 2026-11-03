@@ -98,6 +98,7 @@ export interface FeedbackResponse {
 	consent_text_version: string | null;
 	triage_status: "new" | "read" | "routed" | "closed" | null;
 	triage_note: string | null;
+	followup_requested: boolean;
 }
 
 export interface Language {

@@ -5,7 +5,7 @@ import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { parse } from 'yaml';
 import { describe, expect, it } from 'vitest';
-import { FEEDBACK_DATA, INTERNAL_OUTPUT_FIELDS, POLICIES, publicPermissions } from './setup/permissions.ts';
+import { FEEDBACK_DATA, INTERNAL_OUTPUT_FIELDS, PERSONAL_FEEDBACK_FIELDS, POLICIES, publicPermissions } from './setup/permissions.ts';
 
 const snapshot = parse(readFileSync(resolve(import.meta.dirname, 'snapshot.yaml'), 'utf8'));
 const fields: { collection: string; field: string }[] = snapshot.fields;
@@ -61,9 +61,17 @@ describe('permission spec', () => {
 		expect(publicPermissions.find((p) => p.collection === 'outputs')!.permissions).toEqual({ workflow_state: { _eq: 'published' } });
 	});
 
-	it('lets only the feedback manager read feedback data', () => {
-		const readers = POLICIES.filter((p) => p.permissions.some((x) => FEEDBACK_DATA.includes(x.collection) && x.action === 'read')).map((p) => p.name);
-		expect(readers).toEqual(['Feedback manager']);
+	it('lets editors read feedback responses, but no policy read contact details or sign-ups', () => {
+		const reads = POLICIES.flatMap((p) => p.permissions.filter((x) => FEEDBACK_DATA.includes(x.collection) && x.action === 'read').map((x) => ({ policy: p.name, ...x })));
+		expect(reads.map((r) => `${r.policy}:${r.collection}`)).toEqual(['Editor:feedback_responses']);
+		expect(reads[0].fields).not.toContain('*');
+		for (const f of PERSONAL_FEEDBACK_FIELDS) expect(reads[0].fields).not.toContain(f);
+	});
+
+	it('keeps static pages, feedback prompts and taxonomies admin-only for people', () => {
+		const writes = POLICIES.filter((p) => p.app_access).flatMap((p) => p.permissions.filter((x) => x.action !== 'read'));
+		const adminOnly = ['pages', 'pages_translations', 'feedback_prompts', 'feedback_prompts_translations', 'languages', 'actors', 'actors_shown_in', 'principles', 'dimensions', 'regions', 'output_types', 'partners'];
+		expect(writes.filter((w) => adminOnly.includes(w.collection)).map((w) => `${w.collection}:${w.action}`)).toEqual([]);
 	});
 
 	it('only references collections that exist in the snapshot', () => {
