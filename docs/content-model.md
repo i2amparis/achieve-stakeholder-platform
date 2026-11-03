@@ -195,3 +195,35 @@ All spreadsheet fixes below are done in v6. Only the partner check of the highli
 - **Accessibility (WCAG 2.1 AA).** Every Visual needs alt text plus the infographic's text as HTML; today D1.3, D2.2 and D2.4 have it, and two publications reuse D2.2 infographics with their alt text. Filter chips need keyboard focus and announce result counts. Interactive charts need a table fallback.
 - **EU funding visibility.** EU emblem, "Funded by the European Union" and the standard disclaimer in every footer and on the About page, with the grant number on About.
 - **Spanish and Portuguese.** Priority: the "Bridging Levels" brief (Argentina, Chile, Colombia, Mexico), the Cities and CCIs hubs, all feedback prompts and the roadmap summaries. Only two items are tagged Latin America (D4.6 and "Bridging Levels"), so the region filter will stay thin until more Latin American outputs appear.
+
+## Data model as built (Directus schema, November 2026)
+
+The Directus schema (`directus/snapshot.yaml`) implements the model above with these agreed changes. Where this section and the tables above differ, this section is current.
+
+- **Two status fields on Output.** `status` is the research status (Published / Upcoming, both shown on the site). `workflow_state` (Draft / Published / Archived) decides whether an item is visible on the site at all; the public API returns only `workflow_state = published`. Roadmaps and static pages use `workflow_state` too.
+- **Partner confirmation.** `confirmed` (toggle) and `unconfirmed_fields` (the columns still yellow in the sheet) are editorial notes in Directus only. The site shows the content without a draft label, and the public API never returns these fields.
+- **Visual ↔ Output is many-to-many** (`outputs_visuals`, ordered). Visuals are unique by file name, because two publications reuse D2.2 infographics.
+- **Related items are typed.** `output_relations` holds `relation_type` (supersedes / related) and a `note` (for example "partly").
+- **One output, several formats.** `output_formats` holds the extra formats of an output (the policy-brief version of "From pledges to places"). The library's output-type filter matches an output by its own type or any of its formats' types.
+- **Ordered tags.** Actors, principles, dimensions, regions and contributors are stored in junctions with a `sort` field, in sheet order.
+- **Finance** is an actor with `is_hub = false`; `shown_in` (self-referencing, `actors_shown_in`) lists the hubs where it is a filter chip.
+- **Principles** have both a `code` (`p1`–`p4`, used in library URLs such as `?principle=p2`) and a `slug` (used in `/principles/<slug>`).
+- **Feedback.** The page context (output, actor, principle, dimension, roadmap, recommendation, library filters) is stored on the **response**, not the prompt. The prompt's `form` field is dropped: the survey tool is the `feedback_responses` collection. Community sign-ups are a separate collection (`community_signups`), never linked to responses. Neither collection logs activity or revisions.
+- **Dropped:** `ga_description` and every cost, EU-portal and Grant Agreement field. They do not exist in the schema, so the API cannot expose them; a test (`directus/schema.test.ts`) keeps it that way.
+- **Roadmap references** link to existing Outputs (`roadmaps_outputs`) plus external links (`roadmap_links`). `audiences` is a list of free tags until the term set is agreed.
+- **Static pages** (`pages`) hold About and the legal pages.
+- **Translations.** English stays on the main record; `<collection>_translations` tables hold Spanish and Portuguese for actors, principles, dimensions, outputs, visuals, feedback prompts, roadmaps and pages.
+- **Output slugs** are set once at first import (see `CLAUDE.md`, Routes).
+
+### Who can do what
+
+| Role | Studio | Can |
+| --- | --- | --- |
+| Public (no login) | — | Read published outputs, roadmaps and pages; all taxonomies; active feedback prompts; files in the "Public" folder. No internal fields, no feedback data. |
+| Editor (partners) | Yes | Create and edit outputs, visuals, webinars and roadmaps; delete drafts only. Read taxonomies, pages and prompts. No feedback data; cannot change taxonomies or import-owned fields. |
+| Feedback manager (Task 4.2) | Yes | Read feedback responses and sign-ups, triage and delete them (not rewrite them); manage feedback prompts and static pages; read content. |
+| Website service | No (API token) | Create feedback responses and sign-ups. Cannot read them back. An email is accepted only with a consent time. |
+| Import service | No (API token) | Manage content and taxonomies for the sheet import. No feedback data. |
+| Administrator (HOL) | Yes | Everything, including taxonomies and the schema. |
+
+The permission rules live in `directus/setup/permissions.ts`; `npm run setup` applies them.

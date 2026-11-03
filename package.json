@@ -1,0 +1,22 @@
+{
+  "name": "achieve-stakeholder-platform",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "schema:apply": "docker compose exec directus node cli.js schema apply --yes /directus/project/snapshot.yaml",
+    "schema:snapshot": "docker compose exec directus node cli.js schema snapshot --yes /directus/project/snapshot.yaml && npm run typegen",
+    "setup": "node directus/setup/setup.ts",
+    "typegen": "node scripts/typegen/typegen.ts",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.6",
+    "typescript": "^7.0.2",
+    "vitest": "^5.1.0",
+    "yaml": "^2.9.1"
+  }
+}

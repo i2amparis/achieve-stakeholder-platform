@@ -29,7 +29,8 @@ zero and Paris alignment.
 | Content model, page tree, tag rules, feedback placement | `docs/content-model.md` | Exported from the shared doc. Do not change the model in code without updating this file. |
 | Content | `data/achieve-cde-content.xlsx` | Public copy of the consortium sheet; versions tracked by git (tags `content-v6`, `content-v7`…). Until public launch; after launch, editors work in Directus. |
 | Database structure | `directus/snapshot.yaml` | See "Schema workflow". |
-| Roles, permissions, flows | `directus/setup/` scripts | Not covered by the schema snapshot. |
+| Roles, permissions, flows | `directus/setup/` scripts | Not covered by the schema snapshot. Access rules: `directus/setup/permissions.ts`; apply with `npm run setup`. |
+| Frontend/import types | `types/directus-schema.ts` | Generated from the snapshot by `npm run typegen`. Do not edit. |
 
 ## Schema workflow
 
@@ -42,7 +43,9 @@ The Directus database holds the live schema; git holds the snapshot.
 4. Commit the snapshot with the code that depends on it, in the same commit.
 5. Data changes go in separate, idempotent migration or import scripts, never in the snapshot.
 
-Regenerate the frontend TypeScript types from the schema after every schema change.
+Regenerate the frontend TypeScript types from the schema after every schema change
+(`npm run schema:snapshot` exports and runs `npm run typegen`). Then run `npm test`:
+the access-model tests run against the local Directus.
 
 ## Fixed content model
 
