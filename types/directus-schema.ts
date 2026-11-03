@@ -81,7 +81,7 @@ export interface FeedbackResponse {
 	date_created: string | null;
 	prompt: number | FeedbackPrompt | null;
 	stream: "comment" | "suggest_research" | "share_challenge";
-	message: string;
+	message: string | null;
 	page_path: string | null;
 	context_output: number | Output | null;
 	context_actor: number | Actor | null;
@@ -99,6 +99,7 @@ export interface FeedbackResponse {
 	triage_status: "new" | "read" | "routed" | "closed" | null;
 	triage_note: string | null;
 	followup_requested: boolean;
+	usefulness: "very_useful" | "somewhat" | "not_really" | null;
 }
 
 export interface Language {

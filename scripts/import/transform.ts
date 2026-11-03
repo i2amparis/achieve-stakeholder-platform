@@ -5,7 +5,7 @@
 import { ACTORS, COLUMNS, LANGUAGES, LINKS, MERGES, OUTPUT_TYPES, PARTNERS, PRINCIPLES, REGIONS, WORK_PACKAGES } from './config.ts';
 import type { Cell, SheetRow, Workbook } from './read.ts';
 import {
-	blank, clean, codeSlug, isoDate, matchKey, parseActorMessages, parseAltText, parsePid, partnerCode, publicationSlug, rowRefs,
+	blank, clean, codeSlug, isEditorialNote, isoDate, matchKey, parseActorMessages, parseAltText, parsePid, partnerCode, publicationSlug, rowRefs,
 	slugify, splitCodeTitle, splitContributors, splitMulti, toHtml, yesNo
 } from './parse.ts';
 
@@ -71,7 +71,8 @@ export interface VisualRecord {
 
 export interface Taxonomies {
 	languages: typeof LANGUAGES;
-	actors: { slug: string; name: string; is_hub: boolean; description: string | null; sort: number; shown_in: string[] }[];
+	/** Descriptions and intros are editorial copy, managed in Directus (see scripts/seed). */
+	actors: { slug: string; name: string; is_hub: boolean; sort: number; shown_in: string[] }[];
 	principles: { code: string; slug: string; name: string; short_name: string; sort: number }[];
 	dimensions: { slug: string; name: string; principle: string; sort: number }[];
 	regions: { slug: string; name: string; sort: number }[];
@@ -122,10 +123,7 @@ export function buildTaxonomies(wb: Workbook, flags: Flag[]): Taxonomies {
 	}
 	return {
 		languages: LANGUAGES,
-		actors: ACTORS.map((a, i) => ({
-			slug: a.slug, name: a.name, is_hub: a.is_hub, sort: i + 1, shown_in: a.shown_in ?? [],
-			description: a.is_hub ? (wb.legend.actorDescriptions.get(a.label) ?? null) : null
-		})),
+		actors: ACTORS.map((a, i) => ({ slug: a.slug, name: a.name, is_hub: a.is_hub, sort: i + 1, shown_in: a.shown_in ?? [] })),
 		principles,
 		dimensions,
 		regions: REGIONS.map((r, i) => ({ slug: r.slug, name: r.name, sort: i + 1 })),
@@ -239,12 +237,17 @@ export function transform(wb: Workbook): ImportModel {
 		}
 
 		// --- teaser, abstract, messages ---
-		const teaser = str(c['Teaser']) ? clean(str(c['Teaser'])!) : null;
-		if (!teaser) flag('data', 'No teaser.');
+		let teaser = str(c['Teaser']) ? clean(str(c['Teaser'])!) : null;
+		if (isEditorialNote(teaser)) {
+			flag('data', `Teaser is an editorial note, not imported: "${teaser!.slice(0, 90)}".`);
+			teaser = null;
+		} else if (!teaser) flag('data', 'No teaser.');
 		else if (teaser.length > 200) flag('data', `Teaser is ${teaser.length} characters (limit 200).`);
 		const { entries, unparsed } = parseActorMessages(str(c['Actor key messages']), hubLabels);
 		for (const u of unparsed) flag('data', `Key-message line not in "Actor: message" form, not imported: "${u.slice(0, 80)}".`);
-		const actor_messages = entries.map((e) => ({ actor: actorByLabel.get(e.actor.toLowerCase())!.slug, message: e.message }));
+		// Editorial notes for partners ("[No finding in the abstract…]") are never published.
+		for (const e of entries.filter((x) => isEditorialNote(x.message))) flag('data', `Key message for ${e.actor} is an editorial note, not imported: "${e.message.slice(0, 90)}".`);
+		const actor_messages = entries.filter((e) => !isEditorialNote(e.message)).map((e) => ({ actor: actorByLabel.get(e.actor.toLowerCase())!.slug, message: e.message }));
 		for (const m of actor_messages) if (!orderedActors.includes(m.actor)) flag('data', `Key message for ${m.actor}, which is not a tagged actor.`);
 		if (/^(completed|published)$/i.test(str(c['Status'])?.trim() ?? '')) {
 			const missing = hubs.filter((h) => !actor_messages.some((m) => m.actor === h));
@@ -258,7 +261,9 @@ export function transform(wb: Workbook): ImportModel {
 		for (const u of unmatched) flag('accessibility', `Alt text not matched to a visual file: "${u.slice(0, 80)}".`);
 		const altDraft = !!c['Alt text']?.draft;
 		for (const f of files) {
-			const text = alt.get(f) ?? null;
+			const raw = alt.get(f) ?? null;
+			const text = isEditorialNote(raw) ? null : raw;
+			if (raw && !text) flag('accessibility', `Alt text for ${f} is an editorial note, not imported.`);
 			if (!text) flag('accessibility', `Visual ${f} has no alt text (required before publishing).`);
 			const v = visuals.get(f) ?? { filename: f, alt_text: null, confirmed: true, altSeen: new Set<string>() };
 			if (text) {

@@ -3546,10 +3546,10 @@ fields:
       group: null
       hidden: false
       interface: input-multiline
-      note: null
+      note: Free text. May be empty when only a usefulness rating was given.
       options: null
       readonly: true
-      required: true
+      required: false
       searchable: true
       sort: 5
       special: null
@@ -3565,7 +3565,7 @@ fields:
       max_length: null
       numeric_precision: null
       numeric_scale: null
-      is_nullable: false
+      is_nullable: true
       is_unique: false
       is_indexed: false
       is_primary_key: false
@@ -4096,7 +4096,7 @@ fields:
       group: respondent
       hidden: false
       interface: input
-      note: ISO 3166-1 alpha-2
+      note: As typed by the respondent (optional)
       options: null
       readonly: true
       required: false
@@ -4112,7 +4112,7 @@ fields:
       table: feedback_responses
       data_type: character varying
       default_value: null
-      max_length: 2
+      max_length: 100
       numeric_precision: null
       numeric_scale: null
       is_nullable: true
@@ -4379,6 +4379,60 @@ fields:
       numeric_precision: null
       numeric_scale: null
       is_nullable: false
+      is_unique: false
+      is_indexed: false
+      is_primary_key: false
+      is_generated: false
+      generation_expression: null
+      has_auto_increment: false
+      foreign_key_table: null
+      foreign_key_column: null
+  - collection: feedback_responses
+    field: usefulness
+    type: string
+    meta:
+      collection: feedback_responses
+      conditions: null
+      display: labels
+      display_options:
+        choices:
+          - text: Very useful
+            value: very_useful
+          - text: Somewhat
+            value: somewhat
+          - text: Not really
+            value: not_really
+      field: usefulness
+      group: null
+      hidden: false
+      interface: select-dropdown
+      note: 'Output pages: "How useful is it?"'
+      options:
+        choices:
+          - text: Very useful
+            value: very_useful
+          - text: Somewhat
+            value: somewhat
+          - text: Not really
+            value: not_really
+      readonly: true
+      required: false
+      searchable: true
+      sort: 6
+      special: null
+      translations: null
+      validation: null
+      validation_message: null
+      width: half
+    schema:
+      name: usefulness
+      table: feedback_responses
+      data_type: character varying
+      default_value: null
+      max_length: 20
+      numeric_precision: null
+      numeric_scale: null
+      is_nullable: true
       is_unique: false
       is_indexed: false
       is_primary_key: false

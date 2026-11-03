@@ -151,6 +151,14 @@ describe('key messages and visuals', () => {
 		expect(o.actor_messages).toEqual([{ actor: 'cities', message: 'Lorem ipsum.' }, { actor: 'business', message: 'Dolor sit amet.' }]);
 	});
 
+	it('never imports editorial notes in square brackets, and flags them', async () => {
+		const m = await load(await fixture([deliverable({ 'Actor key messages': 'Cities: [No city-specific finding yet. Add one or drop the tag.]\nBusiness: Dolor sit amet.', Teaser: '[Teaser to come]' })], []));
+		expect(m.outputs[0].actor_messages).toEqual([{ actor: 'business', message: 'Dolor sit amet.' }]);
+		expect(m.outputs[0].teaser).toBeNull();
+		expect(m.flags.filter((f) => /editorial note/.test(f.message))).toHaveLength(2);
+		expect(JSON.stringify(m.outputs)).not.toContain('No city-specific');
+	});
+
 	it('flags a key message for an actor the item is not tagged with', async () => {
 		const m = await load(await fixture([deliverable({ 'Actor key messages': 'Cities: a.\nBusiness: b.\nRegulators: c.' })], []));
 		expect(m.flags.some((f) => /Key message for regulators/.test(f.message))).toBe(true);

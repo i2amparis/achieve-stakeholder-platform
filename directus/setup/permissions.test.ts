@@ -57,7 +57,7 @@ describe.skipIf(!reachable)('Directus access model', () => {
 
 	afterAll(async () => {
 		if (!admin) return;
-		const fb = await admin.get<any[]>('/items/feedback_responses' + qs({ filter: { message: { _starts_with: tag } }, fields: 'id' }));
+		const fb = await admin.get<any[]>('/items/feedback_responses' + qs({ filter: { _or: [{ message: { _starts_with: tag } }, { page_path: { _contains: tag } }] }, fields: 'id' }));
 		if (fb.length) await admin.delete('/items/feedback_responses', fb.map((r) => r.id));
 		const su = await admin.get<any[]>('/items/community_signups' + qs({ filter: { email: { _starts_with: tag } }, fields: 'id' }));
 		if (su.length) await admin.delete('/items/community_signups', su.map((r) => r.id));
@@ -124,6 +124,12 @@ describe.skipIf(!reachable)('Directus access model', () => {
 			const now = new Date().toISOString();
 			expect(await status(writer.post('/items/feedback_responses', feedback({ followup_email: `${tag}@example.com`, followup_consent_at: now })))).toBe(400);
 			expect(await status(writer.post('/items/feedback_responses', feedback({ followup_requested: true })))).toBe(400);
+		});
+
+		it.skipIf(!process.env.DIRECTUS_FEEDBACK_TOKEN)('accepts a usefulness rating without a message, but not an empty response', async () => {
+			expect(await status(writer.post('/items/feedback_responses', feedback({ message: undefined, usefulness: 'somewhat' })))).toBe(200);
+			expect(await status(writer.post('/items/feedback_responses', feedback({ message: undefined })))).toBe(400);
+			expect(await status(writer.post('/items/feedback_responses', feedback({ message: undefined, usefulness: 'brilliant' })))).toBe(400);
 		});
 
 		it.skipIf(!process.env.DIRECTUS_FEEDBACK_TOKEN)('rejects an unknown stream', async () => {

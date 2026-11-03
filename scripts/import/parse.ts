@@ -10,6 +10,11 @@ export function blank(v: string | null | undefined): boolean {
 	return v == null || /^(|-|–|n\/?a|not applicable)$/i.test(v.trim());
 }
 
+/** A cell (or line) that is only an editorial note in square brackets, e.g. "[Add one from the full report.]". */
+export function isEditorialNote(v: string | null | undefined): boolean {
+	return !!v && /^\[[^\]]*\]\.?$/.test(v.trim());
+}
+
 /** Split a multi-value cell on ";" (the sheet uses "; "), keeping order, dropping empties. */
 export function splitMulti(v: string | null | undefined): string[] {
 	if (blank(v)) return [];

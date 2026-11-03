@@ -37,7 +37,7 @@ export const FEEDBACK_DATA = ['feedback_responses', 'community_signups'];
 export const PERSONAL_FEEDBACK_FIELDS = ['followup_email', 'followup_consent_at', 'consent_text_version'];
 /** What editors see of a response: the text and its context, never contact details. */
 export const EDITOR_FEEDBACK_FIELDS = [
-	'id', 'date_created', 'prompt', 'stream', 'message', 'page_path', 'context_output', 'context_actor', 'context_principle', 'context_dimension',
+	'id', 'date_created', 'prompt', 'stream', 'message', 'usefulness', 'page_path', 'context_output', 'context_actor', 'context_principle', 'context_dimension',
 	'context_roadmap', 'context_recommendation', 'context_filters', 'respondent_actor_type', 'respondent_region', 'respondent_country',
 	'followup_requested', 'triage_status', 'triage_note'
 ];
@@ -101,11 +101,12 @@ export const feedbackWriter: PolicySpec = {
 		{
 			collection: 'feedback_responses',
 			action: 'create',
-			fields: ['prompt', 'stream', 'message', 'page_path', 'context_output', 'context_actor', 'context_principle', 'context_dimension', 'context_roadmap', 'context_recommendation', 'context_filters', 'respondent_actor_type', 'respondent_region', 'respondent_country', 'followup_email', 'followup_consent_at', 'consent_text_version', 'followup_requested'],
+			fields: ['prompt', 'stream', 'message', 'usefulness', 'page_path', 'context_output', 'context_actor', 'context_principle', 'context_dimension', 'context_roadmap', 'context_recommendation', 'context_filters', 'respondent_actor_type', 'respondent_region', 'respondent_country', 'followup_email', 'followup_consent_at', 'consent_text_version', 'followup_requested'],
 			validation: {
 				_and: [
 					{ stream: { _in: STREAMS } },
-					{ message: { _nnull: true } },
+					// a response needs a message or a usefulness rating
+					{ _or: [{ message: { _nnull: true } }, { usefulness: { _in: ['very_useful', 'somewhat', 'not_really'] } }] },
 					// an email is only accepted together with its consent timestamp
 					{ _or: [{ followup_email: { _null: true } }, { followup_consent_at: { _nnull: true } }] },
 					// the flag editors see must match whether an email was given
@@ -114,7 +115,7 @@ export const feedbackWriter: PolicySpec = {
 			},
 			// Directus validates only the fields present in the payload; presets make
 			// sure the consent fields are always there, so the rules above apply.
-			presets: { followup_email: null, followup_consent_at: null, followup_requested: false }
+			presets: { message: null, usefulness: null, followup_email: null, followup_consent_at: null, followup_requested: false }
 		},
 		{
 			collection: 'community_signups',
