@@ -33,7 +33,6 @@ services:
       DB_HOST: database
       DB_PORT: 5432
       PUBLIC_URL: http://localhost:8055
-      TELEMETRY: "false"
       WEBSOCKETS_ENABLED: "false"
       GRAPHQL_INTROSPECTION: "false"
       CORS_ENABLED: "false"
