@@ -104,6 +104,25 @@ change them in Directus):
 Hubs and principle pages are preset library queries. Every filtered view must
 have a shareable URL (for example `/library?actor=cities&principle=p2`).
 
+## Frontend (`web/`)
+
+- SvelteKit 3 (`#lib/…` imports with file extensions, `$app/state`), adapter-node, server-rendered so
+  filters and forms work without JavaScript. `cd web && npm run dev`; tests: `npm test`
+  (filters, forms, formatting) and `npm run test:a11y` (axe WCAG 2.1 AA, console errors,
+  keyboard use of the filters, at 1440 and 390 px; run against a build: `node build`).
+- The site reads Directus with **no token** (it sees exactly what the public role allows) and writes
+  feedback with `DIRECTUS_FEEDBACK_TOKEN` from the server only.
+- Build for a server with `SITE_ORIGIN=https://…` (sets `paths.origin`; CSRF checks on form posts
+  need it). The dev server skips CSRF checks; production does not.
+- Design system: vendored, unmodified, in `web/src/lib/design-system/` (see its README); site styles
+  in `web/src/lib/styles/app.css`. Layouts follow the "ACHIEVE platform screens" design.
+- Pages not built yet (`/principles`, `/roadmaps`) show the designed 404. Static pages (`/about`,
+  legal) render from the Directus `pages` collection and 404 until published.
+- Locales: English at the root; `es`/`pt` are routed under `/[lang]` once enabled in
+  `web/src/lib/i18n/locales.ts`.
+- Project copy that is not in the sheet (feedback prompts, hub descriptions and intros, roadmap
+  records) is seeded by `npm run seed` (idempotent; never overwrites edits).
+
 ## Import rules (`scripts/import`)
 
 - **Deliverables & Milestones:** import only rows with `CDE content = Yes` and
@@ -126,6 +145,8 @@ have a shareable URL (for example `/library?actor=cities&principle=p2`).
   still-unconfirmed fields); the public site shows the content without a
   draft label.
 - `Draft basis` is an editorial note for partner review: do not import it.
+- Text that is only a bracketed note (`[Add one from the full report…]`) in key messages, teasers
+  or alt text is an editorial note too: never imported, always flagged.
 - The repo is public. The sheet in `data/` is a public copy: internal and
   EU-reporting columns (costs, EU portal status, Grant Agreement text and
   similar) were removed and must never be added back to the repo. If the
