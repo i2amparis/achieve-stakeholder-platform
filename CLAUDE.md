@@ -131,9 +131,22 @@ have a shareable URL (for example `/library?actor=cities&principle=p2`).
   similar) were removed and must never be added back to the repo. If the
   import script meets an unknown column, warn and skip it.
 - Also write each sheet to `data/export/<sheet>.csv` on every run and commit
-  them, so content changes show up as readable diffs.
+  them, so content changes show up as readable diffs. File names are the
+  slugged sheet names (`deliverables-milestones.csv`, `other-publications.csv`,
+  `tagging-legend.csv`); content sheets keep known columns only, plus the row
+  number and the list of yellow columns.
 - The import must be idempotent: re-running it after partners correct the
   sheet updates records instead of duplicating them.
+- Usage: `npm run import` (`-- --dry-run` to preview, `-- --offline` to check
+  the sheet without Directus). The report goes to
+  `scripts/import/reports/latest.md`; relations between rows are configured by
+  title in `scripts/import/config.ts`.
+- Until launch the sheet owns the content: each run overwrites the
+  sheet-sourced fields, including the `confirmed` toggle (derived from the
+  yellow cells). Partners confirm by removing the highlight in the sheet. The
+  import never changes `slug` or `workflow_state` of existing records, never
+  deletes records (it flags those no longer in the sheet), and keeps formats
+  and relations added by editors.
 
 ## Feedback
 

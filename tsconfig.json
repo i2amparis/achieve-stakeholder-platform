@@ -11,5 +11,5 @@
     "skipLibCheck": true,
     "types": ["node"]
   },
-  "include": ["directus/**/*.ts", "scripts/**/*.ts", "types/**/*.ts"]
+  "include": ["directus/**/*.ts", "scripts/**/*.ts", "types/**/*.ts", "vitest.config.ts"]
 }

@@ -11,10 +11,12 @@
     "setup": "node directus/setup/setup.ts",
     "typegen": "node scripts/typegen/typegen.ts",
     "test": "vitest run",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "import": "node scripts/import/import.ts"
   },
   "devDependencies": {
     "@types/node": "^26.6.6",
+    "exceljs": "^4.4.0",
     "typescript": "^7.0.2",
     "vitest": "^5.1.0",
     "yaml": "^2.9.1"

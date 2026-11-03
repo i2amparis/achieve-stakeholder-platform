@@ -14,6 +14,7 @@ docker compose up -d            # Directus on http://localhost:8055
 npm install
 npm run schema:apply            # create the schema from directus/snapshot.yaml
 npm run setup                   # roles, permissions, service accounts (tokens go to .env)
+npm run import                  # import data/achieve-cde-content.xlsx (idempotent)
 npm test
 ```
 
