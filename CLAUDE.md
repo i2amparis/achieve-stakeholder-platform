@@ -30,6 +30,7 @@ zero and Paris alignment.
 | Content | `data/achieve-cde-content.xlsx` | Public copy of the consortium sheet; versions tracked by git (tags `content-v6`, `content-v7`…). Until public launch; after launch, editors work in Directus. |
 | Database structure | `directus/snapshot.yaml` | See "Schema workflow". |
 | Roles, permissions, flows | `directus/setup/` scripts | Not covered by the schema snapshot. Access rules: `directus/setup/permissions.ts`; apply with `npm run setup`. |
+| Deployment | `docs/deploy-hostinger.md`, `docker-compose.prod.yml`, `deploy/` | Demo on a Hostinger VPS behind Caddy (HTTPS, shared password). |
 | Frontend/import types | `types/directus-schema.ts` | Generated from the snapshot by `npm run typegen`. Do not edit. |
 
 ## Schema workflow
