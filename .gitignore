@@ -36,3 +36,6 @@ scripts/import/reports/
 # Python scratch (if anyone inspects the sheet with openpyxl)
 __pycache__/
 .venv/
+
+# Internal documentation (deployment, privacy-notice inputs): never published
+docs/internal/
