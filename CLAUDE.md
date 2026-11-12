@@ -16,10 +16,16 @@ newest first, and update the sections below to match.
 - **2026-11-12: move the backend from Directus to Drupal (headless), keep the SvelteKit
   frontend, host both on HOL's Hostinger Business plan** (Frankfurt, EU): Drupal as a PHP
   site on a subdomain, SvelteKit as a Node.js web app deployed from GitHub. Reason: run on
-  the existing plan without a VPS. **Pending:** a feasibility test of Drupal on that plan
-  (serving from `web/`, file permissions, JSON:API) before any migration. Until the
-  migration lands, the code on this branch still uses Directus, and the sections below
-  still describe it.
+  the existing plan without a VPS. Until the migration lands, the code on this branch
+  still uses Directus, and the sections below still describe it.
+- **2026-11-12: feasibility test passed (18/18)** on a test site of the Business plan:
+  Composer-based Drupal 11 runs there, served from `drupal/web` by making the site's
+  `public_html` a link to it; PHP 8.3 with OPcache, MariaDB, HTTPS, clean URLs and JSON:API
+  work; code, `vendor/` and `settings.php` are not reachable from the web; the web server
+  can write files while `settings.php` stays read-only. Lessons: run Drush as
+  `vendor/bin/drush`; put database credentials in `settings.php`, not in a `--db-url`
+  (Drush mishandles some special characters); Hostinger prefixes database names and users
+  with the account ID. Account, site and test details: `docs/internal/hosting.md`.
 - **2026-11-12:** the Directus implementation (Phases 1–4 and the VPS deployment) is kept
   on branch `directus`, tag `directus-demo-v1`. Internal documents live in the git-ignored
   `docs/internal/`.
@@ -50,7 +56,7 @@ newest first, and update the sections below to match.
 | Database structure | `directus/snapshot.yaml` | See "Schema workflow". |
 | Roles, permissions, flows | `directus/setup/` scripts | Not covered by the schema snapshot. Access rules: `directus/setup/permissions.ts`; apply with `npm run setup`. |
 | Deployment | `docker-compose.prod.yml`, `deploy/`; guide in `docs/internal/deploy-hostinger.md` | Demo on a Hostinger VPS behind Caddy (HTTPS, shared password). |
-| Internal docs | `docs/internal/` (git-ignored, never published) | Deployment guide, privacy-notice inputs. Keep internal material here, not in tracked files. |
+| Internal docs | `docs/internal/` (git-ignored, never published) | Hosting account notes (`hosting.md`), deployment guide, privacy-notice inputs, one-off operations scripts (`scripts/`). |
 | Frontend/import types | `types/directus-schema.ts` | Generated from the snapshot by `npm run typegen`. Do not edit. |
 
 ## Schema workflow
@@ -225,3 +231,7 @@ hubs, all feedback prompts, and roadmap summaries.
   use content from the spreadsheet or clearly marked lorem text.
 - Ask before changing the actor or principle taxonomy, route structure or
   slugs. These are expensive to change after launch.
+- The repository is public. Keep account identifiers (hosting user IDs, server names,
+  non-public site addresses), credentials and one-off operations scripts in
+  `docs/internal/`, never in tracked files, commit messages or CLAUDE.md. Tracked files
+  hold only what is needed to build and run the project.
