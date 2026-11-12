@@ -36,7 +36,7 @@ describe('locales', () => {
 	it('builds localised paths', () => {
 		expect(href('/library')).toBe('/library');
 		expect(href('/library', 'es')).toBe('/es/library');
-		expect(href('/', 'pt')).toBe('/pt');
+		expect(href('/', 'pt-br')).toBe('/pt-br');
 		expect(localeOfPath('/es/library')).toBe('en'); // es not enabled
 	});
 });

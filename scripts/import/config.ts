@@ -13,7 +13,7 @@ export const DRAFT_FILL = 'FFFFF4CC';
 /**
  * Known columns per sheet (header text after trimming and collapsing whitespace).
  * - `field`: the output field the column feeds; used for `unconfirmed_fields`.
- * - `ignore`: known, import-only columns that never reach Directus.
+ * - `ignore`: known, import-only columns that never reach the CMS.
  * Any other column is unknown: the import warns, skips it and leaves it out of the CSV export,
  * so internal or EU-reporting columns cannot leak into the public repo.
  */
@@ -112,7 +112,7 @@ export const REGIONS = [
 
 export const OUTPUT_TYPES = ['Report', 'Website', 'Policy Brief', 'Journal article', 'Blog', 'Research report', 'Detailed assessment and factsheet'];
 
-/** Consortium partner acronyms (ACHIEVE design system README). Full names are added in Directus. */
+/** Consortium partner acronyms (ACHIEVE design system README). Full names are added in Drupal. */
 export const PARTNERS = ['RU', 'NCI', 'PBL', 'OEKO', 'E3M', 'UEF', 'CATIE', 'SU', 'HOL', 'WWF', 'CDP', 'UOXF'];
 
 export const WORK_PACKAGES = ['WP1', 'WP2', 'WP3', 'WP4', 'WP5', 'WP6'];

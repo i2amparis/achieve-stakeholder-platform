@@ -1,4 +1,4 @@
-// Rich text from Directus is rendered as HTML, so it is sanitised first:
+// Rich text from Drupal is rendered as HTML, so it is sanitised first:
 // editors can format text, but not add scripts, styles or event handlers.
 
 import sanitize from 'sanitize-html';

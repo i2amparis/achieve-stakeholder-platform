@@ -1,12 +1,12 @@
 // Locale routing: English lives at the root (/library); other locales get a
-// prefix (/es/library). A locale is only served once it is enabled here, so a
+// prefix (/es/library, /pt-br/library), matching Drupal's language prefixes. A locale is only served once it is enabled here, so a
 // page is never shown with a lang attribute that does not match its text.
 
-export const LOCALES = ['en', 'es', 'pt'] as const;
+export const LOCALES = ['en', 'es', 'pt-br'] as const;
 export type Locale = (typeof LOCALES)[number];
 export const DEFAULT_LOCALE: Locale = 'en';
 
-/** Locales the site serves. Add 'es' and 'pt' when their UI strings and content are ready. */
+/** Locales the site serves. Add 'es' and 'pt-br' when their UI strings and content are ready. */
 export const ENABLED_LOCALES: Locale[] = ['en'];
 
 /** The locale of a route's optional [[lang]] segment, or null if it is not served. */

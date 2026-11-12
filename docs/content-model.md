@@ -196,12 +196,12 @@ All spreadsheet fixes below are done in v6. Only the partner check of the highli
 - **EU funding visibility.** EU emblem, "Funded by the European Union" and the standard disclaimer in every footer and on the About page, with the grant number on About.
 - **Spanish and Portuguese.** Priority: the "Bridging Levels" brief (Argentina, Chile, Colombia, Mexico), the Cities and CCIs hubs, all feedback prompts and the roadmap summaries. Only two items are tagged Latin America (D4.6 and "Bridging Levels"), so the region filter will stay thin until more Latin American outputs appear.
 
-## Data model as built (Directus schema, November 2026)
+## Data model as built (November 2026)
 
-The Directus schema (`directus/snapshot.yaml`) implements the model above with these agreed changes. Where this section and the tables above differ, this section is current.
+The platform implements the model above with these agreed changes. They were first built in Directus (branch `directus`) and carry over to Drupal; for the Drupal names see "Data model in Drupal" below. Where this section and the tables above differ, this section is current.
 
 - **Two status fields on Output.** `status` is the research status (Published / Upcoming, both shown on the site). `workflow_state` (Draft / Published / Archived) decides whether an item is visible on the site at all; the public API returns only `workflow_state = published`. Roadmaps and static pages use `workflow_state` too.
-- **Partner confirmation.** `confirmed` (toggle) and `unconfirmed_fields` (the columns still yellow in the sheet) are editorial notes in Directus only. The site shows the content without a draft label, and the public API never returns these fields.
+- **Partner confirmation.** `confirmed` (toggle) and `unconfirmed_fields` (the columns still yellow in the sheet) are editorial notes in the CMS only. The site shows the content without a draft label, and the public API never returns these fields.
 - **Visual ↔ Output is many-to-many** (`outputs_visuals`, ordered). Visuals are unique by file name, because two publications reuse D2.2 infographics.
 - **Related items are typed.** `output_relations` holds `relation_type` (supersedes / related) and a `note` (for example "partly").
 - **One output, several formats.** `output_formats` holds the extra formats of an output (the policy-brief version of "From pledges to places"). The library's output-type filter matches an output by its own type or any of its formats' types.
@@ -209,7 +209,7 @@ The Directus schema (`directus/snapshot.yaml`) implements the model above with t
 - **Finance** is an actor with `is_hub = false`; `shown_in` (self-referencing, `actors_shown_in`) lists the hubs where it is a filter chip.
 - **Principles** have both a `code` (`p1`–`p4`, used in library URLs such as `?principle=p2`) and a `slug` (used in `/principles/<slug>`).
 - **Feedback.** The page context (output, actor, principle, dimension, roadmap, recommendation, library filters) is stored on the **response**, not the prompt. The prompt's `form` field is dropped: the survey tool is the `feedback_responses` collection. Community sign-ups are a separate collection (`community_signups`), never linked to responses. Neither collection logs activity or revisions.
-- **Dropped:** `ga_description` and every cost, EU-portal and Grant Agreement field. They do not exist in the schema, so the API cannot expose them; a test (`directus/schema.test.ts`) keeps it that way.
+- **Dropped:** `ga_description` and every cost, EU-portal and Grant Agreement field. They do not exist in the schema, so the API cannot expose them; a test (`drupal/tests/config.test.ts`) keeps it that way.
 - **Roadmap references** link to existing Outputs (`roadmaps_outputs`) plus external links (`roadmap_links`). `audiences` is a list of free tags until the term set is agreed.
 - **Static pages** (`pages`) hold About and the legal pages.
 - **Translations.** English stays on the main record; `<collection>_translations` tables hold Spanish and Portuguese for actors, principles, dimensions, outputs, visuals, feedback prompts, roadmaps and pages.
@@ -217,15 +217,15 @@ The Directus schema (`directus/snapshot.yaml`) implements the model above with t
 
 ### Who can do what
 
-| Role | Studio | Can |
+| Role | Logs in to the CMS | Can |
 | --- | --- | --- |
 | Public (no login) | — | Read published outputs, roadmaps and pages; all taxonomies; active feedback prompts; files in the "Public" folder. No internal fields, no feedback data. |
 | Editor | Yes | ACHIEVE partners. Create and edit outputs, visuals, webinars and roadmaps; delete drafts only. Read feedback responses (text, page context, a "wants follow-up" flag) and triage them with a status and note; cannot rewrite or delete them. No contact details, no community sign-ups. Cannot change taxonomies, static pages, feedback prompts or import-owned fields. |
-| Website service | No (API token) | Create feedback responses and sign-ups. Cannot read them back. An email is accepted only with a consent time, and the "wants follow-up" flag must match it. |
-| Import service | No (API token) | Manage content and taxonomies for the sheet import. No feedback data. |
+| Website (SvelteKit server) | No (shared secret) | Sends feedback responses and sign-ups to Drupal's endpoint. Cannot read them back. An email is accepted only with a consent time, and the "wants follow-up" flag must match it. |
+| Content import | No (Drush on the server) | `drush achieve:import` and `achieve:seed` manage content and taxonomies from the sheet. No feedback data. |
 | Administrator (HOL) | Yes | Everything: taxonomies, static and legal pages, feedback prompts, schema; the only role that sees follow-up emails and community sign-ups, and that deletes responses (for example on an erasure request). |
 
-The permission rules live in `directus/setup/permissions.ts`; `npm run setup` applies them.
+In Drupal, the roles and permissions are in `drupal/config/sync`, and the field- and entity-level rules in the `achieve_core` and `achieve_feedback` modules (see `CLAUDE.md`).
 
 ## Data model in Drupal (November 2026)
 

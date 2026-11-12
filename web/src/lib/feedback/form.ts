@@ -1,4 +1,4 @@
-// Feedback and sign-up forms: validation and the payload sent to Directus.
+// Feedback and sign-up forms: validation and the payload sent to Drupal's feedback endpoint.
 // Pure functions, shared by every page with a prompt. GDPR rules (CLAUDE.md):
 // anonymous by default; an email only with its own, unticked-by-default consent.
 
