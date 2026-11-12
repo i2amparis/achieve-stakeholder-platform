@@ -11,5 +11,5 @@
     "skipLibCheck": true,
     "types": ["node"]
   },
-  "include": ["directus/**/*.ts", "scripts/**/*.ts", "types/**/*.ts", "vitest.config.ts"]
+  "include": ["scripts/**/*.ts", "drupal/tests/**/*.ts", "vitest.config.ts"]
 }

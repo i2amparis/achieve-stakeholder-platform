@@ -3,7 +3,7 @@
 import { createHash } from 'node:crypto';
 import { fail, type RequestEvent } from '@sveltejs/kit';
 import { parseFeedback, parseSignup, type FeedbackContext, type Stream } from '#lib/feedback/form.ts';
-import { write } from './directus.ts';
+import { write } from './drupal.ts';
 
 // Light abuse protection: at most 10 submissions per address per 10 minutes.
 // The address is hashed, kept in memory only, and never stored or logged.
@@ -33,7 +33,7 @@ export async function feedbackAction(event: RequestEvent, form: string, ctx: Fee
 	if (tooMany(event)) return fail(429, { form, errors: { form: 'You have sent several answers in a short time. Please try again in a few minutes.' }, values: {} });
 	const parsed = parseFeedback(data, ctx, { stream });
 	if (!parsed.ok) return fail(400, { form, errors: parsed.errors, values: parsed.values });
-	if (!parsed.spam && !(await write('feedback_responses', parsed.payload))) {
+	if (!parsed.spam && !(await write('feedback', parsed.payload))) {
 		return fail(503, { form, errors: { form: 'Your answer could not be saved just now. Please try again later.' }, values: Object.fromEntries([...data].map(([k, v]) => [k, String(v)])) });
 	}
 	return { form, sent: true };
@@ -44,7 +44,7 @@ export async function signupAction(event: RequestEvent, locale: string) {
 	if (tooMany(event)) return fail(429, { form: 'join', errors: { form: 'Please try again in a few minutes.' }, values: {} });
 	const parsed = parseSignup(data, locale);
 	if (!parsed.ok) return fail(400, { form: 'join', errors: parsed.errors, values: parsed.values });
-	if (!parsed.spam && !(await write('community_signups', parsed.payload))) {
+	if (!parsed.spam && !(await write('signup', parsed.payload))) {
 		return fail(503, { form: 'join', errors: { form: 'Your sign-up could not be saved just now. Please try again later.' }, values: parsed.ok ? {} : {} });
 	}
 	return { form: 'join', sent: true };

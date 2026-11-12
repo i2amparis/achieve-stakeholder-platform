@@ -7,7 +7,7 @@ import { execFileSync } from 'node:child_process';
 import { randomBytes } from 'node:crypto';
 import { resolve } from 'node:path';
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
-import { loadDotEnv } from '../../directus/setup/lib/client.ts';
+import { loadDotEnv } from '../../scripts/lib/env.ts';
 
 loadDotEnv();
 const URL = process.env.DRUPAL_URL ?? 'http://achieve-cms.ddev.site:8580';

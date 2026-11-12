@@ -1,4 +1,4 @@
-// Read the content workbook into plain rows. Knows nothing about Directus.
+// Read the content workbook into plain rows. Knows nothing about the CMS.
 
 import ExcelJS from 'exceljs';
 import { COLUMNS, DRAFT_FILL, SHEETS } from './config.ts';

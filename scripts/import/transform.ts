@@ -1,4 +1,4 @@
-// Sheet rows → the records the import writes. Pure: no Directus, no file system.
+// Sheet rows → the records the import writes. Pure: no CMS, no file system.
 // Every rule from CLAUDE.md ("Import rules") is applied here, and every
 // deviation is reported as a flag rather than silently fixed.
 
@@ -71,7 +71,7 @@ export interface VisualRecord {
 
 export interface Taxonomies {
 	languages: typeof LANGUAGES;
-	/** Descriptions and intros are editorial copy, managed in Directus (see scripts/seed). */
+	/** Descriptions and intros are editorial copy, managed in Drupal (see drush achieve:seed). */
 	actors: { slug: string; name: string; is_hub: boolean; sort: number; shown_in: string[] }[];
 	principles: { code: string; slug: string; name: string; short_name: string; sort: number }[];
 	dimensions: { slug: string; name: string; principle: string; sort: number }[];

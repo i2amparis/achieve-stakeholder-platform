@@ -9,7 +9,7 @@ Thumbs.db
 .idea/
 *.swp
 
-# Secrets: .env holds LICENSE_KEY, Directus admin credentials and tokens
+# Secrets: .env holds local secrets (e.g. the Drupal feedback secret)
 .env
 .env.*
 !.env.example
@@ -26,9 +26,6 @@ build/
 .vite/
 vite.config.*.timestamp-*
 
-# Directus local runtime data (database and uploads live in Docker volumes)
-directus/uploads/
-directus/extensions/.registry/
 
 # Import runs: the report is printed and kept locally; data/export/*.csv IS committed
 scripts/import/reports/
