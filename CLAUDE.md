@@ -8,9 +8,28 @@ with a focus on Europe and Latin America. Hosted and maintained by HOL.
 Core message the platform must carry: high-integrity action is more than net
 zero and Paris alignment.
 
-## Stack (decided)
+## Decisions
 
-- **CMS:** Directus 12 under the Open Innovation Grant licence (granted to HOL). Matches the I2AM PARIS stack.
+Record every decision that changes the stack, the content model, routes or hosting here,
+newest first, and update the sections below to match.
+
+- **2026-11-12: move the backend from Directus to Drupal (headless), keep the SvelteKit
+  frontend, host both on HOL's Hostinger Business plan** (Frankfurt, EU): Drupal as a PHP
+  site on a subdomain, SvelteKit as a Node.js web app deployed from GitHub. Reason: run on
+  the existing plan without a VPS. **Pending:** a feasibility test of Drupal on that plan
+  (serving from `web/`, file permissions, JSON:API) before any migration. Until the
+  migration lands, the code on this branch still uses Directus, and the sections below
+  still describe it.
+- **2026-11-12:** the Directus implementation (Phases 1–4 and the VPS deployment) is kept
+  on branch `directus`, tag `directus-demo-v1`. Internal documents live in the git-ignored
+  `docs/internal/`.
+- **2026-11-03:** Directus 12 under the Open Innovation Grant; route
+  `/have-your-say/thank-you`; output slug rules; one Editor role for partners, with
+  contact details admin-only (details in the sections below).
+
+## Stack
+
+- **CMS:** Directus 12 under the Open Innovation Grant licence (granted to HOL). Matches the I2AM PARIS stack. **Being replaced by Drupal (see Decisions).**
   The key goes in `LICENSE_KEY` in `.env` (never committed). It binds to the
   Directus project and `PUBLIC_URL`, and the grant allows a limited number of
   activations, so do not throw away the local database volume
