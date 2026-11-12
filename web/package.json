@@ -12,7 +12,8 @@
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"test:unit": "vitest",
 		"test": "npm run test:unit -- --run",
-		"test:a11y": "node scripts/a11y.ts"
+		"test:a11y": "node scripts/a11y.ts",
+		"start": "node build"
 	},
 	"devDependencies": {
 		"@axe-core/playwright": "^4.14.0",
@@ -34,5 +35,8 @@
 	},
 	"dependencies": {
 		"sanitize-html": "^2.18.1"
+	},
+	"engines": {
+		"node": ">=22.17"
 	}
 }

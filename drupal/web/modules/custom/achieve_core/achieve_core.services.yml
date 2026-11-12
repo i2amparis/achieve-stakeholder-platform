@@ -1,0 +1,5 @@
+services:
+  achieve_core.noindex:
+    class: Drupal\achieve_core\EventSubscriber\NoIndexSubscriber
+    tags:
+      - { name: event_subscriber }

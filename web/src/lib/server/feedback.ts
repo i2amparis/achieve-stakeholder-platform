@@ -12,11 +12,13 @@ const LIMIT = 10;
 const hits = new Map<string, number[]>();
 
 function tooMany(event: RequestEvent): boolean {
-	let ip = 'unknown';
+	let ip: string;
 	try {
 		ip = event.getClientAddress();
 	} catch {
-		/* not available in some environments */
+		// Without a client address (e.g. a proxy header not configured), do not limit:
+		// one shared bucket would block every visitor after a few submissions.
+		return false;
 	}
 	const key = createHash('sha256').update(ip).digest('hex').slice(0, 16);
 	const now = Date.now();

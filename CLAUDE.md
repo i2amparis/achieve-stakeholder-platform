@@ -130,6 +130,10 @@ have a shareable URL (for example `/library?actor=cities&principle=p2`).
   (Drupal keeps the order); "workflow state" is the node's published status. Mapping in
   `docs/content-model.md`.
 - Roles: Editor (partners) and Administrator (HOL). Anonymous: `access content`, `view media`.
+- Deploy: `drupal/scripts/hostinger.sh install|update|status <site-folder>` over SSH (clone of `main` in
+  `~/domains/<site>/app`, `public_html` links to `app/drupal/web`; `update` = pull, composer,
+  `drush deploy`, import, seed). Drupal sends `X-Robots-Tag: noindex` on every response
+  (`achieve_core` `NoIndexSubscriber`): it is an API, not a public site.
 - Tests: `npx vitest run drupal` (root) runs `drupal/tests/drupal.test.ts` against DDEV:
   public JSON:API, the feedback endpoint, and editor/anonymous access via
   `tests/probe.php`. Needs `DRUPAL_FEEDBACK_SECRET` in the root `.env` (same value as in
@@ -146,6 +150,9 @@ have a shareable URL (for example `/library?actor=cities&principle=p2`).
   the server only. Data layer: `web/src/lib/server/content.ts` (JSON:API → page shapes) and
   `drupal.ts` (reads, writes). Settings: `DRUPAL_URL`, `DRUPAL_FEEDBACK_SECRET`, and for the demo
   `DEMO_PASSWORD` (shared password via HTTP basic auth, plus noindex).
+- Deploy: Hostinger Node.js web app from GitHub `main`, root `web`, `npm run build`, `npm start`
+  (Node ≥ 22.17). Behind Hostinger's proxy set `ADDRESS_HEADER=x-forwarded-for` and `XFF_DEPTH=1`; if
+  the client address is unknown, the feedback rate limit is skipped rather than failing the form.
 - Build for a server with `SITE_ORIGIN=https://…` (sets `paths.origin`; CSRF checks on form posts
   need it). The dev server skips CSRF checks; production does not.
 - Design system: vendored, unmodified, in `web/src/lib/design-system/` (see its README); site styles
