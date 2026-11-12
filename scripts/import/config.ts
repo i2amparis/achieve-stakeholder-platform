@@ -84,7 +84,7 @@ export const COLUMNS: Record<'deliverables' | 'publications', Record<string, Col
 export const LANGUAGES = [
 	{ code: 'en', name: 'English', sort: 1 },
 	{ code: 'es', name: 'Español', sort: 2 },
-	{ code: 'pt', name: 'Português', sort: 3 }
+	{ code: 'pt-br', name: 'Português (Brasil)', sort: 3 }
 ];
 
 /** Sheet label → actor. Descriptions come from the legend at import time. */

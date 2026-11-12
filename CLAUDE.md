@@ -10,30 +10,10 @@ zero and Paris alignment.
 
 ## Decisions
 
-Record every decision that changes the stack, the content model, routes or hosting here,
-newest first, and update the sections below to match.
-
-- **2026-11-12: Portuguese is Brazilian Portuguese (`pt-br`)**, for the Latin American
-  audience; Spanish is `es`. Drupal languages: `en` (source), `es`, `pt-br`.
-- **2026-11-12: move the backend from Directus to Drupal (headless), keep the SvelteKit
-  frontend, host both on HOL's Hostinger Business plan** (Frankfurt, EU): Drupal as a PHP
-  site on a subdomain, SvelteKit as a Node.js web app deployed from GitHub. Reason: run on
-  the existing plan without a VPS. Until the migration lands, the code on this branch
-  still uses Directus, and the sections below still describe it.
-- **2026-11-12: feasibility test passed (18/18)** on a test site of the Business plan:
-  Composer-based Drupal 11 runs there, served from `drupal/web` by making the site's
-  `public_html` a link to it; PHP 8.3 with OPcache, MariaDB, HTTPS, clean URLs and JSON:API
-  work; code, `vendor/` and `settings.php` are not reachable from the web; the web server
-  can write files while `settings.php` stays read-only. Lessons: run Drush as
-  `vendor/bin/drush`; put database credentials in `settings.php`, not in a `--db-url`
-  (Drush mishandles some special characters); Hostinger prefixes database names and users
-  with the account ID. Account, site and test details: `docs/internal/hosting.md`.
-- **2026-11-12:** the Directus implementation (Phases 1–4 and the VPS deployment) is kept
-  on branch `directus`, tag `directus-demo-v1`. Internal documents live in the git-ignored
-  `docs/internal/`.
-- **2026-11-03:** Directus 12 under the Open Innovation Grant; route
-  `/have-your-say/thank-you`; output slug rules; one Editor role for partners, with
-  contact details admin-only (details in the sections below).
+Record every decision that changes the stack, the content model, routes or hosting in
+[`docs/decisions.md`](docs/decisions.md) (newest first, with date and reason), and update the
+sections below to match. Current state: the backend is moving from Directus to headless
+Drupal on Hostinger web hosting; Portuguese is `pt-br`.
 
 ## Stack
 
@@ -189,7 +169,7 @@ have a shareable URL (for example `/library?actor=cities&principle=p2`).
 - Locales: English at the root; `es`/`pt` are routed under `/[lang]` once enabled in
   `web/src/lib/i18n/locales.ts`.
 - Project copy that is not in the sheet (feedback prompts, hub descriptions and intros, roadmap
-  records) is seeded by `npm run seed` (idempotent; never overwrites edits).
+  records) is seeded by `drush achieve:seed` (idempotent; never overwrites edits).
 
 ## Import rules (`scripts/import`)
 
@@ -226,14 +206,18 @@ have a shareable URL (for example `/library?actor=cities&principle=p2`).
   number and the list of yellow columns.
 - The import must be idempotent: re-running it after partners correct the
   sheet updates records instead of duplicating them.
-- Usage: `npm run import` (`-- --dry-run` to preview, `-- --offline` to check
-  the sheet without Directus). The report goes to
-  `scripts/import/reports/latest.md`; relations between rows are configured by
-  title in `scripts/import/config.ts`.
+- Usage, two steps (the server has no Node.js, so the model file is committed):
+  1. `npm run import`: checks the sheet, writes the CSV exports and
+     `drupal/import/model.json` (deterministic: the same sheet gives the same file).
+     The report goes to `scripts/import/reports/latest.md`; relations between rows
+     are configured by title in `scripts/import/config.ts`.
+  2. `drush achieve:import` (`--dry-run` to preview): loads the model into Drupal.
+     Locally `cd drupal && ddev drush achieve:import`; on the server
+     `vendor/bin/drush achieve:import`. Code: `achieve_core/src/Import/ContentImporter.php`.
 - Until launch the sheet owns the content: each run overwrites the
   sheet-sourced fields, including the `confirmed` toggle (derived from the
   yellow cells). Partners confirm by removing the highlight in the sheet. The
-  import never changes `slug` or `workflow_state` of existing records, never
+  import never changes the slug or the published status of existing records, never
   deletes records (it flags those no longer in the sheet), and keeps formats
   and relations added by editors.
 
