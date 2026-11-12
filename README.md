@@ -2,7 +2,9 @@
 
 A platform for facilitating stakeholder interaction with the findings of the Horizon Europe project ACHIEVE (grant agreement 101137625).
 
-Stack: Directus 12 + PostgreSQL (Docker Compose), SvelteKit + TypeScript. See `CLAUDE.md` for the project brief and `docs/content-model.md` for the content model.
+Stack: SvelteKit + TypeScript frontend; the backend is moving from Directus 12 to headless Drupal 11 (see `docs/decisions.md`). Content model: `docs/content-model.md`.
+
+Developed with AI assistance (Claude Code): the instructions it works under are in `CLAUDE.md`, and decisions are recorded in `docs/decisions.md`.
 
 ## Local setup
 
