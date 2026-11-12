@@ -169,7 +169,7 @@ have a shareable URL (for example `/library?actor=cities&principle=p2`).
 - Locales: English at the root; `es`/`pt` are routed under `/[lang]` once enabled in
   `web/src/lib/i18n/locales.ts`.
 - Project copy that is not in the sheet (feedback prompts, hub descriptions and intros, roadmap
-  records) is seeded by `npm run seed` (idempotent; never overwrites edits).
+  records) is seeded by `drush achieve:seed` (idempotent; never overwrites edits).
 
 ## Import rules (`scripts/import`)
 
@@ -206,14 +206,18 @@ have a shareable URL (for example `/library?actor=cities&principle=p2`).
   number and the list of yellow columns.
 - The import must be idempotent: re-running it after partners correct the
   sheet updates records instead of duplicating them.
-- Usage: `npm run import` (`-- --dry-run` to preview, `-- --offline` to check
-  the sheet without Directus). The report goes to
-  `scripts/import/reports/latest.md`; relations between rows are configured by
-  title in `scripts/import/config.ts`.
+- Usage, two steps (the server has no Node.js, so the model file is committed):
+  1. `npm run import`: checks the sheet, writes the CSV exports and
+     `drupal/import/model.json` (deterministic: the same sheet gives the same file).
+     The report goes to `scripts/import/reports/latest.md`; relations between rows
+     are configured by title in `scripts/import/config.ts`.
+  2. `drush achieve:import` (`--dry-run` to preview): loads the model into Drupal.
+     Locally `cd drupal && ddev drush achieve:import`; on the server
+     `vendor/bin/drush achieve:import`. Code: `achieve_core/src/Import/ContentImporter.php`.
 - Until launch the sheet owns the content: each run overwrites the
   sheet-sourced fields, including the `confirmed` toggle (derived from the
   yellow cells). Partners confirm by removing the highlight in the sheet. The
-  import never changes `slug` or `workflow_state` of existing records, never
+  import never changes the slug or the published status of existing records, never
   deletes records (it flags those no longer in the sheet), and keeps formats
   and relations added by editors.
 

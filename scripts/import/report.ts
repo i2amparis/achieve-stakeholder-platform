@@ -1,6 +1,5 @@
 // Human-readable import report: what was imported, skipped and flagged.
 
-import type { ApplyResult } from './apply.ts';
 import type { Flag, FlagKind, ImportModel } from './transform.ts';
 
 const KIND_TITLES: Record<FlagKind, string> = {
@@ -15,13 +14,9 @@ const ORDER: FlagKind[] = ['column', 'skipped', 'relation', 'accessibility', 'da
 
 const where = (f: Flag) => [f.sheet && f.row ? `${f.sheet} row ${f.row}` : f.sheet, f.title ? `"${f.title}"` : ''].filter(Boolean).join(', ');
 
-export function renderReport(model: ImportModel, result: ApplyResult | null, meta: { mode: string; source: string; csvs: string[] }) {
-	const flags = [...model.flags, ...(result?.flags ?? [])];
+export function renderReport(model: ImportModel, meta: { mode: string; source: string; csvs: string[] }) {
+	const flags = model.flags;
 	const count = (k: FlagKind) => flags.filter((f) => f.kind === k).length;
-	const created = result?.changes.filter((c) => c.action === 'create') ?? [];
-	const updated = result?.changes.filter((c) => c.action === 'update') ?? [];
-	const byCollection = (list: { collection: string }[]) =>
-		Object.entries(Object.groupBy(list, (c) => c.collection)).map(([c, l]) => `${c} ${l!.length}`).join(', ') || 'none';
 
 	const out = model.outputs;
 	const summary = [
@@ -32,15 +27,8 @@ export function renderReport(model: ImportModel, result: ApplyResult | null, met
 		`Visuals: ${model.visuals.length}, webinars: ${model.webinars.length}`,
 		`Confirmed by partners: ${out.filter((o) => o.confirmed).length} of ${out.length} outputs, ${model.visuals.filter((v) => v.confirmed).length} of ${model.visuals.length} visuals`,
 		`Rows not imported as outputs: ${model.skipped.length}`,
-		...(result
-			? [
-					`Directus: created ${created.length} (${byCollection(created)})`,
-					`          updated ${updated.length} (${byCollection(updated)})`,
-					`          unchanged ${Object.values(result.unchanged).reduce((a, b) => a + b, 0)}`
-				]
-			: []),
 		`Flags: ${ORDER.map((k) => `${KIND_TITLES[k].toLowerCase()} ${count(k)}`).join(', ')}`,
-		`CSV export: ${meta.csvs.join(', ')}`
+		`Written: ${meta.csvs.join(', ')}`
 	].join('\n');
 
 	const lines: string[] = [`# Import report`, '', '```', summary, '```', ''];
@@ -54,11 +42,6 @@ export function renderReport(model: ImportModel, result: ApplyResult | null, met
 		if (!list.length) continue;
 		lines.push(`## ${KIND_TITLES[k]} (${list.length})`, '');
 		for (const f of list) lines.push(`- ${where(f) ? where(f) + ': ' : ''}${f.message}`);
-		lines.push('');
-	}
-	if (result?.changes.length) {
-		lines.push('## Changes in Directus', '');
-		for (const c of result.changes) lines.push(`- ${c.action} ${c.collection} \`${c.key}\`${c.fields.length ? `: ${c.fields.join(', ')}` : ''}`);
 		lines.push('');
 	}
 	lines.push('## Unconfirmed (yellow) fields per output', '');

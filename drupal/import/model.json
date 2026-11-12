@@ -1,0 +1,2731 @@
+{
+	"version": 1,
+	"source": "data/achieve-cde-content.xlsx",
+	"sha256": "aa5d9c27864871ddd708acadd2738325e2d82a231b3b243d6a4dfaf529224e93",
+	"taxonomies": {
+		"languages": [
+			{
+				"code": "en",
+				"name": "English",
+				"sort": 1
+			},
+			{
+				"code": "es",
+				"name": "Español",
+				"sort": 2
+			},
+			{
+				"code": "pt",
+				"name": "Português",
+				"sort": 3
+			}
+		],
+		"actors": [
+			{
+				"slug": "business",
+				"name": "Business",
+				"is_hub": true,
+				"sort": 1,
+				"shown_in": []
+			},
+			{
+				"slug": "cities",
+				"name": "Cities",
+				"is_hub": true,
+				"sort": 2,
+				"shown_in": []
+			},
+			{
+				"slug": "regulators",
+				"name": "Regulators",
+				"is_hub": true,
+				"sort": 3,
+				"shown_in": []
+			},
+			{
+				"slug": "carbon-markets",
+				"name": "Carbon markets",
+				"is_hub": true,
+				"sort": 4,
+				"shown_in": []
+			},
+			{
+				"slug": "ccis",
+				"name": "CCIs",
+				"is_hub": true,
+				"sort": 5,
+				"shown_in": []
+			},
+			{
+				"slug": "finance",
+				"name": "Finance",
+				"is_hub": false,
+				"sort": 6,
+				"shown_in": [
+					"business",
+					"ccis"
+				]
+			}
+		],
+		"principles": [
+			{
+				"code": "p1",
+				"slug": "accountability",
+				"name": "Integrated accountability",
+				"short_name": "Accountability",
+				"sort": 1
+			},
+			{
+				"code": "p2",
+				"slug": "justice-equity",
+				"name": "Justice and equity",
+				"short_name": "Justice and equity",
+				"sort": 2
+			},
+			{
+				"code": "p3",
+				"slug": "environmental-protection",
+				"name": "Environmental protection",
+				"short_name": "Environmental protection",
+				"sort": 3
+			},
+			{
+				"code": "p4",
+				"slug": "transformation",
+				"name": "Low-carbon & resilient transformation",
+				"short_name": "Transformation",
+				"sort": 4
+			}
+		],
+		"dimensions": [
+			{
+				"slug": "target-coherence",
+				"name": "target coherence",
+				"principle": "p1",
+				"sort": 1
+			},
+			{
+				"slug": "policy-governance",
+				"name": "policy & governance",
+				"principle": "p1",
+				"sort": 2
+			},
+			{
+				"slug": "data-reporting-transparency",
+				"name": "data, reporting & transparency",
+				"principle": "p1",
+				"sort": 3
+			},
+			{
+				"slug": "monitoring-verification",
+				"name": "monitoring & verification",
+				"principle": "p1",
+				"sort": 4
+			},
+			{
+				"slug": "compliance-enforcement",
+				"name": "compliance & enforcement",
+				"principle": "p1",
+				"sort": 5
+			},
+			{
+				"slug": "equity-inclusion",
+				"name": "equity & inclusion",
+				"principle": "p2",
+				"sort": 6
+			},
+			{
+				"slug": "support-capacity",
+				"name": "support & capacity",
+				"principle": "p2",
+				"sort": 7
+			},
+			{
+				"slug": "inclusive-decision-making",
+				"name": "inclusive decision-making",
+				"principle": "p2",
+				"sort": 8
+			},
+			{
+				"slug": "just-transition",
+				"name": "just transition",
+				"principle": "p2",
+				"sort": 9
+			},
+			{
+				"slug": "differentiated-responsibilities",
+				"name": "differentiated responsibilities",
+				"principle": "p2",
+				"sort": 10
+			},
+			{
+				"slug": "ecosystem-protection-restoration",
+				"name": "ecosystem protection & restoration",
+				"principle": "p3",
+				"sort": 11
+			},
+			{
+				"slug": "biodiversity-conservation",
+				"name": "biodiversity conservation",
+				"principle": "p3",
+				"sort": 12
+			},
+			{
+				"slug": "systemic-environmental-integrity",
+				"name": "systemic environmental integrity",
+				"principle": "p3",
+				"sort": 13
+			},
+			{
+				"slug": "integrated-practices",
+				"name": "integrated practices",
+				"principle": "p3",
+				"sort": 14
+			},
+			{
+				"slug": "sustainable-resource-use",
+				"name": "sustainable resource use",
+				"principle": "p3",
+				"sort": 15
+			},
+			{
+				"slug": "ambitious-policies",
+				"name": "ambitious policies",
+				"principle": "p4",
+				"sort": 16
+			},
+			{
+				"slug": "dealing-with-trade-offs",
+				"name": "dealing with trade-offs",
+				"principle": "p4",
+				"sort": 17
+			},
+			{
+				"slug": "standard-setting",
+				"name": "standard-setting",
+				"principle": "p4",
+				"sort": 18
+			},
+			{
+				"slug": "sector-wide-change",
+				"name": "sector-wide change",
+				"principle": "p4",
+				"sort": 19
+			},
+			{
+				"slug": "innovation-systemic-change",
+				"name": "innovation & systemic change",
+				"principle": "p4",
+				"sort": 20
+			}
+		],
+		"regions": [
+			{
+				"slug": "global",
+				"name": "Global",
+				"sort": 1
+			},
+			{
+				"slug": "europe",
+				"name": "Europe",
+				"sort": 2
+			},
+			{
+				"slug": "latin-america",
+				"name": "Latin America",
+				"sort": 3
+			}
+		],
+		"output_types": [
+			{
+				"slug": "report",
+				"name": "Report",
+				"sort": 1
+			},
+			{
+				"slug": "website",
+				"name": "Website",
+				"sort": 2
+			},
+			{
+				"slug": "policy-brief",
+				"name": "Policy Brief",
+				"sort": 3
+			},
+			{
+				"slug": "journal-article",
+				"name": "Journal article",
+				"sort": 4
+			},
+			{
+				"slug": "blog",
+				"name": "Blog",
+				"sort": 5
+			},
+			{
+				"slug": "research-report",
+				"name": "Research report",
+				"sort": 6
+			},
+			{
+				"slug": "detailed-assessment-and-factsheet",
+				"name": "Detailed assessment and factsheet",
+				"sort": 7
+			}
+		],
+		"partners": [
+			{
+				"code": "RU",
+				"sort": 1
+			},
+			{
+				"code": "NCI",
+				"sort": 2
+			},
+			{
+				"code": "PBL",
+				"sort": 3
+			},
+			{
+				"code": "OEKO",
+				"sort": 4
+			},
+			{
+				"code": "E3M",
+				"sort": 5
+			},
+			{
+				"code": "UEF",
+				"sort": 6
+			},
+			{
+				"code": "CATIE",
+				"sort": 7
+			},
+			{
+				"code": "SU",
+				"sort": 8
+			},
+			{
+				"code": "HOL",
+				"sort": 9
+			},
+			{
+				"code": "WWF",
+				"sort": 10
+			},
+			{
+				"code": "CDP",
+				"sort": 11
+			},
+			{
+				"code": "UOXF",
+				"sort": 12
+			}
+		]
+	},
+	"webinars": [
+		"https://www.achieveproject.eu/news/webinar-promoting-high-integrity-voluntary-climate-action-road-cop29-and-beyond",
+		"https://www.achieveproject.eu/index.php/news/join-achieve-webinar-strengthening-integrity-voluntary-climate-action-insights-achieve-project"
+	],
+	"visuals": [
+		{
+			"filename": "D1.3_ACHIEVE_infographic.pdf",
+			"alt_text": "Infographic summarising D1.3. It shows the ACHIEVE integrity framework (four principles, broken down into dimensions, criteria and indicators) and how five assessment methodologies (Net Zero Tracker, CCRM, Carbon Credit Integrity Framework, ICACAM, CoAct) score against each principle. Integrated accountability is strong in all five; justice and equity is the weakest.",
+			"confirmed": false
+		},
+		{
+			"filename": "ACHIEVE_integrity_framework.png",
+			"alt_text": "Diagram of the ACHIEVE High-Integrity Principles framework. Four principles (integrated accountability; justice and equity; environmental protection; low-carbon and resilient transformation), each with five example integrity dimensions. Headline: high-integrity action is more than net-zero and Paris alignment.",
+			"confirmed": false
+		},
+		{
+			"filename": "D2.2_infographic1.pdf",
+			"alt_text": "Infographic on carbon credit use by 363 cities, 4,232 companies and 42 cooperative climate initiatives. 24% of cities use or plan to use offsets, 13.7% of companies used credits in the reporting year, and 62% of initiatives discuss credits in their guidance. Integrity rarely drives decisions on credit use.",
+			"confirmed": false
+		},
+		{
+			"filename": "D2.2_infographic2.pdf",
+			"alt_text": "Infographic on the CENVI model, which rates the environmental integrity risk of carbon credits across 13 mitigation activity types and five crediting programmes. 89% of estimated annual reductions fall into the very-high-risk category. Efficient cookstoves are the largest single activity type (29.3%).",
+			"confirmed": false
+		},
+		{
+			"filename": "D2.2_infographic3.pdf",
+			"alt_text": "Infographic on VM0048, the new Verified Carbon Standard methodology for avoided deforestation, which replaces four earlier methodologies. It scores 1 out of 5 on the CCQI scale, meaning a large overestimation of emission reductions is likely. The assessment is preliminary, as no projects had used the methodology yet.",
+			"confirmed": false
+		},
+		{
+			"filename": "D2.4_infographic.pdf",
+			"alt_text": "Infographic summarising eight studies on voluntary climate initiatives. It presents five findings: evidence is uneven; corporate standards vary widely; ambition gaps are widespread; membership is linked to higher ambition; voluntary governance is not enough on its own. Net Zero Tracker data shows integrity rates in single digits (7% of companies, 6.5% of regions). Five avenues for policy and practice follow: harmonise standards, strengthen accountability, enhance transparency, link voluntary and regulatory frameworks, improve evidence.",
+			"confirmed": false
+		}
+	],
+	"outputs": [
+		{
+			"source_key": "d1.1",
+			"kind": "deliverable",
+			"code": "D1.1",
+			"title": "Trends and role of voluntary climate action",
+			"slug": "d1-1",
+			"source_sheet": "Deliverables & Milestones",
+			"sheetRow": 2,
+			"status": "published",
+			"date": "2024-10-01",
+			"work_package": "WP1",
+			"output_type": "Report",
+			"lead_partner": "RU",
+			"contributors": [],
+			"authors": null,
+			"teaser": "A mapping of 267 cooperative climate initiatives, 1,180 cities and 43 carbon market integrity initiatives, showing where voluntary climate action delivers and where integrity gaps remain.",
+			"abstract": "<p>The ACHIEVE project provides a comprehensive analysis of voluntary climate actions, focusing on three key areas: the integrity of Cooperative Climate Initiatives (CCIs), the influence of CCIs on subnational actors, and the role of climate initiatives in shaping a credible carbon market. First, the report assesses the integrity of CCIs, which involve non-state and subnational actors in climate mitigation and adaptation efforts. The study identifies significant disparities in transparency, accountability, and effectiveness among 267 initiatives. While initiatives with stricter reporting and membership standards show better outcomes, challenges such as the underrepresentation of actors from the Global South and Indigenous Peoples undermine credibility. The report emphasizes the need for greater accountability, inclusiveness, and sustainability to strengthen CCIs' contributions to global climate governance. Second, the report explores how CCIs impact the climate commitments of subnational actors, particularly cities. Drawing on data from 1,180 cities and 61 CCIs, the analysis reveals that cities participating in multiple initiatives, especially those focused on standards, are more likely to set ambitious climate targets. In contrast, lobbying-centred initiatives have little to no impact on individual target-setting. Third, the report examines which initiatives aim to address integrity in the voluntary carbon market, addressing both the supply-side (carbon credit quality) and the demand-side (credit use). Through the mapping of 43 integrity initiatives, it gives an overview of what elements are considered relevant for integrity of carbon credits and their use, and assesses which initiatives are likely to be impactful in the voluntary carbon market.</p>",
+			"link": "https://www.achieveproject.eu/sites/default/files/2024-12/D1.1%20-%20Trends%20and%20roles%20of%20voluntary%20climate%20action_wp1_deliv.pdf",
+			"pid_type": "url",
+			"citation": null,
+			"publisher": null,
+			"issn": null,
+			"book_rid": null,
+			"book_title": null,
+			"open_access": null,
+			"peer_reviewed": null,
+			"webinar": "https://www.achieveproject.eu/news/webinar-promoting-high-integrity-voluntary-climate-action-road-cop29-and-beyond",
+			"actors": [
+				"ccis",
+				"cities",
+				"carbon-markets"
+			],
+			"principles": [
+				"p1",
+				"p4"
+			],
+			"dimensions": [
+				"target-coherence",
+				"sector-wide-change"
+			],
+			"regions": [
+				"global"
+			],
+			"visuals": [],
+			"actor_messages": [
+				{
+					"actor": "ccis",
+					"message": "Initiatives with stricter reporting and membership standards perform better, but actors from the Global South and Indigenous Peoples remain underrepresented."
+				},
+				{
+					"actor": "cities",
+					"message": "Cities taking part in several initiatives, especially standard-setting ones, are more likely to set ambitious targets; lobbying-focused initiatives show little effect."
+				},
+				{
+					"actor": "carbon-markets",
+					"message": "Of 43 integrity initiatives mapped, the report shows which address credit quality (supply side) or credit use (demand side), and which are likely to have real impact."
+				}
+			],
+			"formats": [],
+			"relations": [],
+			"unconfirmed_fields": [
+				"actor_messages",
+				"actors",
+				"dimensions",
+				"principles",
+				"regions",
+				"teaser"
+			],
+			"confirmed": false
+		},
+		{
+			"source_key": "d1.4",
+			"kind": "deliverable",
+			"code": "D1.4",
+			"title": "IAM guidance on actor group output and downscaling",
+			"slug": "d1-4",
+			"source_sheet": "Deliverables & Milestones",
+			"sheetRow": 3,
+			"status": "published",
+			"date": "2025-02-01",
+			"work_package": "WP1",
+			"output_type": "Report",
+			"lead_partner": "PBL",
+			"contributors": [],
+			"authors": null,
+			"teaser": "New ways to bring companies, cities and regions into integrated assessment models, so their pledges can be benchmarked against Paris-aligned pathways.",
+			"abstract": "<p>Non-state and subnational actors are increasingly significant in addressing the climate crisis. These actors were recognised in the Paris Agreement and are called upon to support actions to reduce emissions. This study aims to provide new approaches to enhance the assessment of non-state actors' collective progress and ambition towards the Paris Agreement goals, as well as to support benchmarking cities, subnational regions, and companies against Paris-aligned pathways. This study gives a global perspective by using integrated assessment models and give a consistent picture at this level considering various scenarios. However, to facilitate the benchmarking of climate actions by diverse actors and help policymakers understand their potential contributions to mitigation, new methodologies for these models are needed. Therefore, the assessments done with these models should include a broader range of actors to give a detailed understanding of the global impact of various levels of non-state and subnational climate action. To achieve this, the actors’ commitments could be aggregated for model inputs, model outputs could be downscaled to specific actor groups and geographic locations, and the actors’ decisions could be incorporated into the model’s decision-making process. Two case studies were conducted to demonstrate the new approaches. The first case study focuses on companies and shows that scaled-up emissions reduction targets in key sectors are projected to decrease global emissions 25% by 2030 compared to the levels projected under current national policies alone. The second case study focuses on cities and shows that downscaled urban emissions from a current policy scenario need to be reduced by 50% to close the gap with a downscaled urban 1.5° C-aligned pathway.</p>",
+			"link": "https://www.achieveproject.eu/sites/default/files/2026-06/revised_ACHIEVE_deliverable_1.4_IAM%20guidance%20on%20actor%20group%20output%20and%20downscaling.pdf",
+			"pid_type": "url",
+			"citation": null,
+			"publisher": null,
+			"issn": null,
+			"book_rid": null,
+			"book_title": null,
+			"open_access": null,
+			"peer_reviewed": null,
+			"webinar": null,
+			"actors": [
+				"regulators",
+				"business",
+				"cities"
+			],
+			"principles": [
+				"p4"
+			],
+			"dimensions": [
+				"ambitious-policies",
+				"dealing-with-trade-offs",
+				"innovation-systemic-change"
+			],
+			"regions": [
+				"global"
+			],
+			"visuals": [],
+			"actor_messages": [
+				{
+					"actor": "regulators",
+					"message": "Modelling non-state action alongside national policy shows how much voluntary pledges could add to national efforts, and where gaps remain."
+				},
+				{
+					"actor": "business",
+					"message": "Scaled-up company targets in key sectors could cut global emissions by 25% by 2030 compared with current national policies alone."
+				},
+				{
+					"actor": "cities",
+					"message": "Urban emissions under current policies would need to fall by about 50% to close the gap with a 1.5°C-aligned pathway."
+				}
+			],
+			"formats": [],
+			"relations": [],
+			"unconfirmed_fields": [
+				"actor_messages",
+				"actors",
+				"dimensions",
+				"principles",
+				"regions",
+				"teaser"
+			],
+			"confirmed": false
+		},
+		{
+			"source_key": "d1.3",
+			"kind": "deliverable",
+			"code": "D1.3",
+			"title": "Standardised assessment frameworks",
+			"slug": "d1-3",
+			"source_sheet": "Deliverables & Milestones",
+			"sheetRow": 4,
+			"status": "published",
+			"date": "2025-12-01",
+			"work_package": "WP1",
+			"output_type": "Report",
+			"lead_partner": "RU",
+			"contributors": [],
+			"authors": null,
+			"teaser": "ACHIEVE's four-principle framework for judging the integrity of voluntary climate action, tested against five assessment methodologies already in use.",
+			"abstract": "<p>This report develops and applies the ACHIEVE integrity framework to guide and assess the integrity of voluntary climate action (VCA). The framework is built around four principles: integrated accountability, justice and equity, environmental protection, and low-carbon and resilient transformation, and was developed through a combination of literature review, stakeholder engagement, and iterative refinement within the ACHIEVE consortium. It offers a structured and flexible approach that can be adapted to different VCA contexts, helping bridge the gap between broad integrity concepts and practical assessment needs.</p>\n<p>The framework is applied to five major assessment methodologies used by ACHIEVE partners: the Net Zero Tracker, the Corporate Climate Responsibility Monitor, the Carbon Credit Integrity Assessment Framework, the Integrity of Climate Action in Cities Assessment Method, and the CoAct Framework for transnational cooperative initiatives. The analysis shows that all methodologies reflect principles of integrity, but with uneven coverage across principles. Integrated accountability is strongly embedded across all methodologies, particularly through target setting, transparency, reporting, and verification. Justice and equity are the least developed due to conceptual complexity and data limitations. Environmental protection appears only partially, often indirectly or context-dependently. Low-carbon and resilient transformation is present in methodologies that assess transition planning or sector-wide change, but less so in others.</p>\n<p>The findings highlight common challenges, including limited data availability, varying capacities across actors, and the difficulty of operationalizing holistic integrity concepts in practice. The report concludes that the ACHIEVE integrity framework provides a useful foundation for strengthening, aligning, and scaling high-integrity VCA, and outlines next steps to refine, contextualize, and operationalize the framework across different VCA domains.</p>",
+			"link": "https://www.achieveproject.eu/sites/default/files/2026-06/D1.3%20-%20Standardized%20assessment%20framework.pdf",
+			"pid_type": "url",
+			"citation": null,
+			"publisher": null,
+			"issn": null,
+			"book_rid": null,
+			"book_title": null,
+			"open_access": null,
+			"peer_reviewed": null,
+			"webinar": null,
+			"actors": [
+				"business",
+				"cities",
+				"regulators",
+				"carbon-markets",
+				"ccis"
+			],
+			"principles": [
+				"p1",
+				"p2",
+				"p3",
+				"p4"
+			],
+			"dimensions": [
+				"target-coherence",
+				"policy-governance",
+				"data-reporting-transparency",
+				"monitoring-verification",
+				"compliance-enforcement",
+				"equity-inclusion",
+				"support-capacity",
+				"inclusive-decision-making",
+				"just-transition",
+				"differentiated-responsibilities",
+				"ecosystem-protection-restoration",
+				"biodiversity-conservation",
+				"systemic-environmental-integrity",
+				"integrated-practices",
+				"sustainable-resource-use",
+				"ambitious-policies",
+				"dealing-with-trade-offs",
+				"standard-setting",
+				"sector-wide-change",
+				"innovation-systemic-change"
+			],
+			"regions": [
+				"global"
+			],
+			"visuals": [
+				"D1.3_ACHIEVE_infographic.pdf",
+				"ACHIEVE_integrity_framework.png"
+			],
+			"actor_messages": [
+				{
+					"actor": "business",
+					"message": "Corporate assessments (Net Zero Tracker, CCRM) are strong on accountability and transformation but weak on justice and equity."
+				},
+				{
+					"actor": "cities",
+					"message": "The cities methodology (ICACAM) is strong on accountability and fairly strong on justice and equity, but weak on environmental protection."
+				},
+				{
+					"actor": "regulators",
+					"message": "Accountability is well covered by all five methodologies; justice and equity is the least developed principle and needs better data and clearer guidance."
+				},
+				{
+					"actor": "carbon-markets",
+					"message": "The carbon credit framework covers all four principles, with accountability strongest and the other three moderate."
+				},
+				{
+					"actor": "ccis",
+					"message": "The CoAct framework for cooperative initiatives is strong on accountability but weak on low-carbon and resilient transformation."
+				}
+			],
+			"formats": [],
+			"relations": [],
+			"unconfirmed_fields": [
+				"actor_messages",
+				"actors",
+				"alt_text",
+				"dimensions",
+				"principles",
+				"regions",
+				"teaser"
+			],
+			"confirmed": false
+		},
+		{
+			"source_key": "d2.2",
+			"kind": "deliverable",
+			"code": "D2.2",
+			"title": "Integrity of carbon credits",
+			"slug": "d2-2",
+			"source_sheet": "Deliverables & Milestones",
+			"sheetRow": 5,
+			"status": "published",
+			"date": "2025-12-01",
+			"work_package": "WP2",
+			"output_type": "Report",
+			"lead_partner": "OEKO",
+			"contributors": [],
+			"authors": null,
+			"teaser": "How cities, companies and cooperative initiatives use carbon credits, a new model rating the integrity risk of credits, and an assessment of the new VM0048 forest methodology.",
+			"abstract": "<p>This ACHIEVE project deliverable provides a comprehensive analysis of the environmental integrity of carbon credits and their use, structured in three parts: a mixed-methods analysis of the use of carbon credits in companies, cities and Corporate Climate Initiative (CCIs); the description of the methodology underlying the Carbon Credit Environmental Integrity (CENVI) Model; and an in-depth analysis of the emission quantification methodology VM00048.</p>\n<p>First, the report presents insights from three studies on the role of carbon credits in non-state climate action, assessing the role of cities, companies and CCIs. The studies identify key predictors of carbon credit use of these actor groups and assess how these actors integrate carbon credits into their climate strategies, climate action plans and guidance documents. The analysis shows that carbon credit use is often part of climate strategies with some high integrity aspects, but persistent issues remain, including the use of low-quality carbon credits and carbon credit use for offsetting claims instead of contribution claims.</p>\n<p>Second, the report provides a description of the CENVI model will combine data on issued (or planned to be issued) carbon credits with an assessment of the integrity of these carbon credits, enabling the evaluation of different carbon credit portfolios.</p>\n<p>Third, the report presents a detailed assessment of the new landmark methodology of the Verified Carbon Standard for avoided deforestation (methodology VM0048). The methodology is particularly critical for the integrity of the future voluntary carbon market, as it is supposed to replace earlier VCS methodologies that raise major integrity concerns. The assessment found that the new methodology is an improvement to the previous methodologies but could still lead to considerable overestimation of emission reductions.</p>",
+			"link": "https://www.achieveproject.eu/sites/default/files/2026-06/D2.2%20-%20Integrity%20of%20carbon%20credits.pdf",
+			"pid_type": "url",
+			"citation": null,
+			"publisher": null,
+			"issn": null,
+			"book_rid": null,
+			"book_title": null,
+			"open_access": null,
+			"peer_reviewed": null,
+			"webinar": null,
+			"actors": [
+				"carbon-markets",
+				"business",
+				"cities",
+				"ccis"
+			],
+			"principles": [
+				"p1",
+				"p3"
+			],
+			"dimensions": [
+				"data-reporting-transparency",
+				"monitoring-verification",
+				"systemic-environmental-integrity",
+				"standard-setting"
+			],
+			"regions": [
+				"global"
+			],
+			"visuals": [
+				"D2.2_infographic1.pdf",
+				"D2.2_infographic2.pdf",
+				"D2.2_infographic3.pdf"
+			],
+			"actor_messages": [
+				{
+					"actor": "carbon-markets",
+					"message": "89% of estimated annual reductions in the credit categories assessed so far carry a very high integrity risk. The new VM0048 avoided-deforestation methodology improves on its predecessors but is still likely to overestimate reductions considerably."
+				},
+				{
+					"actor": "business",
+					"message": "14% of companies used carbon credits in the reporting year. Of those that discuss credits, 66% plan to start or increase their use, but only 18% set an upper limit."
+				},
+				{
+					"actor": "cities",
+					"message": "24% of large cities with targets use or plan to use offsets, and fewer than half of those mention the integrity of offsets at all."
+				},
+				{
+					"actor": "ccis",
+					"message": "62% of initiatives address carbon credits in their guidance, and 89% of these say emission reductions should come first."
+				}
+			],
+			"formats": [],
+			"relations": [],
+			"unconfirmed_fields": [
+				"actor_messages",
+				"actors",
+				"alt_text",
+				"dimensions",
+				"principles",
+				"regions",
+				"teaser"
+			],
+			"confirmed": false
+		},
+		{
+			"source_key": "d2.4",
+			"kind": "deliverable",
+			"code": "D2.4",
+			"title": "Assessment of VCI integrity",
+			"slug": "d2-4",
+			"source_sheet": "Deliverables & Milestones",
+			"sheetRow": 6,
+			"status": "published",
+			"date": "2026-06-01",
+			"work_package": "WP2",
+			"output_type": "Report",
+			"lead_partner": "NCI",
+			"contributors": [],
+			"authors": null,
+			"teaser": "Eight studies on whether voluntary climate initiatives raise ambition and integrity, and why they cannot do it without regulation.",
+			"abstract": "<p>This report presents the findings on the role and integrity of voluntary climate initiatives (VCIs) in advancing climate action among non-state actors within the ACHIEVE project Work Package 2. It provides an overview of eight studies that investigate both initiative-level governance and actor-level outcomes, including corporate targets, financial sector practices, and city-level policy changes. The report analyses how these studies addressed three main objectives: 1) Assessing the integrity standards and enforcement practices of VCIs; 2) Analysing integrity trends across different non-state actor groups; and 3) Comparing the performance of VCI members with non-members. Findings reveal significant heterogeneity in integrity standards, with harmonised definition and consistent methodology for assessing climate commitments only starting to emerge. Across different sectors, ambition and integrity gaps remain widespread: many actors lack robust targets, and even where targets exist, they often fall short in scope, transparency, or implementation. Sector-specific analyses, such as in the agrifood sector, show improvements in reporting but limited progress in emissions reductions and strategy specificity. Several studies find that VCI membership can be associated with higher ambition and improved governance practices, including better reporting and accountability structures. However, these improvements are uneven and often insufficient to ensure meaningful emissions reductions, or other social and environmental impacts. The voluntary nature of VCIs, combined with weak enforcement mechanisms, limits their effectiveness. Overall, the report concludes that while VCIs can support coordination and raise ambition, they are structurally inadequate on their own. Stronger regulatory frameworks and accountability mechanisms are necessary to ensure credible, high-integrity climate action aligned with global climate goals.</p>",
+			"link": "https://www.achieveproject.eu/sites/default/files/2026-06/D2.4_Results_of_analysis_of_integrity_assessment.pdf",
+			"pid_type": "url",
+			"citation": null,
+			"publisher": null,
+			"issn": null,
+			"book_rid": null,
+			"book_title": null,
+			"open_access": null,
+			"peer_reviewed": null,
+			"webinar": "https://www.achieveproject.eu/index.php/news/join-achieve-webinar-strengthening-integrity-voluntary-climate-action-insights-achieve-project",
+			"actors": [
+				"ccis",
+				"business",
+				"cities"
+			],
+			"principles": [
+				"p1",
+				"p4",
+				"p2"
+			],
+			"dimensions": [
+				"target-coherence",
+				"compliance-enforcement",
+				"standard-setting",
+				"ambitious-policies",
+				"equity-inclusion"
+			],
+			"regions": [
+				"global"
+			],
+			"visuals": [
+				"D2.4_infographic.pdf"
+			],
+			"actor_messages": [
+				{
+					"actor": "ccis",
+					"message": "Integrity standards still vary widely between initiatives. Without binding obligations and enforcement, initiatives cannot prevent free-riding or greenwashing."
+				},
+				{
+					"actor": "business",
+					"message": "Only 7% of companies with net-zero targets meet the full integrity criteria. Race to Zero members outperform non-members by about 9 percentage points."
+				},
+				{
+					"actor": "cities",
+					"message": "Members of the Global Covenant of Mayors are more likely to adopt targets, action plans and reporting systems, though the effect is weaker in technically complex policy areas."
+				}
+			],
+			"formats": [],
+			"relations": [],
+			"unconfirmed_fields": [
+				"actor_messages",
+				"actors",
+				"alt_text",
+				"dimensions",
+				"principles",
+				"regions",
+				"teaser"
+			],
+			"confirmed": false
+		},
+		{
+			"source_key": "d3.4",
+			"kind": "deliverable",
+			"code": "D3.4",
+			"title": "Tested data products for cities",
+			"slug": "d3-4",
+			"source_sheet": "Deliverables & Milestones",
+			"sheetRow": 7,
+			"status": "published",
+			"date": "2026-06-01",
+			"work_package": "WP3",
+			"output_type": "Report",
+			"lead_partner": "OEKO",
+			"contributors": [],
+			"authors": null,
+			"teaser": "A review of the tools cities can use to track their emissions, from conventional inventories to satellite and AI-based monitoring.",
+			"abstract": "<p>Traditional greenhouse gas inventory tools remain the most practical option for cities. While these tools differ in data sources, scope, and flexibility, improving transparency and integrating new data sources such as satellite observations, artificial intelligence, and machine learning could enhance their accuracy and comparability. Effective national systems combine centralised coordination with flexibility for local data, reducing administrative burdens while maintaining local relevance. Emerging emissions tracking platforms, particularly Carbon Monitor Cities, offer more frequent and detailed monitoring than annual inventories. More advanced systems such as EverImpact and ICOS Cities potentially provide highly accurate observations but currently require substantial investment, specialised equipment, and technical expertise. Citizen science complements these approaches by increasing public engagement, supporting behaviour change, and generating locally relevant data. For most cities, especially those with limited budgets, it is recommended to rely on conventional GHG inventories while joining city networks that provide guidance, training, and access to suitable planning and monitoring tools. More sophisticated monitoring approaches are better suited to larger, well-resourced cities with greater capacity to influence local emissions. Looking ahead, advances in AI and high-resolution satellite data could significantly improve emissions monitoring and help better link local inventories with national and global climate targets. However, many innovative approaches remain at the pilot stage or are accessible only to a limited number of cities. Given the rapid pace of technological development, city networks are expected to play an increasingly important role in evaluating new tools, sharing knowledge, and supporting cities in implementing effective climate planning.</p>",
+			"link": "https://www.achieveproject.eu/sites/default/files/2026-09/ACHIEVE%20Deliverable_3.4_final.pdf",
+			"pid_type": "url",
+			"citation": null,
+			"publisher": null,
+			"issn": null,
+			"book_rid": null,
+			"book_title": null,
+			"open_access": null,
+			"peer_reviewed": null,
+			"webinar": null,
+			"actors": [
+				"cities"
+			],
+			"principles": [
+				"p1",
+				"p2"
+			],
+			"dimensions": [
+				"data-reporting-transparency",
+				"monitoring-verification"
+			],
+			"regions": [
+				"global",
+				"europe"
+			],
+			"visuals": [],
+			"actor_messages": [
+				{
+					"actor": "cities",
+					"message": "Most cities, especially those with limited budgets, are best served by conventional GHG inventories plus the guidance and tools city networks provide. Advanced monitoring systems suit larger, well-resourced cities."
+				}
+			],
+			"formats": [],
+			"relations": [],
+			"unconfirmed_fields": [
+				"actor_messages",
+				"actors",
+				"dimensions",
+				"principles",
+				"regions",
+				"teaser"
+			],
+			"confirmed": false
+		},
+		{
+			"source_key": "d3.7",
+			"kind": "deliverable",
+			"code": "D3.7",
+			"title": "Interim report on expert survey / outline",
+			"slug": "d3-7",
+			"source_sheet": "Deliverables & Milestones",
+			"sheetRow": 8,
+			"status": "published",
+			"date": "2026-06-01",
+			"work_package": "WP3",
+			"output_type": "Report",
+			"lead_partner": "UEF",
+			"contributors": [],
+			"authors": null,
+			"teaser": "A first look at how international, EU and national governance shapes voluntary climate action, drawing on an expert survey and case studies from Sweden and the Netherlands.",
+			"abstract": "<p>This report presents a first synthesis of research examining voluntary climate action (VCA) governance across international, EU, and national levels, drawing on a framework mapping exercise, two national case studies, a carbon market governance analysis, and an expert survey. First, this mapping reveals a dense but fragmented governance landscape. At the international level, the Paris Agreement, ICVCM, VCMI, ISSB disclosure standards, and SBTi define an increasingly layered architecture for credible voluntary commitment. At the EU level, seven binding instruments including the CSRD, CSDDD, Taxonomy Regulation, and CRCF have significantly raised integrity requirements for corporate climate action. Cross-level coordination remains incomplete, most acutely in the governance of carbon credits. Second, the carbon market governance faces structural gaps in accountability for environmental and social outcomes, unresolved tensions between voluntary certification and compliance frameworks, and underdeveloped procedural safeguards in the Article 6.4 Supervisory Body. Third, the case studies of Fossilfritt Sverige in Sweden and the Nationaal Klimaat Platform in the Netherlands demonstrate that state-initiated intermediaries can effectively convene actors, generate sectoral roadmaps, and translate national climate targets into voluntary action. Effectiveness depends on operational autonomy, long-term mandates, and stable national regulatory conditions, none of which are consistently present. Fourth, the expert survey finds that high-integrity design increases rather than deters participation; that national regulatory instability is the primary constraint on voluntary ambition; and that EU governance provides more enabling conditions than national frameworks. Equity, inclusion, and adaptation remain under-addressed across initiatives. The overarching finding is that voluntary initiatives perform best as part of a hybrid governance model anchored in stable and ambitious regulation.</p>",
+			"link": "https://www.achieveproject.eu/sites/default/files/2026-09/D3.7_Interim%20report%20on%20expert%20survey_final.pdf",
+			"pid_type": "url",
+			"citation": null,
+			"publisher": null,
+			"issn": null,
+			"book_rid": null,
+			"book_title": null,
+			"open_access": null,
+			"peer_reviewed": null,
+			"webinar": null,
+			"actors": [
+				"regulators",
+				"ccis",
+				"cities",
+				"carbon-markets",
+				"business"
+			],
+			"principles": [
+				"p1",
+				"p2"
+			],
+			"dimensions": [
+				"policy-governance",
+				"compliance-enforcement",
+				"standard-setting"
+			],
+			"regions": [
+				"europe",
+				"global"
+			],
+			"visuals": [],
+			"actor_messages": [
+				{
+					"actor": "regulators",
+					"message": "Experts see national regulatory instability as the main brake on voluntary ambition; voluntary action works best within stable, ambitious regulation."
+				},
+				{
+					"actor": "business",
+					"message": "Seven binding EU instruments, including the CSRD, CSDDD and the Taxonomy Regulation, have significantly raised integrity requirements for corporate climate action."
+				},
+				{
+					"actor": "carbon-markets",
+					"message": "Coordination across governance levels is weakest for carbon credits, with gaps in accountability for environmental and social outcomes and in Article 6.4 safeguards."
+				},
+				{
+					"actor": "ccis",
+					"message": "High-integrity design attracts participants rather than deterring them, but equity, inclusion and adaptation remain under-addressed."
+				}
+			],
+			"formats": [],
+			"relations": [],
+			"unconfirmed_fields": [
+				"actor_messages",
+				"actors",
+				"dimensions",
+				"principles",
+				"regions",
+				"teaser"
+			],
+			"confirmed": false
+		},
+		{
+			"source_key": "d2.5",
+			"kind": "deliverable",
+			"code": "D2.5",
+			"title": "Assessment of VCI impacts",
+			"slug": "d2-5",
+			"source_sheet": "Deliverables & Milestones",
+			"sheetRow": 9,
+			"status": "upcoming",
+			"date": "2026-12-01",
+			"work_package": "WP2",
+			"output_type": "Report",
+			"lead_partner": "PBL",
+			"contributors": [],
+			"authors": null,
+			"teaser": "Coming December 2026: what voluntary initiatives could mean for emissions at EU and global level, assessed with integrated assessment models.",
+			"abstract": null,
+			"link": null,
+			"pid_type": null,
+			"citation": null,
+			"publisher": null,
+			"issn": null,
+			"book_rid": null,
+			"book_title": null,
+			"open_access": null,
+			"peer_reviewed": null,
+			"webinar": null,
+			"actors": [
+				"ccis"
+			],
+			"principles": [
+				"p4",
+				"p1"
+			],
+			"dimensions": [
+				"sector-wide-change",
+				"innovation-systemic-change",
+				"monitoring-verification"
+			],
+			"regions": [
+				"europe",
+				"global"
+			],
+			"visuals": [],
+			"actor_messages": [],
+			"formats": [],
+			"relations": [],
+			"unconfirmed_fields": [
+				"actors",
+				"dimensions",
+				"principles",
+				"regions",
+				"teaser"
+			],
+			"confirmed": false
+		},
+		{
+			"source_key": "d3.6",
+			"kind": "deliverable",
+			"code": "D3.6",
+			"title": "Good practice recommendations for private sector VCIs",
+			"slug": "d3-6",
+			"source_sheet": "Deliverables & Milestones",
+			"sheetRow": 10,
+			"status": "upcoming",
+			"date": "2026-12-01",
+			"work_package": "WP3",
+			"output_type": "Report",
+			"lead_partner": "NCI",
+			"contributors": [],
+			"authors": null,
+			"teaser": "Coming December 2026: good-practice recommendations for private-sector initiatives, covering loopholes, conflicts of interest, alternatives to offsetting, and monitoring.",
+			"abstract": null,
+			"link": null,
+			"pid_type": null,
+			"citation": null,
+			"publisher": null,
+			"issn": null,
+			"book_rid": null,
+			"book_title": null,
+			"open_access": null,
+			"peer_reviewed": null,
+			"webinar": null,
+			"actors": [
+				"ccis",
+				"business"
+			],
+			"principles": [
+				"p1",
+				"p4"
+			],
+			"dimensions": [
+				"standard-setting",
+				"compliance-enforcement",
+				"target-coherence"
+			],
+			"regions": [
+				"global"
+			],
+			"visuals": [],
+			"actor_messages": [],
+			"formats": [],
+			"relations": [],
+			"unconfirmed_fields": [
+				"actors",
+				"dimensions",
+				"principles",
+				"regions",
+				"teaser"
+			],
+			"confirmed": false
+		},
+		{
+			"source_key": "ms9",
+			"kind": "milestone",
+			"code": "MS9",
+			"title": "Visualise results of transition pathways analysis",
+			"slug": "ms9",
+			"source_sheet": "Deliverables & Milestones",
+			"sheetRow": 11,
+			"status": "upcoming",
+			"date": "2027-04-01",
+			"work_package": "WP5",
+			"output_type": "Website",
+			"lead_partner": "HOL",
+			"contributors": [],
+			"authors": null,
+			"teaser": "Coming April 2027: interactive results of ACHIEVE's transition pathways analysis, hosted on the I2AM PARIS platform.",
+			"abstract": null,
+			"link": null,
+			"pid_type": null,
+			"citation": null,
+			"publisher": null,
+			"issn": null,
+			"book_rid": null,
+			"book_title": null,
+			"open_access": null,
+			"peer_reviewed": null,
+			"webinar": null,
+			"actors": [
+				"business",
+				"cities",
+				"regulators",
+				"ccis"
+			],
+			"principles": [
+				"p4"
+			],
+			"dimensions": [
+				"ambitious-policies",
+				"dealing-with-trade-offs",
+				"sector-wide-change"
+			],
+			"regions": [
+				"global"
+			],
+			"visuals": [],
+			"actor_messages": [],
+			"formats": [],
+			"relations": [],
+			"unconfirmed_fields": [
+				"actors",
+				"dimensions",
+				"principles",
+				"regions",
+				"teaser"
+			],
+			"confirmed": false
+		},
+		{
+			"source_key": "d3.5",
+			"kind": "deliverable",
+			"code": "D3.5",
+			"title": "Strengthening initiatives by subnational authorities",
+			"slug": "d3-5",
+			"source_sheet": "Deliverables & Milestones",
+			"sheetRow": 12,
+			"status": "upcoming",
+			"date": "2027-06-01",
+			"work_package": "WP3",
+			"output_type": "Report",
+			"lead_partner": "OEKO",
+			"contributors": [],
+			"authors": null,
+			"teaser": "Coming June 2027: practical guidance for subnational authorities on closing the funding gap and designing initiatives that encourage participation.",
+			"abstract": null,
+			"link": null,
+			"pid_type": null,
+			"citation": null,
+			"publisher": null,
+			"issn": null,
+			"book_rid": null,
+			"book_title": null,
+			"open_access": null,
+			"peer_reviewed": null,
+			"webinar": null,
+			"actors": [
+				"cities",
+				"regulators"
+			],
+			"principles": [
+				"p1",
+				"p4",
+				"p2"
+			],
+			"dimensions": [
+				"policy-governance",
+				"support-capacity",
+				"ambitious-policies"
+			],
+			"regions": [
+				"europe"
+			],
+			"visuals": [],
+			"actor_messages": [],
+			"formats": [],
+			"relations": [],
+			"unconfirmed_fields": [
+				"actors",
+				"dimensions",
+				"principles",
+				"regions",
+				"teaser"
+			],
+			"confirmed": false
+		},
+		{
+			"source_key": "d3.8",
+			"kind": "deliverable",
+			"code": "D3.8",
+			"title": "Interactions with political commitments and governance frameworks",
+			"slug": "d3-8",
+			"source_sheet": "Deliverables & Milestones",
+			"sheetRow": 13,
+			"status": "upcoming",
+			"date": "2027-06-01",
+			"work_package": "WP3",
+			"output_type": "Report",
+			"lead_partner": "UEF",
+			"contributors": [],
+			"authors": null,
+			"teaser": "Coming June 2027: how voluntary climate action fits with national, EU and international commitments and governance frameworks.",
+			"abstract": null,
+			"link": null,
+			"pid_type": null,
+			"citation": null,
+			"publisher": null,
+			"issn": null,
+			"book_rid": null,
+			"book_title": null,
+			"open_access": null,
+			"peer_reviewed": null,
+			"webinar": null,
+			"actors": [
+				"regulators",
+				"ccis",
+				"cities"
+			],
+			"principles": [
+				"p1"
+			],
+			"dimensions": [
+				"policy-governance",
+				"target-coherence"
+			],
+			"regions": [
+				"europe",
+				"global"
+			],
+			"visuals": [],
+			"actor_messages": [],
+			"formats": [],
+			"relations": [],
+			"unconfirmed_fields": [
+				"actors",
+				"dimensions",
+				"principles",
+				"regions",
+				"teaser"
+			],
+			"confirmed": false
+		},
+		{
+			"source_key": "d3.2",
+			"kind": "deliverable",
+			"code": "D3.2",
+			"title": "Strengthening integrity of carbon credits",
+			"slug": "d3-2",
+			"source_sheet": "Deliverables & Milestones",
+			"sheetRow": 14,
+			"status": "upcoming",
+			"date": "2027-07-01",
+			"work_package": "WP3",
+			"output_type": "Report",
+			"lead_partner": "OEKO",
+			"contributors": [],
+			"authors": null,
+			"teaser": "Coming July 2027: guidance on new models for using carbon credits, and recommendations for improving their quality.",
+			"abstract": null,
+			"link": null,
+			"pid_type": null,
+			"citation": null,
+			"publisher": null,
+			"issn": null,
+			"book_rid": null,
+			"book_title": null,
+			"open_access": null,
+			"peer_reviewed": null,
+			"webinar": null,
+			"actors": [
+				"carbon-markets",
+				"regulators",
+				"business"
+			],
+			"principles": [
+				"p1",
+				"p3"
+			],
+			"dimensions": [
+				"standard-setting",
+				"monitoring-verification",
+				"systemic-environmental-integrity"
+			],
+			"regions": [
+				"global"
+			],
+			"visuals": [],
+			"actor_messages": [],
+			"formats": [],
+			"relations": [],
+			"unconfirmed_fields": [
+				"actors",
+				"dimensions",
+				"principles",
+				"regions",
+				"teaser"
+			],
+			"confirmed": false
+		},
+		{
+			"source_key": "d4.4",
+			"kind": "deliverable",
+			"code": "D4.4",
+			"title": "Transition pathways for actor groups",
+			"slug": "d4-4",
+			"source_sheet": "Deliverables & Milestones",
+			"sheetRow": 15,
+			"status": "upcoming",
+			"date": "2027-08-01",
+			"work_package": "WP4",
+			"output_type": "Report",
+			"lead_partner": "PBL",
+			"contributors": [],
+			"authors": null,
+			"teaser": "Coming August 2027: what scaling up voluntary initiatives and individual climate action could mean for net-zero goals.",
+			"abstract": null,
+			"link": null,
+			"pid_type": null,
+			"citation": null,
+			"publisher": null,
+			"issn": null,
+			"book_rid": null,
+			"book_title": null,
+			"open_access": null,
+			"peer_reviewed": null,
+			"webinar": null,
+			"actors": [
+				"business",
+				"cities",
+				"regulators",
+				"carbon-markets",
+				"ccis"
+			],
+			"principles": [
+				"p4"
+			],
+			"dimensions": [
+				"ambitious-policies",
+				"dealing-with-trade-offs",
+				"sector-wide-change",
+				"innovation-systemic-change"
+			],
+			"regions": [
+				"global"
+			],
+			"visuals": [],
+			"actor_messages": [],
+			"formats": [],
+			"relations": [],
+			"unconfirmed_fields": [
+				"actors",
+				"dimensions",
+				"principles",
+				"regions",
+				"teaser"
+			],
+			"confirmed": false
+		},
+		{
+			"source_key": "d4.6",
+			"kind": "deliverable",
+			"code": "D4.6",
+			"title": "Roadmap",
+			"slug": "d4-6",
+			"source_sheet": "Deliverables & Milestones",
+			"sheetRow": 16,
+			"status": "upcoming",
+			"date": "2027-10-01",
+			"work_package": "WP4",
+			"output_type": "Report",
+			"lead_partner": "RU",
+			"contributors": [],
+			"authors": null,
+			"teaser": "Coming October 2027: ACHIEVE's roadmaps for higher-integrity voluntary climate action, one for each actor group.",
+			"abstract": null,
+			"link": null,
+			"pid_type": null,
+			"citation": null,
+			"publisher": null,
+			"issn": null,
+			"book_rid": null,
+			"book_title": null,
+			"open_access": null,
+			"peer_reviewed": null,
+			"webinar": null,
+			"actors": [
+				"business",
+				"cities",
+				"regulators",
+				"carbon-markets",
+				"ccis"
+			],
+			"principles": [
+				"p1",
+				"p2",
+				"p3",
+				"p4"
+			],
+			"dimensions": [
+				"target-coherence",
+				"policy-governance",
+				"data-reporting-transparency",
+				"monitoring-verification",
+				"compliance-enforcement",
+				"equity-inclusion",
+				"support-capacity",
+				"inclusive-decision-making",
+				"just-transition",
+				"differentiated-responsibilities",
+				"ecosystem-protection-restoration",
+				"biodiversity-conservation",
+				"systemic-environmental-integrity",
+				"integrated-practices",
+				"sustainable-resource-use",
+				"ambitious-policies",
+				"dealing-with-trade-offs",
+				"standard-setting",
+				"sector-wide-change",
+				"innovation-systemic-change"
+			],
+			"regions": [
+				"global",
+				"europe",
+				"latin-america"
+			],
+			"visuals": [],
+			"actor_messages": [],
+			"formats": [],
+			"relations": [],
+			"unconfirmed_fields": [
+				"actors",
+				"dimensions",
+				"principles",
+				"regions",
+				"teaser"
+			],
+			"confirmed": false
+		},
+		{
+			"source_key": "oxford-climate-policy-monitor-2024-annual-review",
+			"kind": "publication",
+			"code": null,
+			"title": "Oxford Climate Policy Monitor 2024 Annual Review",
+			"slug": "oxford-climate-policy-monitor-2024-annual",
+			"source_sheet": "Other publications",
+			"sheetRow": 2,
+			"status": "published",
+			"date": "2024-02-01",
+			"work_package": null,
+			"output_type": "Report",
+			"lead_partner": "UOXF",
+			"contributors": [],
+			"authors": "E. Lecavalier, B. Gupta, L. Dias, S. Lukin, R. Chaston, C. Lomax, T. Hale, T. Wetzer",
+			"teaser": "A survey of 250+ climate rules in 30 jurisdictions: mandatory rules are spreading fast, but only about 15% of mandatory policy tools align with net zero.",
+			"abstract": "<p>Creating ambitious, effective, and comprehensive rules for a net zero-aligned economy is an unprecedented, whole-of-government challenge. Policy and regulatory responses are multi-level, multi-domain, multi-jurisdiction, and highly technical. The Oxford Climate Policy Monitor is a new data resource launched in 2024 with the intent of supporting governments, the private sector, civil society, and researchers to better climate policy. Through pro bono research partnerships with leading law firms worldwide, the Monitor maps and evaluates climate regulation, law, and policy to reveal how government rules are aligning—or not—with global climate goals. The Annual Review provides insight into the rich and granular data emerging from the 2024 Oxford Climate Policy Monitor. The 2024 survey assessed over 250 rules in 30 jurisdictions across three domains: climate-related disclosure, transition planning, and public procurement. Several key findings emerge from the data. The uptake of climate-related policies has significantly accelerated in recent years, particularly since 2020, and this trend applies across all domains. Mandatory rulemaking is also on the rise, with 21 out of the 30 tracked jurisdictions featuring new rules since 2023. Widespread adoption of mandatory rules suggests that even if regulatory requirements fluctuate in certain jurisdictions, companies remain likely to face increasing global compliance obligations. Climate-related disclosure is an active area of rulemaking. Thirty disclosure rules have come online across 21 jurisdictions since 2023. However, an analysis of the duties imposed, and the entities targeted through these rules highlights an unevenness in the application of disclosure rules. Only 17 jurisdictions require the disclosure of Scope 3 emissions. Moreover, while climate- related disclosure rules commonly apply to publicly-listed companies, private companies and financial institutions are less-frequently targeted. This is particularly the case when it comes to rules requiring climate risk disclosure. Only 16 jurisdictions require financial institutions to disclose physical risk. Even fewer—14 out of 30 jurisdictions—require financial institutions to disclose transition risk. Only 10 jurisdictions require climate risk disclosure from private companies. A lack of mandatory rulemaking around these two issues—Scope 3 emissions and climate-related risks- - underscores a key shortcoming in climate-related disclosure rules and potentially undermines the efficacy of disclosure rules in enhancing transparency. Transition planning rules are varied. The data illustrate dual functions served by transition planning rules—as coordination tools in the context of national or sectoral transition planning and as galvanizing tools in the context of corporate transition planning. Sectoral transition planning rules (19/30 jurisdictions) are less common than national transition planning rules (27/30 jurisdictions) and corporate transition planning rules (25/30 jurisdictions). Transition planning rules also contain many different social and environmental goals, including adaptation goals (17/30 jurisdictions), nature and biodiversity goals (11/30 jurisdictions), and just transition goals (13/30 jurisdictions). Accountability is a key challenge in transition planning, however, particularly when it comes to holding public actors accountable to national and sectoral transition plans. Public procurement rules exist across almost all jurisdictions, indicating interest among governments in leveraging their spending to meet climate and environmental objectives. However, national procurement rules largely focus on the planning stage of procurement, with mandatory rules related to planning in 20 out of 30 jurisdictions. The challenge remains designing rules which mainstream climate objectives into government spending. One notable trend is the emergence of mandatory rules in 2 jurisdictions leveraging disclosure and transition planning to regulate government suppliers. This represents a departure from more established approaches using ecolabels, standards, certifications and other criteria to distinguish “green” products (16/30 jurisdictions). Despite increasing numbers of climate-related rules, the quality of rules varies widely, with few rules meeting all of the Oxford Climate Policy Monitor’s criteria for ambition, stringency, and comprehensiveness. The Oxford Climate Policy Monitor not only identified the presence or absence of climate rules—it also analyses them against the Monitor’s Evaluation Framework (see Figure 1) to understand their level of ambition, stringency, and comprehensiveness. Across all domains, only about 15% of mandatory policy tools are aligned with net zero goals. Likewise, only 15% of mandatory policy tools regulate the use and/or quality of offsets and removals in some way. The regulation of Scope 3 emissions is similarly rare across the policies tracked, though notably 80% of mandatory rules regulating Scope 3 emissions have or will come online from 2021 onwards. Only three jurisdictions in each domain have policy tools meeting all criteria for ambition, stringency, and comprehensiveness in the Evaluation Framework. This suggests that while individual policy tools may feature positive elements such as rules to enhance data transparency or clear regulations on the use of offsets, few policy tools are demonstrating ambition, stringency, and comprehensiveness all in one. It is essential, therefore, that the mix of policies across a domain is sufficiently attuned to these shortcomings, ensuring that deficiencies in one policy are compensated for by strengths in another.</p>",
+			"link": "https://ca1-cpm.edcdn.com/downloads/Annual-CPM-Report-2024.pdf?v=1740063705",
+			"pid_type": "url",
+			"citation": "Emma Lecavalier, Bhavya Gupta, Lucilla Dias, Shirley Lukin, Rosalind Chaston, Christopher Lomax, Thomas Hale, Thom Wetzer. 2024 Oxford Climate Policy Monitor Annual Review. Oxford Climate Policy Hub, University of Oxford. February 2025.",
+			"publisher": "University of Oxford",
+			"issn": null,
+			"book_rid": null,
+			"book_title": null,
+			"open_access": true,
+			"peer_reviewed": false,
+			"webinar": null,
+			"actors": [
+				"regulators",
+				"business"
+			],
+			"principles": [
+				"p1",
+				"p4"
+			],
+			"dimensions": [
+				"policy-governance",
+				"data-reporting-transparency",
+				"compliance-enforcement",
+				"ambitious-policies",
+				"standard-setting"
+			],
+			"regions": [
+				"global"
+			],
+			"visuals": [],
+			"actor_messages": [
+				{
+					"actor": "regulators",
+					"message": "Mandatory climate rules are spreading (21 of 30 jurisdictions added new ones since 2023), but only about 15% of mandatory tools align with net zero and few regulate Scope 3 emissions or offsets."
+				},
+				{
+					"actor": "business",
+					"message": "Companies face growing compliance duties worldwide, yet Scope 3 disclosure is required in only 17 of 30 jurisdictions and climate-risk disclosure by private companies in only 10."
+				}
+			],
+			"formats": [],
+			"relations": [],
+			"unconfirmed_fields": [
+				"actor_messages",
+				"dimensions",
+				"principles",
+				"regions",
+				"teaser"
+			],
+			"confirmed": false
+		},
+		{
+			"source_key": "supporting-the-paris-agreement-through-international-cooperation-potential-contributions-institutional-robustness-and-progress-of-glasgow-climate-initiatives",
+			"kind": "publication",
+			"code": null,
+			"title": "Supporting the Paris Agreement through international cooperation: potential contributions, institutional robustness, and progress of Glasgow climate initiatives",
+			"slug": "supporting-the-paris-agreement",
+			"source_sheet": "Other publications",
+			"sheetRow": 3,
+			"status": "published",
+			"date": "2024-04-01",
+			"work_package": null,
+			"output_type": "Journal article",
+			"lead_partner": "NCI",
+			"contributors": [
+				"RU"
+			],
+			"authors": "Kuramochi, T., Deneault, A., Chan, S. et al.",
+			"teaser": "Would the 14 sector initiatives launched at COP26 close the 1.5 °C gap? Even fully implemented, current signatories would fill only about a quarter of the 2030 gap.",
+			"abstract": "<p>Many sector-level cooperative initiatives involving both national governments and non-state actors were launched around the 2021 Glasgow climate conference (COP26). However, there have been questions about whether and to what extent these initiatives could substantially contribute to achieving the Paris Agreement’s goal to limit global warming to 1.5 °C. To this end, this paper examines the prospects of the 14 Glasgow sector initiatives by investigating their aggregate mitigation ambition under current national signatories and the institutional robustness of each initiative. We find that the additional emission reduction ambition of the current national government signatories would, even if fully implemented, only fill about a quarter of the emissions gap in 2030 between the aggregate of existing national targets (nationally determined contributions: NDCs) and the required emission levels consistent with keeping warming below 1.5 °C, while the institutional robustness varied considerably across the initiatives. We also find that most national government signatories did not mention Glasgow initiatives in their updated NDCs submitted after COP26. Expansion of the national government participation, national government signatories’ incorporation of the initiatives’ goals into their updated NDCs by setting quantifiable domestic targets, and enhanced institutional capacity are key to successful emission reduction outcomes.</p>",
+			"link": "https://doi.org/10.1038/s44168-024-00106-4",
+			"pid_type": "doi",
+			"citation": "Kuramochi, T., Deneault, A., Chan, S. et al. Supporting the Paris Agreement through international cooperation: potential contributions, institutional robustness, and progress of Glasgow climate initiatives. npj Clim. Action 3, 31 (2024). https://doi.org/10.1038/s44168-024-00106-4",
+			"publisher": "npj Clim. Action (Nature Portfolio)",
+			"issn": "2731-9814",
+			"book_rid": null,
+			"book_title": null,
+			"open_access": true,
+			"peer_reviewed": true,
+			"webinar": null,
+			"actors": [
+				"ccis",
+				"regulators"
+			],
+			"principles": [
+				"p1",
+				"p4"
+			],
+			"dimensions": [
+				"target-coherence",
+				"policy-governance",
+				"monitoring-verification",
+				"sector-wide-change"
+			],
+			"regions": [
+				"global"
+			],
+			"visuals": [],
+			"actor_messages": [
+				{
+					"actor": "ccis",
+					"message": "Institutional robustness varies widely across the 14 Glasgow initiatives; stronger institutional capacity is key to delivering emission reductions."
+				},
+				{
+					"actor": "regulators",
+					"message": "Most signatory governments did not mention the initiatives in their updated NDCs; quantifiable domestic targets reflecting initiative goals would turn pledges into outcomes."
+				}
+			],
+			"formats": [],
+			"relations": [],
+			"unconfirmed_fields": [
+				"actor_messages",
+				"dimensions",
+				"principles",
+				"regions",
+				"teaser"
+			],
+			"confirmed": false
+		},
+		{
+			"source_key": "net-zero-or-zero-sense-three-reasons-to-rethink-financial-institutions-voluntary-targets",
+			"kind": "publication",
+			"code": null,
+			"title": "Net zero or zero sense: three reasons to rethink financial institution's voluntary targets",
+			"slug": "net-zero-or-zero-sense",
+			"source_sheet": "Other publications",
+			"sheetRow": 4,
+			"status": "published",
+			"date": "2024-06-01",
+			"work_package": null,
+			"output_type": "Blog",
+			"lead_partner": "NCI",
+			"contributors": [],
+			"authors": "Marquardt, M., Straub, S., Salsabila, N.",
+			"teaser": "Why financial institutions in net-zero alliances still fund fossil fuels: three limits of voluntary net-zero targets in the finance sector.",
+			"abstract": "<p>Asset managers, asset owners and other financial institutions manage much of the capital required to transition to low-carbon economies globally, but can we rely on them as financiers of change? Evidence from Reclaim Finance, Urgewald, and Greenpeace shows that even financial institutions committed to net-zero initiatives under the Glasgow Financial Alliance for Net Zero (GFANZ) continue to invest billions of dollars in fossil fuels through both stocks and bonds, not to mention providing other services like underwriting and insurance.</p>\n<p>Why do financial institutions continue to back fossil fuel expansion, which is clearly not in line with the Paris Agreement nor with many financial institutions’ own net-zero targets?</p>\n<p>This blog reveals three critical limitations in the voluntary approach of financial institutions’ net-zero targets: the low integrity of existing targets, their limited ability to directly control investee emissions, and a finance-first mandate that hinders voluntary climate action. We call for a reassessment of strategies that can effectively drive investments towards real-world decarbonisation.</p>",
+			"link": "https://newclimate.org/news/net-zero-or-zero-sense-three-reasons-to-rethink-financial-institutions-voluntary-targets",
+			"pid_type": "url",
+			"citation": null,
+			"publisher": "NewClimate Institute",
+			"issn": null,
+			"book_rid": null,
+			"book_title": null,
+			"open_access": true,
+			"peer_reviewed": false,
+			"webinar": null,
+			"actors": [
+				"ccis",
+				"business",
+				"finance"
+			],
+			"principles": [
+				"p1",
+				"p4"
+			],
+			"dimensions": [
+				"target-coherence",
+				"compliance-enforcement",
+				"sector-wide-change"
+			],
+			"regions": [
+				"global"
+			],
+			"visuals": [],
+			"actor_messages": [
+				{
+					"actor": "ccis",
+					"message": "Membership of net-zero alliances such as GFANZ has not stopped members investing billions in fossil fuels."
+				},
+				{
+					"actor": "business",
+					"message": "Financial institutions' net-zero targets suffer from low integrity, limited control over investee emissions and a finance-first mandate; strategies need rethinking to drive real-world decarbonisation."
+				}
+			],
+			"formats": [],
+			"relations": [],
+			"unconfirmed_fields": [
+				"actor_messages",
+				"actors",
+				"dimensions",
+				"principles",
+				"regions",
+				"teaser"
+			],
+			"confirmed": false
+		},
+		{
+			"source_key": "application-of-the-ccqi-methodology-for-assessing-the-quality-of-carbon-credits",
+			"kind": "publication",
+			"code": null,
+			"title": "Application of the CCQI methodology for assessing the quality of carbon credits",
+			"slug": "application-of-the-ccqi-methodology",
+			"source_sheet": "Other publications",
+			"sheetRow": 5,
+			"status": "published",
+			"date": "2024-07-01",
+			"work_package": null,
+			"output_type": "Detailed assessment and factsheet",
+			"lead_partner": "OEKO",
+			"contributors": [],
+			"authors": "Schneider, L.",
+			"teaser": "VM0048, Verra's new avoided-deforestation methodology, scores 1 of 5 on the CCQI scale: emission reductions are likely overestimated by more than 30%.",
+			"abstract": "<p>This document presents results from the application of version 3.0 of a methodology, developed by Oeko-Institut, World Wildlife Fund (WWF-US) and Environmental Defense Fund (EDF), for assessing the quality of carbon credits. The methodology is applied by Oeko-Institut with support by Carbon Limits, Greenhouse Gas Management Institute (GHGMI), INFRAS, Stockholm Environment Institute, and individual carbon market experts. This document evaluates one specific criterion or sub-criterion with respect to a specific carbon crediting program, project type, quantification methodology and/or host country, as specified in the below table. Please note that the CCQI website Site terms and Privacy Policy apply with respect to any use of the information provided in this document. Further information on the project and the methodology can be found here: www.carboncreditquality.org. The preparation of this document was funded through the European Union’s HORIZON EUROPE Research and Innovation Programme under grant agreement number 101137625 (ACHIEVE).</p>",
+			"link": "https://carboncreditquality.org/download/Assessments/1.3.2%20VM0048%20%2802%20July%202024%29.pdf",
+			"pid_type": "url",
+			"citation": "Schneider, L. (2024) Application of the CCQI methodology for assessing the quality of carbon credits- Assessment of a new VCS methodology for avoided deforestation (VM00048)",
+			"publisher": "Carbon Credit Quality Initiative (CCQI)",
+			"issn": null,
+			"book_rid": null,
+			"book_title": null,
+			"open_access": true,
+			"peer_reviewed": false,
+			"webinar": null,
+			"actors": [
+				"carbon-markets"
+			],
+			"principles": [
+				"p3",
+				"p1"
+			],
+			"dimensions": [
+				"systemic-environmental-integrity",
+				"ecosystem-protection-restoration",
+				"monitoring-verification",
+				"standard-setting"
+			],
+			"regions": [
+				"global"
+			],
+			"visuals": [
+				"D2.2_infographic3.pdf"
+			],
+			"actor_messages": [
+				{
+					"actor": "carbon-markets",
+					"message": "VM0048 replaces four older methodologies with integrity concerns, yet still scores 1 of 5; the assessment is preliminary, as no project had used it by April 2024."
+				}
+			],
+			"formats": [],
+			"relations": [],
+			"unconfirmed_fields": [
+				"actor_messages",
+				"alt_text",
+				"dimensions",
+				"principles",
+				"regions",
+				"teaser",
+				"visuals"
+			],
+			"confirmed": false
+		},
+		{
+			"source_key": "achieving-high-integrity-cooperative-climate-initiatives",
+			"kind": "publication",
+			"code": null,
+			"title": "Achieving High Integrity Cooperative Climate Initiatives",
+			"slug": "achieving-high-integrity-cooperative-climate",
+			"source_sheet": "Other publications",
+			"sheetRow": 6,
+			"status": "published",
+			"date": "2024-11-01",
+			"work_package": null,
+			"output_type": "Policy Brief",
+			"lead_partner": "RU",
+			"contributors": [],
+			"authors": "Kiri van den Wall Bake, Sebastian Reyes de la Lanza, Birka Wicke, Kaustubh Thapa, Sander Chan",
+			"teaser": "An assessment of 267 initiatives recognised at the last three COPs finds weak implementation, accountability gaps and benefits concentrated in the Global North.",
+			"abstract": "<p>Cooperative Climate Initiatives (CCIs) play a critical role in achieving the Paris climate goals, and their numbers have steadily increased in recent years. However, significant integrity concerns remain. Our assessment of 267 CCIs launched at the past three COPs and recognized by the UNFCCC highlights three main issues. First, while CCIs make numerous commitments, implementation often falls short. Second, accountability and transparency gaps persist, with many initiatives lacking monitoring frameworks and sufficient transparency for accountability. Third, CCIs primarily benefit Global North countries, underscoring the need to engage local stakeholders and create tangible benefits in underrepresented regions such as the Central and West Asia region (including Azerbaijan) and developing nations. In response, this policy brief offers recommendations, particularly for the COP 29 and 30 presidencies, but also climate action orchestrators, and CCIs to promote higher integrity:</p>\n<p>Stakeholders and orchestrators, including UN-affiliated campaigns, should enhance transparency, accountability, and inclusiveness in CCIs. The COP presidency should encourage greater participation from local businesses, investors, and cities, particularly in the Central and West Asia region (including Azerbaijan), also beyond COP29. CCIs should address broader environmental and social issues, including biodiversity loss, desertification, and environmental justice</p>",
+			"link": "https://www.achieveproject.eu/publications/policy-briefs",
+			"pid_type": "url",
+			"citation": "Van den Wall Bake, K., Reyes de la Lanza, S., Wicke, B., Thapa, K., & Chan, S. (2024). Achieving High Integrity Cooperative Climate Initiatives. ACHIEVE project. https://doi.org/10.5281/zenodo.14191297",
+			"publisher": "ACHIEVE project",
+			"issn": null,
+			"book_rid": null,
+			"book_title": null,
+			"open_access": true,
+			"peer_reviewed": false,
+			"webinar": null,
+			"actors": [
+				"ccis",
+				"regulators"
+			],
+			"principles": [
+				"p1",
+				"p2",
+				"p3"
+			],
+			"dimensions": [
+				"monitoring-verification",
+				"data-reporting-transparency",
+				"equity-inclusion",
+				"inclusive-decision-making",
+				"biodiversity-conservation"
+			],
+			"regions": [
+				"global"
+			],
+			"visuals": [],
+			"actor_messages": [
+				{
+					"actor": "ccis",
+					"message": "Many initiatives lack monitoring frameworks and transparency; they should also address biodiversity loss, desertification and environmental justice."
+				},
+				{
+					"actor": "regulators",
+					"message": "COP presidencies and orchestrators should require transparency, accountability and inclusiveness, and draw in local businesses, investors and cities from under-represented regions such as Central and West Asia."
+				}
+			],
+			"formats": [],
+			"relations": [],
+			"unconfirmed_fields": [
+				"actor_messages",
+				"dimensions",
+				"principles",
+				"regions",
+				"teaser"
+			],
+			"confirmed": false
+		},
+		{
+			"source_key": "assessing-and-validating-corporate-low-carbon-transition-strategies-a-comparative-analysis-of-approaches-and-methodologies",
+			"kind": "publication",
+			"code": null,
+			"title": "Assessing and validating corporate low-carbon transition strategies: A comparative analysis of approaches and methodologies",
+			"slug": "assessing-and-validating-corporate-low-carbon",
+			"source_sheet": "Other publications",
+			"sheetRow": 7,
+			"status": "published",
+			"date": "2026-03-24",
+			"work_package": null,
+			"output_type": "Journal article",
+			"lead_partner": "NCI",
+			"contributors": [],
+			"authors": "Straub, Saskia; Hans, Frederic; Day, Thomas; Kuramochi, Takeshi",
+			"teaser": "Ten assessments of corporate transition plans compared, including SBTi and TPI: none gives up-to-date, contextualised coverage of every component for 1,000+ companies.",
+			"abstract": "<p>Independent assessments and validations of corporate low-carbon transition strategies offer valuable insights for investors, policymakers and other stakeholders. However, there is a limited understanding of how individual methodologies cover key policy-relevant transition components underlying their assessment outputs and methodological differences. This lack of clarity may hinder the integration of established methods into policies aimed at advancing corporate climate accountability as well as progress within the assessment field. To address this gap, this article analyses the methodological design choices of ten corporate low-carbon transition strategy assessments with publicly available methodologies and results. These include the Science BasedTtargets initiative and the Transition Pathways Initiative. We develop a two-part framework to compare the assessment setup and the coverage of key transition strategy components and illustrate the differences, using the assessment outcomes for a major global company. Our findings help policymakers navigate the heterogeneity in key methodological parameters, notably in component coverage, the assessment approach per strategy component and weighting. We show that no single assessment initiative provides fully up-to-date, contextualized evaluations of all transition strategy components for more than 1000 companies, noting this as a key limitation. However, composite assessments, which integrate multiple assessments as sources, are emerging to address gaps in criteria coverage while maintaining contextualized assessment for each criterion. We propose a centralized repository to track and compare assessment methodologies, supporting an understanding of methodological variances and synergies between initiatives. Finally, this article provides the foundation for further research on sector-specific methodological differences and on aligning assessment methodologies with emerging global standards.</p>",
+			"link": "https://doi.org/10.21203/rs.3.rs-6401862/v1",
+			"pid_type": "doi",
+			"citation": null,
+			"publisher": "Research Square",
+			"issn": null,
+			"book_rid": null,
+			"book_title": null,
+			"open_access": true,
+			"peer_reviewed": false,
+			"webinar": null,
+			"actors": [
+				"business",
+				"regulators"
+			],
+			"principles": [
+				"p1",
+				"p4"
+			],
+			"dimensions": [
+				"standard-setting",
+				"target-coherence",
+				"data-reporting-transparency",
+				"sector-wide-change"
+			],
+			"regions": [
+				"global"
+			],
+			"visuals": [],
+			"actor_messages": [
+				{
+					"actor": "business",
+					"message": "Assessment providers differ in which transition components they cover, how they assess each one and how they weight them, so results for the same company can differ."
+				},
+				{
+					"actor": "regulators",
+					"message": "Composite assessments are emerging to fill coverage gaps; a central repository of methodologies would help policymakers build them into corporate accountability rules."
+				}
+			],
+			"formats": [],
+			"relations": [],
+			"unconfirmed_fields": [
+				"actor_messages",
+				"dimensions",
+				"principles",
+				"regions",
+				"teaser"
+			],
+			"confirmed": false
+		},
+		{
+			"source_key": "carbon-offsetting-in-city-climate-action-role-determinants-and-characteristics",
+			"kind": "publication",
+			"code": null,
+			"title": "Carbon offsetting in city climate action: role, determinants and characteristics",
+			"slug": "carbon-offsetting-in-city-climate-action",
+			"source_sheet": "Other publications",
+			"sheetRow": 8,
+			"status": "published",
+			"date": "2025-05-01",
+			"work_package": null,
+			"output_type": "Journal article",
+			"lead_partner": "RU",
+			"contributors": [],
+			"authors": "Chappell, E. N., Hendriks, C., Hoeks, S., Huijbregts, M. A. J., Hanssen, S. V., & Wicke, B.",
+			"teaser": "Of 363 large cities with numeric emission targets, 86 plan to use offsets; larger, richer and more ambitious cities are the most likely to.",
+			"abstract": "<p>To contribute to Paris Agreement objectives, non-state actors globally are setting voluntary emission reduction goals. Cities represent an important group with emission reduction plans, but vary in how they intend to meet targets. Some cities incorporate carbon offsetting to manage residual emissions. A lack of research exists on the role of offsetting in city plans, and better understanding this approach can inform city climate policy. This study uses a mixed-method design to explore the frequency, characteristics and role of offsetting in city climate action. We quantify how many cities globally include offsetting in their plan, create a random forest model to explore what characteristics of cities and their targets are associated with offsetting, and conduct a text analysis of city documents to explore how cities that intend to use offsets conceptualize the use. We find 363 cities globally with a population over 500,000 have a numeric GHG reduction target; 86 of these include offsetting in their plan. Larger cities, those with a higher per capita GDP, and those with more ambitious climate targets are more likely to offset. Further, of 44 cities included in our text analysis that intend to use offsetting, 29 discuss prioritizing emissions reductions but recognize that offsets will be needed for residual emissions. Less than half the cities discuss environmental integrity of offsets, and many lack detail on how to ensure integrity. Specifying concrete plans regarding offsetting and communicating these decisions is important for effectiveness and integrity of city climate action plans, knowledge sharing between cities, and planning for future offsetting.</p>",
+			"link": "https://doi.org/10.1080/14693062.2025.2499606",
+			"pid_type": "doi",
+			"citation": "Chappell, E. N., Hendriks, C., Hoeks, S., Huijbregts, M. A. J., Hanssen, S. V., & Wicke, B. (2025). Carbon offsetting in city climate action: role, determinants and characteristics. Climate Policy, 1–16. https://doi.org/10.1080/14693062.2025.2499606",
+			"publisher": "Climate policy (Taylor & Francis)",
+			"issn": "1469-3062",
+			"book_rid": null,
+			"book_title": null,
+			"open_access": true,
+			"peer_reviewed": true,
+			"webinar": null,
+			"actors": [
+				"cities",
+				"carbon-markets"
+			],
+			"principles": [
+				"p1",
+				"p3",
+				"p4"
+			],
+			"dimensions": [
+				"target-coherence",
+				"data-reporting-transparency",
+				"systemic-environmental-integrity"
+			],
+			"regions": [
+				"global"
+			],
+			"visuals": [
+				"D2.2_infographic1.pdf"
+			],
+			"actor_messages": [
+				{
+					"actor": "cities",
+					"message": "Most cities that plan to offset say emission cuts come first, but fewer than half address the environmental integrity of offsets, and many give little detail on it."
+				},
+				{
+					"actor": "carbon-markets",
+					"message": "Cities planning to use offsets rarely say how they will ensure credit quality; concrete, published plans are needed for integrity and knowledge sharing."
+				}
+			],
+			"formats": [],
+			"relations": [],
+			"unconfirmed_fields": [
+				"actor_messages",
+				"alt_text",
+				"dimensions",
+				"principles",
+				"regions",
+				"teaser",
+				"visuals"
+			],
+			"confirmed": false
+		},
+		{
+			"source_key": "oxford-principles-for-responsible-use-of-article-6",
+			"kind": "publication",
+			"code": null,
+			"title": "Oxford Principles for Responsible Use of Article 6",
+			"slug": "oxford-principles-for-responsible-use",
+			"source_sheet": "Other publications",
+			"sheetRow": 9,
+			"status": "published",
+			"date": "2025-06-01",
+			"work_package": null,
+			"output_type": "Report",
+			"lead_partner": "UOXF",
+			"contributors": [
+				"NCI",
+				"OEKO"
+			],
+			"authors": "Johnstone, I., Schneider, L., Michaelowa, A., Grandpré, J., Kuci, S., Ahonen, H., Probst, B.S., Lezak, S., Hale,T., La Hoz Theuer, S., Omukuti, J., Reséndiz, J.L., Fankhauser, S., Abebe, S., and Hepburn, C.",
+			"teaser": "Three principles, with criteria, for using Article 6 carbon trading responsibly, so that it raises ambition instead of greenwashing climate commitments.",
+			"abstract": "<p>Article 6 is the backbone of international carbon trading under the Paris Agreement. If utilised responsibly, Article 6 could be one of the greatest opportunities to drive additional climate mitigation and improve climate resilience. However, evidence so far shows that this potential is at risk, and the framework could instead enable the ‘greenwashing’ of climate commitments by countries and corporate entities alike.</p>\n<p>The new ‘Oxford Principles for Responsible Engagement with Article 6’ – developed by a wide range of researchers and practitioners from Oxford and beyond – provide essential guidance and guardrails to enable this international framework to be used in a responsible manner.</p>\n<p>The current international rules established under Articles 6.2 and 6.4 create a floor rather than a ceiling of integrity, leaving considerable discretion to the user as to how to act responsibly. The goal of the 'Oxford Principles for Article 6' is to foster international carbon markets that drive genuine climate action and provide incentives to enhance ambition as opposed to serving as a smokescreen for inaction.</p>\n<p>The document expands on three core Principles and specific criteria that must be implemented to achieve these principles.</p>\n<p>Principle One: Ensure that the Use of Mitigation Outcomes is Aligned with the Paris Agreement Principle Two: Ensure Mitigation Outcomes have Climate Integrity and Uphold Social and Environmental Safeguards Principle Three: Ensure Robust Accounting and Transparent Engagement with Article The Oxford Principles for Article 6 build on the San José Principles to promote high ambition and integrity in international carbon markets. They do not displace existing rules and guidance on Articles 6.2 and 6.4, but instead bolster these as necessary.</p>",
+			"link": "https://www.smithschool.ox.ac.uk/sites/default/files/2025-06/The_Oxford_Principles_for_Responsible_Engagement_with_Article_6.pdf",
+			"pid_type": "url",
+			"citation": "Johnstone, I., Schneider, L., Michaelowa, A., Grandpré, J., Kuci, S., Ahonen, H., Probst, B.S., Lezak, S., Hale,T., La Hoz Theuer, S., Omukuti, J., Reséndiz, J.L., Fankhauser, S., Abebe, S., and Hepburn, C. Oxford Principles for Responsible Engagement with Article 6 (2025). Oxford: Smith School of Enterprise and the Environment, University of Oxford",
+			"publisher": "University of Oxford",
+			"issn": null,
+			"book_rid": null,
+			"book_title": null,
+			"open_access": true,
+			"peer_reviewed": false,
+			"webinar": null,
+			"actors": [
+				"carbon-markets",
+				"regulators",
+				"business"
+			],
+			"principles": [
+				"p1",
+				"p3",
+				"p2",
+				"p4"
+			],
+			"dimensions": [
+				"target-coherence",
+				"data-reporting-transparency",
+				"systemic-environmental-integrity",
+				"standard-setting",
+				"equity-inclusion"
+			],
+			"regions": [
+				"global"
+			],
+			"visuals": [],
+			"actor_messages": [
+				{
+					"actor": "carbon-markets",
+					"message": "Article 6.2 and 6.4 rules set a floor, not a ceiling, for integrity; mitigation outcomes need climate integrity, social and environmental safeguards and robust accounting."
+				},
+				{
+					"actor": "regulators",
+					"message": "Countries should use Article 6 only in line with the Paris Agreement, with robust accounting and transparent engagement."
+				},
+				{
+					"actor": "business",
+					"message": "Companies using Article 6 outcomes face the same greenwashing risk as countries and should apply the same three principles."
+				}
+			],
+			"formats": [],
+			"relations": [],
+			"unconfirmed_fields": [
+				"actor_messages",
+				"dimensions",
+				"principles",
+				"regions",
+				"teaser"
+			],
+			"confirmed": false
+		},
+		{
+			"source_key": "conditions-for-using-international-carbon-credits-towards-the-eus-2040-climate-target",
+			"kind": "publication",
+			"code": null,
+			"title": "Conditions for Using International Carbon Credits towards the EU’s 2040 Climate Target",
+			"slug": "conditions-for-using-international-carbon-credits",
+			"source_sheet": "Other publications",
+			"sheetRow": 10,
+			"status": "published",
+			"date": "2025-06-30",
+			"work_package": null,
+			"output_type": "Policy Brief",
+			"lead_partner": "OEKO",
+			"contributors": [],
+			"authors": "Schneider, L., Fallasch, F., Siemons, A., Lauer, S., Haase, I.",
+			"teaser": "Eight conditions for using international carbon credits towards the EU's 2040 target, so they add to EU climate action instead of replacing it.",
+			"abstract": "<p>On 2 July 2025, the European Commission is expected to make a proposal for an EU climate target for 2040. The proposal could involve the use of international carbon credits under Article 6 of the Paris Agreement. Based on our extensive research, including the ACHIEVE project, the Oxford Principles for Responsible Engagement with Article 6 and our Carbon Credit Quality Initi- ative, this policy brief outlines the conditions that should be met if any international carbon credits were to be used towards the EU’s 2040 climate target. These proposed conditions aim to ensure that any use of international carbon credits enhances, rather than undermines, EU climate action and that the EU continues to adhere to the principles of the Paris Agreement.</p>\n<p>Key recommendations • Using international carbon credits only to enhance ambition beyond what is achievable domestically, i.e. beyond reducing emissions by 90-95% by 2040 compared to 1990. • Establishing strategic partnerships with partner countries to promote integrity and ambi- tion, including with regard to the ambition of Nationally Determined Contributions (NDCs), Article 6 engagement strategies, sectors and types of mitigation activity, authorisation ar- rangements and reporting. • Implementing a fair sharing of emission reductions or removals between the partner coun- try, the Adaptation Fund, global mitigation and the EU. • Generating carbon credits through the Paris Agreement Crediting Mechanism (PACM) or standards with at least equivalent integrity. • Implementing multi-year accounting approaches in the EU and in its partner countries. • Implementing a ‘like-for-like’ approach for carbon credits subject to reversal risks. • Not counting payments for international carbon credits as climate finance. • Conducting a thorough impact assessment before using any international carbon credits, taking into account climate integrity, lock-in risks, and competitiveness.</p>",
+			"link": "https://www.oeko.de/fileadmin/oekodoc/Conditions-for-using-international-carbon-credits-towards-the-EU-climate-target.pdf",
+			"pid_type": "url",
+			"citation": "Schneider, L., Fallasch, F., Siemons, A., Lauer, S., Haase, I. (2025). Conditions for Using International Carbon Credits towards the EU’s 2040 Climate Target. Oeko-Institut.",
+			"publisher": "Oeko-Institut",
+			"issn": null,
+			"book_rid": null,
+			"book_title": null,
+			"open_access": false,
+			"peer_reviewed": false,
+			"webinar": null,
+			"actors": [
+				"regulators",
+				"carbon-markets"
+			],
+			"principles": [
+				"p1",
+				"p3",
+				"p2"
+			],
+			"dimensions": [
+				"target-coherence",
+				"policy-governance",
+				"systemic-environmental-integrity",
+				"differentiated-responsibilities",
+				"ambitious-policies"
+			],
+			"regions": [
+				"europe"
+			],
+			"visuals": [],
+			"actor_messages": [
+				{
+					"actor": "regulators",
+					"message": "Credits should only raise ambition beyond 90-95% domestic cuts by 2040, follow a thorough impact assessment and not count as climate finance."
+				},
+				{
+					"actor": "carbon-markets",
+					"message": "Credits should come from the Paris Agreement Crediting Mechanism or standards of equal integrity, with like-for-like treatment of reversal risks and multi-year accounting."
+				}
+			],
+			"formats": [],
+			"relations": [],
+			"unconfirmed_fields": [
+				"actor_messages",
+				"dimensions",
+				"principles",
+				"regions",
+				"relations",
+				"teaser"
+			],
+			"confirmed": false
+		},
+		{
+			"source_key": "the-eus-2040-climate-target-assessment-of-the-proposal-by-the-eu-commission",
+			"kind": "publication",
+			"code": null,
+			"title": "The EU's 2040 climate target: Assessment of the proposal by the EU Commission",
+			"slug": "eus-2040-climate-target",
+			"source_sheet": "Other publications",
+			"sheetRow": 11,
+			"status": "published",
+			"date": "2025-07-02",
+			"work_package": null,
+			"output_type": "Policy Brief",
+			"lead_partner": "OEKO",
+			"contributors": [],
+			"authors": "Graichen J.; Schneider, L.; Böttcher, H.",
+			"teaser": "Assessment of the Commission's 2040 target proposal: international carbon credits could raise EU net emissions in 2040 by 30%.",
+			"abstract": "<p>The EU’s 2040 climate targetAssessment of the proposal by the EU Commission// Jakob Graichen, Lambert Schneider, Hannes BöttcherOn 2 July 2025 the Commission published its proposal for the EU’s climate target for 2040. Thistarget and its implementation will determine the EU’s climate ambition for the next decades. Thispolicy brief assesses the proposal and compares it with the recommendations of both the previousCommission under President Von der Leyen and the European Scientific Advisory Board on Cli-mate Change. This includes the provisions on international credits, natural and industrial carbondioxide removals, flexibility between sectors and national targets.Key findings• The proposed target includes the usage of international carbon credits. These creditswill increase net emissions in 2040 by 30%. Gross emissions, i.e. emissions without theaccounting of removals, might only be 80% below 1990 levels.• While the proposal includes important safeguards for using international carbon creditsunder Article 6 of the Paris Agreement, we recommend that international credits are onlyused to raise ambition beyond 90%, rather than deterring domestic climate action.• Carbon Dioxide Removal might play a role in the ETS after 2035. Restricting CDRs inthe ETS to permanent domestic removals as proposed by the Commission ensures thatmitigation will remain the first priority for operators.• Enhanced flexibility between sectors might reduce costs but could endanger the 2050target. In addition, flexibility should only be allowed on a ‘like-for-like’ basis, i.e. not mixuncertain reductions or removals from land-use sectors with permanent CO2 emissions.• The proposal foresees national targets for Member States after 2030 based on solidarityand cost efficiency. This is a key building block for achieving the 2040 target.• The overall ambition of the EU will strongly depend on the legislative proposals. Adopt-ing the proposed 2040 target will only be the first step.</p>",
+			"link": "https://www.oeko.de/fileadmin/oekodoc/PB-2040-climate-proposal.pdf",
+			"pid_type": "url",
+			"citation": "Graichen, J, Schneider, L., Böttcher, H. (2025). The EU's 2040 climate target: Assessment of the proposal by the EU Commission. Oeko-Institut.",
+			"publisher": "Oeko-Institut",
+			"issn": null,
+			"book_rid": null,
+			"book_title": null,
+			"open_access": false,
+			"peer_reviewed": false,
+			"webinar": null,
+			"actors": [
+				"regulators",
+				"carbon-markets"
+			],
+			"principles": [
+				"p4",
+				"p1",
+				"p3"
+			],
+			"dimensions": [
+				"ambitious-policies",
+				"target-coherence",
+				"dealing-with-trade-offs",
+				"systemic-environmental-integrity"
+			],
+			"regions": [
+				"europe"
+			],
+			"visuals": [],
+			"actor_messages": [
+				{
+					"actor": "regulators",
+					"message": "Credits should only raise ambition beyond 90%; national targets after 2030 are a key building block, and real ambition depends on the legislation that follows."
+				},
+				{
+					"actor": "carbon-markets",
+					"message": "The proposal includes important safeguards for Article 6 credits, but their use could leave gross emissions only 80% below 1990 levels."
+				}
+			],
+			"formats": [],
+			"relations": [],
+			"unconfirmed_fields": [
+				"actor_messages",
+				"dimensions",
+				"principles",
+				"regions",
+				"teaser"
+			],
+			"confirmed": false
+		},
+		{
+			"source_key": "eu-climate-target-2040-assessment-of-the-council-proposal",
+			"kind": "publication",
+			"code": null,
+			"title": "EU Climate Target 2040: Assessment of the Council Proposal",
+			"slug": "eu-climate-target-2040",
+			"source_sheet": "Other publications",
+			"sheetRow": 12,
+			"status": "published",
+			"date": "2025-07-11",
+			"work_package": null,
+			"output_type": "Policy Brief",
+			"lead_partner": "OEKO",
+			"contributors": [],
+			"authors": "Graichen, J., Gores, S., Böttcher, H., Schmacher, K., Kasten, P., Schneider, L.",
+			"teaser": "The Council's 2040 position goes further than the Commission's on international credits, which could raise EU net emissions in 2040 by 50%.",
+			"abstract": "<p>Oeko-Institut examines the European Council's proposal in an analysis entitled ‘The EU's 2040 climate target – Assessment of the proposal by the European Council’. This analysis is based on the policy brief ‘The proposed 2040 climate target for the EU’ from July 2025, which examines the European Commission's proposal.</p>\n<p>Key findings at a glance:</p>\n<p>International carbon credits: The European Council’s proposal goes beyond that of the European Commission. The proposal allows for the use of international carbon credits equivalent to five percentage points of 1990 net emissions. According to the analysis, this flexibility could result in a 50 percent increase in net emissions in 2040. Gross emissions – those not accounting for CO₂ removals – would then be only 79 percent below 1990 levels. In addition, the Council proposes to include international credits in national targets, meaning that almost one quarter of all international credits could be used to meet national objectives. Land use, land-use change and forestry (LULUCF) emissions: The inclusion of this sector in the 2040 target is unbalanced. Surpluses can be credited to other sectors, thereby reducing their climate ambition. Conversely, deficits in this sector could lead to higher net emissions, as the overall target could be adjusted downward. Postponement of the EU Emissions Trading System II (ETS 2): Postponing the ETS 2 by one year would lead to a higher initial carbon price in 2028 because the cap value for that year remains unchanged. Moreover, around €50 billion in auction revenues would be lost and the Social Climate Fund (SCF) would be reduced by about 16 percent. This would weaken support for vulnerable groups. To safeguard social fairness and credibility, it is essential to maintain the current SCF level of €65 billion.</p>",
+			"link": "https://www.oeko.de/en/news/latest-news/eu-climate-target-2040-assessment-of-the-council-proposal/",
+			"pid_type": "url",
+			"citation": "Graichen, J., Gores, S., Böttcher, H., Schmacher, K., Kasten, P., Schneider, L. (2025). EU Climate Target 2040: Assessment of the Council Proposal. Oeko-Institut.",
+			"publisher": "Oeko-Institut",
+			"issn": null,
+			"book_rid": null,
+			"book_title": null,
+			"open_access": false,
+			"peer_reviewed": false,
+			"webinar": null,
+			"actors": [
+				"regulators",
+				"carbon-markets"
+			],
+			"principles": [
+				"p4",
+				"p1",
+				"p2"
+			],
+			"dimensions": [
+				"ambitious-policies",
+				"target-coherence",
+				"dealing-with-trade-offs",
+				"just-transition"
+			],
+			"regions": [
+				"europe"
+			],
+			"visuals": [],
+			"actor_messages": [
+				{
+					"actor": "regulators",
+					"message": "Counting credits in national targets, unbalanced LULUCF rules and a one-year ETS 2 delay would weaken ambition; the delay alone would cut the Social Climate Fund by about 16%."
+				},
+				{
+					"actor": "carbon-markets",
+					"message": "Credits worth five percentage points of 1990 net emissions would be allowed, and almost a quarter could count towards national targets."
+				}
+			],
+			"formats": [],
+			"relations": [],
+			"unconfirmed_fields": [
+				"actor_messages",
+				"dimensions",
+				"principles",
+				"regions",
+				"teaser"
+			],
+			"confirmed": false
+		},
+		{
+			"source_key": "fixing-the-broken-governance-chain-aligning-private-finance-with-the-paris-agreement",
+			"kind": "publication",
+			"code": null,
+			"title": "Fixing the broken governance chain- Aligning Private Finance with the Paris Agreement",
+			"slug": "fixing-the-broken-governance-chain",
+			"source_sheet": "Other publications",
+			"sheetRow": 13,
+			"status": "published",
+			"date": "2025-08-25",
+			"work_package": null,
+			"output_type": "Policy Brief",
+			"lead_partner": "NCI",
+			"contributors": [],
+			"authors": "Salsabila, Nabila Putri; Straub, Saskia; Marquardt, Mats",
+			"teaser": "Why finance is still not Paris-aligned, and what financial institutions, cooperative initiatives and regulators can each do to repair the governance chain.",
+			"abstract": "<p>The climate governance chain in the financial sector is fundamentally broken. Despite growing awareness of climate risks and an increasing number of net-zero commitments, the sector remains structurally unfit to support a transition to a Paris-aligned economy. The key actors within the governance chain – comprising financial institutions (FIs), climate cooperative initiatives (CCIs) and regulators – have thus far failed to deliver the coordination, ambition and accountability needed. In its current form, the financial sector is unlikely to align with the Paris Agreement, let alone act as an enabler of the low-carbon transformation.</p>\n<p>The symptoms of this breakdown are already visible. Financial institutions continue to channel capital into high-emissions sectors, with an estimated USD 3.7 trillion annually flowing into fossil fuels like oil, gas and coal (World Economic Forum, 2023). Climate cooperative initiatives (e.g. GFANZ) have largely failed to translate pledges into tangible decarbonisation outcomes in the real economy. Regulators and market environments, even in jurisdictions with greater attention to climate change, have not created the incentives and rules necessary to promote a shift to Paris-aligned finance. In some jurisdictions, climate alignment in the financial sector is even actively undermined.</p>\n<p>Each actor in the governance chain bears responsibility for aligning financial strategies, portfolios and capital flows with the transition to a net-zero, climate-resilient economy. Structural barriers, such as the difficulty of pricing long-term climate risks and the challenges of coordinating collective action, can be addressed through complementary levers across the governance chain. Climate cooperative initiatives can mobilise and coordinate voluntary action, while regulators are positioned to correct market failures and establish effective incentives through targeted interventions.</p>\n<p>To repair the broken climate governance chain, all actors must activate the levers within their discretion to overcome structural barriers, coordinate ambition and enforce accountability. To support that effort, this report examines the limitations of current climate governance in the financial sector and explores how financial institutions, climate cooperative initiatives and regulators can better align their actions with the goals of the Paris Agreement. It maps the key levers available to each actor, highlights where these remain underdeveloped, and provides a structured framework for action, ranging from minimum to high-ambition strategies, to guide more effective climate governance.</p>",
+			"link": "https://doi.org/10.5281/zenodo.17762777",
+			"pid_type": "doi",
+			"citation": null,
+			"publisher": "Zenodo",
+			"issn": null,
+			"book_rid": null,
+			"book_title": null,
+			"open_access": true,
+			"peer_reviewed": false,
+			"webinar": null,
+			"actors": [
+				"business",
+				"ccis",
+				"regulators",
+				"finance"
+			],
+			"principles": [
+				"p1",
+				"p4"
+			],
+			"dimensions": [
+				"policy-governance",
+				"compliance-enforcement",
+				"target-coherence",
+				"sector-wide-change"
+			],
+			"regions": [
+				"global"
+			],
+			"visuals": [],
+			"actor_messages": [
+				{
+					"actor": "business",
+					"message": "Financial institutions still channel an estimated USD 3.7 trillion a year into fossil fuels; each must align its strategy, portfolio and capital flows with a net-zero, resilient economy."
+				},
+				{
+					"actor": "ccis",
+					"message": "Initiatives such as GFANZ have largely failed to turn pledges into real-economy decarbonisation; their role is to mobilise and coordinate voluntary action."
+				},
+				{
+					"actor": "regulators",
+					"message": "Even climate-focused jurisdictions have not set the rules and incentives for Paris-aligned finance; regulators must correct the market failures."
+				}
+			],
+			"formats": [],
+			"relations": [],
+			"unconfirmed_fields": [
+				"actor_messages",
+				"actors",
+				"dimensions",
+				"principles",
+				"regions",
+				"teaser"
+			],
+			"confirmed": false
+		},
+		{
+			"source_key": "net-zero-stocktake-2025",
+			"kind": "publication",
+			"code": null,
+			"title": "Net Zero Stocktake 2025",
+			"slug": "net-zero-stocktake-2025",
+			"source_sheet": "Other publications",
+			"sheetRow": 14,
+			"status": "published",
+			"date": "2025-09-25",
+			"work_package": null,
+			"output_type": "Research report",
+			"lead_partner": "NCI",
+			"contributors": [
+				"UOXF"
+			],
+			"authors": "Saskia Straub, Sybrig Smit, Louise Bammel, John Lang, Takeshi Kuramochi, Helen Tatlow, Diego Cristobal Manya-Gutierrez, Frances Green, Thomas Hale, Angel Hsu, Denise Siu and Steve Smith.",
+			"teaser": "At least 1,935 entities now have net zero targets, but only 7% of companies, 6.5% of regions and 4% of cities meet minimum integrity requirements.",
+			"abstract": "<p>To have a realistic chance of limiting global average temperature increase to near 1.5°C with limited overshoot, the world must reach net zero carbon dioxide emissions in the early 2050s, alongside rapid, deep, and sustained reductions in other greenhouse gas (GHG) emissions. All GHGs should reach net zero about two decades later.</p>\n<p>Net Zero Stocktake 2025 assesses progress in setting and strengthening whole-economy net zero targets, and evaluates more than 4,000 entities on integrity criteria — essentially, whether plans and strategies contain the key components for deep decarbonisation.</p>\n<p>Our fifth annual report also examines how companies are integrating nature into their climate commitments. Key findings:</p>\n<p>Target-setting still rising, despite political headwinds. As of September 2025, at least 1,935 entities have net zero (or similar) targets — up from 769 in December 2020. Globally, target-setting is expanding across companies, regions and cities. Countries: 137 of 198 national governments (including the EU and Taiwan) have net zero targets. Nineteen of the G20 have adopted net zero targets, though overall country-level coverage has dipped compared with 2024 due to the U.S. federal government abandoning its commitment. Encouragingly, 67% of remaining national targets are now enshrined in law or policy, up from 52% last year. Companies: Almost two-thirds (63%) of the Forbes Global 2000 have net zero targets, covering $36.6 trillion in revenue (70% of total). In the U.S., company commitments grew by 9% in the past year.</p>\n<p>Subnational governments: Coverage now extends to 2.55 billion people worldwide, a five-fold increase since 2020. Still, nearly half of subnational governments and companies still lack any mitigation target.</p>\n<p>Integrity of targets remains low. Only 7% of companies, 6.5% of regions, and 4% of cities meet all minimum procedural and substantive integrity requirements (the 'starting line') — though company and city progress has climbed modestly in the past year.</p>\n<p>Nature under scrutiny. Around one-third of companies plan to use nature-based carbon removals, but only 4% set dedicated removal targets — raising questions about transparency and the credibility of their intended emission reductions.</p>",
+			"link": "https://zerotracker.net/analysis/net-zero-stocktake-2025",
+			"pid_type": "url",
+			"citation": "Net Zero Tracker (2025) Net Zero Stocktake 2025: NewClimate Institute, Oxford Net Zero, Energy and Climate Intelligence Unit, and Data-Driven EnviroLab",
+			"publisher": "NET ZERO TRACKER",
+			"issn": null,
+			"book_rid": null,
+			"book_title": null,
+			"open_access": true,
+			"peer_reviewed": false,
+			"webinar": null,
+			"actors": [
+				"business",
+				"cities",
+				"ccis",
+				"regulators"
+			],
+			"principles": [
+				"p1",
+				"p3"
+			],
+			"dimensions": [
+				"target-coherence",
+				"data-reporting-transparency",
+				"policy-governance",
+				"ecosystem-protection-restoration"
+			],
+			"regions": [
+				"global"
+			],
+			"visuals": [],
+			"actor_messages": [
+				{
+					"actor": "business",
+					"message": "63% of the Forbes Global 2000 have net zero targets, but only 7% of companies meet minimum integrity requirements; a third plan nature-based removals, yet only 4% set removal targets."
+				},
+				{
+					"actor": "cities",
+					"message": "Subnational targets now cover 2.55 billion people, but only 4% of cities meet the integrity 'starting line'."
+				},
+				{
+					"actor": "regulators",
+					"message": "137 of 198 national governments have net zero targets, and 67% of these are now in law or policy, up from 52%."
+				}
+			],
+			"formats": [],
+			"relations": [],
+			"unconfirmed_fields": [
+				"actor_messages",
+				"dimensions",
+				"principles",
+				"regions",
+				"teaser"
+			],
+			"confirmed": false
+		},
+		{
+			"source_key": "from-pledges-to-places-action-agendas-need-spatial-data-to-integrate-climate-and-biodiversity-action",
+			"kind": "publication",
+			"code": null,
+			"title": "From pledges to places: action agendas need spatial data to integrate climate and biodiversity action",
+			"slug": "from-pledges-to-places",
+			"source_sheet": "Other publications",
+			"sheetRow": 15,
+			"status": "published",
+			"date": "2025-11-01",
+			"work_package": null,
+			"output_type": "Journal article",
+			"lead_partner": "RU",
+			"contributors": [
+				"CATIE"
+			],
+			"authors": "Paul Hagenström; Nathalie Pettorelli; Idil Boran; Peter Bridgewater; Deborah Delgado Pugley; Folkard-Tapp, Hollie; Angel Hsu; Pablo Imbach; Marcel T. J. Kok; Stacy D. VanDeveer; Oscar Widerberg; Sander Chan",
+			"teaser": "Climate and biodiversity action by non-state actors needs spatial data: even basic coordinates of where action happens would make monitoring more credible and fair.",
+			"abstract": "<p>As COP30 approaches, policymakers must ensure that the integration of climate and biodiversity action by non-state and subnational actors is anchored in spatial data. Otherwise, we cannot see where change is happening, how effective it is, or who bears costs and benefits. The UNFCCC Global Climate Action and CBD Action Agenda Portals should lead by requiring spatial details on implementation, enabling more credible and participatory monitoring, analysis, and collaboration.</p>",
+			"link": "https://doi.org/10.1038/s44168-025-00307-5",
+			"pid_type": "doi",
+			"citation": "Hagenström, P., Pettorelli, N., Boran, I. et al. From pledges to places: action agendas need spatial data to integrate climate and biodiversity action. npj Clim. Action 4, 100 (2025).",
+			"publisher": "Nature",
+			"issn": "2731-9814",
+			"book_rid": null,
+			"book_title": null,
+			"open_access": true,
+			"peer_reviewed": true,
+			"webinar": null,
+			"actors": [
+				"ccis",
+				"regulators",
+				"business",
+				"cities"
+			],
+			"principles": [
+				"p3",
+				"p1",
+				"p2"
+			],
+			"dimensions": [
+				"biodiversity-conservation",
+				"integrated-practices",
+				"monitoring-verification",
+				"data-reporting-transparency",
+				"inclusive-decision-making"
+			],
+			"regions": [
+				"global"
+			],
+			"visuals": [],
+			"actor_messages": [
+				{
+					"actor": "ccis",
+					"message": "Without knowing where initiatives implement, claims about on-the-ground impact cannot be validated; reporting even basic GPS coordinates or project polygons is a first step."
+				},
+				{
+					"actor": "regulators",
+					"message": "The UNFCCC Global Climate Action Portal, the CBD Action Agenda Portal and any UNCCD counterpart should require spatially explicit reporting, backed by capacity building, clear guidelines and incentives to share data."
+				},
+				{
+					"actor": "business",
+					"message": "Location data lets corporate claims be checked and reveals synergies and trade-offs, such as invasive species spread by reforestation; reluctance to disclose locations is a barrier."
+				},
+				{
+					"actor": "cities",
+					"message": "Spatial data ties action to local communities and ecosystems; collected and governed with affected people, it supports a fairer distribution of benefits, harms and finance."
+				}
+			],
+			"formats": [
+				{
+					"source_key": "integrating-spatial-data-for-credible-just-and-synergic-non-state-and-transnational-climate-and-biodiversity-action",
+					"title": "Integrating Spatial Data for Credible, Just and Synergic Non-state and Transnational Climate and Biodiversity Action",
+					"output_type": "Policy Brief",
+					"link": "https://doi.org/10.5281/zenodo.17828231",
+					"pid_type": "doi",
+					"publisher": "Zenodo",
+					"date": "2025-11-01"
+				}
+			],
+			"relations": [],
+			"unconfirmed_fields": [
+				"actor_messages",
+				"dimensions",
+				"principles",
+				"regions",
+				"relations",
+				"teaser"
+			],
+			"confirmed": false
+		},
+		{
+			"source_key": "ten-years-of-global-climate-action-insights-from-the-coact-database",
+			"kind": "publication",
+			"code": null,
+			"title": "Ten Years of Global Climate Action Insights from the CoAct Database",
+			"slug": "ten-years-of-global-climate-action",
+			"source_sheet": "Other publications",
+			"sheetRow": 16,
+			"status": "published",
+			"date": "2025-11-01",
+			"work_package": null,
+			"output_type": "Report",
+			"lead_partner": "RU",
+			"contributors": [
+				"CATIE",
+				"UEF"
+			],
+			"authors": "Chan, S., Glass L., Hagenström, P., Imbach, P., Peterson, L., Reyes de la Lanza, S., van den Wall Bake, K.",
+			"teaser": "Ten years of cooperative climate action across 387 initiatives: more outputs and adaptation, but effectiveness has plateaued since 2018 and leadership stays in the North.",
+			"abstract": "<p>Over the past decade, cooperative climate action has become a central feature of global climate governance. Thousands of businesses, subnational governments, civil society organizations, and international partnerships have mobilized to complement and support multilateral and state-led efforts. Using insights from the CoAct Database (formerly N-CID), and data from a sample of 387 initiatives, this chapter takes stock of developments since 2013 and looks ahead to how cooperative action can contribute to the implementation of the Paris Agreement, particularly addressing priorities arising from the Global Stocktake (GST). Our analysis yields five headline findings.</p>\n<p>1. Rapid expansion, but uneven focus. CCIs have multiplied since 2015 and increasingly address adaptation, yet mitigation continues to dominate. While themes such as energy, land use, and industry remain strong, adaptation-related themes, e.g., particularly water, oceans, and resilience, remain underrepresented.</p>\n<p>2. Effectiveness is improving, but equity gaps persist.</p>\n<p>Many CCIs now deliver more tangible outputs and report more systematically, yet overall output effectiveness has plateaued since 2018. Smaller and less-resourced initiatives often lag behind due to capacity constraints, while limited accountability mechanisms—such as monitoring, transparent governance, and membership control—continue to hinder performance.</p>\n<p>3. Participation has broadened, but inclusivity remains limited. Participation of actors in CCIs has expanded, but leadership and decision-making remain concentrated among Northern and institutional actors. Indigenous Peoples and Local Communities (IPLCs) are largely absent from governance structures, while engagement of businesses, investors, and local civil society has stagnated in recent years.</p>\n<p>4. Stronger alignment with global priorities is needed. Future orchestration should strengthen coherence between CCIs and priorities in the implementation of the Paris Agreement, for instance those emerging from the Global Stocktake (GST). Integrating adaptation, nature, and resilience more effectively—and fostering synergies across thematic axes such as energy–nature, food–energy, and cities–ecosystems—can enhance the systemic impact of cooperative climate action.</p>\n<p>5. The next five years are critical. To sustain momentum and credibility, CCIs and orchestrators, such as the High-Level Climate Champions, COP presidencies and the UNFCCC secretariat, must focus on inclusion, capacity, and accountability—especially in underrepresented regions. Expanding implementation and participation in low- and middle-income countries will improve both effectiveness and procedural justice. Deliberate orchestration by COP Presidencies, policymakers, and leading CCIs can ensure that cooperative climate action evolves toward greater balance, legitimacy, and transformative impact.</p>\n<p>While cooperative climate action has expanded and matured over the past decade, its transformative potential remains only partly realized, calling for deeper structural and systemic change. As the world moves on to implement the Paris Agreement, cooperative initiatives should help accelerate ambition, bridge gaps in implementation, and foster more equitable and effective global climate action.</p>",
+			"link": "https://zenodo.org/records/17582801",
+			"pid_type": "url",
+			"citation": "Chan, S., Glass, L.-M., Hagenström, P., Imbach, P., Peterson, L., Reyes de la Lanza, S., & Van den Wall Bake, K. (2025). Ten Years of Global Climate Action Insights from the CoAct Database. Radboud University; German Institute of Development and Sustainability (IDOS); Tropical Agricultural Research and Higher Education Center (CATIE). https://doi.org/10.5281/zenodo.17582801",
+			"publisher": "ACHIEVE project",
+			"issn": null,
+			"book_rid": null,
+			"book_title": null,
+			"open_access": true,
+			"peer_reviewed": false,
+			"webinar": null,
+			"actors": [
+				"ccis",
+				"regulators"
+			],
+			"principles": [
+				"p1",
+				"p2",
+				"p4",
+				"p3"
+			],
+			"dimensions": [
+				"monitoring-verification",
+				"equity-inclusion",
+				"inclusive-decision-making",
+				"support-capacity",
+				"innovation-systemic-change",
+				"integrated-practices"
+			],
+			"regions": [
+				"global"
+			],
+			"visuals": [],
+			"actor_messages": [
+				{
+					"actor": "ccis",
+					"message": "Output effectiveness has plateaued since 2018; monitoring, transparent governance and membership control are still lacking, and IPLCs are largely absent from governance."
+				},
+				{
+					"actor": "regulators",
+					"message": "COP presidencies, High-Level Champions and the UNFCCC should orchestrate for inclusion, capacity and accountability, especially in low- and middle-income countries, and align initiatives with Global Stocktake priorities."
+				}
+			],
+			"formats": [],
+			"relations": [],
+			"unconfirmed_fields": [
+				"actor_messages",
+				"dimensions",
+				"principles",
+				"regions",
+				"teaser"
+			],
+			"confirmed": false
+		},
+		{
+			"source_key": "year-book-of-global-climate-action-2025-marrakech-partnership-for-global-climate-action",
+			"kind": "publication",
+			"code": null,
+			"title": "Year Book of Global Climate Action 2025- Marrakech Partnership for Global Climate Action",
+			"slug": "year-book-of-global-climate-action",
+			"source_sheet": "Other publications",
+			"sheetRow": 17,
+			"status": "published",
+			"date": "2025-11-01",
+			"work_package": null,
+			"output_type": "Report",
+			"lead_partner": "RU",
+			"contributors": [
+				"CATIE",
+				"UEF"
+			],
+			"authors": "Chan, S., Glass, L.-M., Hagenström, P., Imbach, P., Peterson, L., Reyes de la Lanza, S., & Van den Wall Bake, K.",
+			"teaser": "ACHIEVE's chapter in the UNFCCC Yearbook 2025: active cooperative initiatives grew from under 50 in 2013 to over 350 by 2024, but effectiveness has levelled off since 2018.",
+			"abstract": "<p>Section II of the Yearbook of Global Climate Action 2025 is a preliminary analysis by the ACHIEVE, BioCAM4 and CAMDA projects of 387 initiatives in the CoAct Database: initiatives on NAZCA, those launched at COP26 to COP29, and those with a nature-based element. Active initiatives grew from fewer than 50 in 2013 to over 350 by 2024. Mitigation accounts for 48% of initiatives, adaptation for 23% and both for 29%; water (7%), resilience (11%) and oceans and coastal zones (13%) remain underrepresented. Output effectiveness improved between 2014 and 2018 but has largely levelled off since. Businesses (45%) and subnational governments (30%) account for most participation, while leadership is concentrated among international organisations, international NGOs and high-income governments in Europe and Northern America; only five initiatives include Indigenous Peoples and local communities as leaders. 42% of implementation takes place in high-income countries, although adaptation initiatives focus more on LDCs, SIDS and Sub-Saharan Africa.</p>",
+			"link": "https://zenodo.org/records/17762653",
+			"pid_type": "url",
+			"citation": null,
+			"publisher": "UN Climate Change Secretariat",
+			"issn": null,
+			"book_rid": null,
+			"book_title": null,
+			"open_access": true,
+			"peer_reviewed": false,
+			"webinar": null,
+			"actors": [
+				"ccis",
+				"regulators"
+			],
+			"principles": [
+				"p1",
+				"p4"
+			],
+			"dimensions": [
+				"target-coherence",
+				"policy-governance",
+				"data-reporting-transparency",
+				"sector-wide-change"
+			],
+			"regions": [
+				"global"
+			],
+			"visuals": [],
+			"actor_messages": [
+				{
+					"actor": "ccis",
+					"message": "Mitigation still dominates (48% of initiatives, against 23% for adaptation); water, resilience and oceans are underrepresented, and only five initiatives include Indigenous Peoples and local communities as leaders."
+				},
+				{
+					"actor": "regulators",
+					"message": "Leadership stays with international organisations and high-income governments in Europe and Northern America, and 42% of implementation is in high-income countries; sustaining progress needs targeted support for inclusivity, equity and balanced coverage."
+				}
+			],
+			"formats": [],
+			"relations": [],
+			"unconfirmed_fields": [
+				"abstract",
+				"actor_messages",
+				"dimensions",
+				"principles",
+				"regions",
+				"teaser"
+			],
+			"confirmed": false
+		},
+		{
+			"source_key": "bridging-levels-advancing-climate-action-through-multilevel-governance-and-local-leadership",
+			"kind": "publication",
+			"code": null,
+			"title": "Bridging Levels: Advancing Climate Action Through Multilevel Governance and Local Leadership",
+			"slug": "bridging-levels",
+			"source_sheet": "Other publications",
+			"sheetRow": 19,
+			"status": "published",
+			"date": "2026-01-01",
+			"work_package": null,
+			"output_type": "Policy Brief",
+			"lead_partner": "WWF",
+			"contributors": [],
+			"authors": "Luli Pesqueira",
+			"teaser": "Lessons from 25 subnational leaders at the COP30 Local Leaders Forum on turning climate pledges into high-integrity local action, in Latin America and beyond.",
+			"abstract": "<p>During the COP30 Local Leaders Forum, held in Rio de Janeiro from November 3–5, 2025, WWF and the Alliances for Climate Action mobilized a cohort of 25 fellows from subnational governments in Argentina, Chile, Colombia, Mexico, and South Africa to take part in a series of learning sessions to foster peer exchanges and forward thinking. Over the course of four thematic sessions, and broader participation in C40 programming, participants explored how cities and regions are driving high-integrity climate action, tackling plastic pollution through community engagement, placing nature at the heart of local climate agendas, and advancing multi-level climate governance through subnational leadership. These dialogues showcased innovative approaches, highlighted practical solutions, and reaffirmed the critical role of local governments in accelerating climate and nature action across Latin America and beyond.</p>",
+			"link": "https://doi.org/10.5281/zenodo.18421310",
+			"pid_type": "doi",
+			"citation": null,
+			"publisher": "Zenodo",
+			"issn": null,
+			"book_rid": null,
+			"book_title": null,
+			"open_access": true,
+			"peer_reviewed": false,
+			"webinar": null,
+			"actors": [
+				"cities",
+				"regulators",
+				"ccis"
+			],
+			"principles": [
+				"p1",
+				"p2",
+				"p3"
+			],
+			"dimensions": [
+				"policy-governance",
+				"support-capacity",
+				"inclusive-decision-making",
+				"integrated-practices"
+			],
+			"regions": [
+				"latin-america",
+				"global"
+			],
+			"visuals": [],
+			"actor_messages": [
+				{
+					"actor": "cities",
+					"message": "Voluntary initiatives such as C40, GCoM and the One Planet City Challenge help when used strategically: to build reliable emission inventories and baselines, align with global standards, gain legitimacy and learn from peers."
+				},
+				{
+					"actor": "regulators",
+					"message": "Implementation happens locally, so subnational contributions should be counted in national inventories and UNFCCC reporting; this raises ambition, attracts funding and builds trust."
+				},
+				{
+					"actor": "ccis",
+					"message": "Cities in initiatives such as C40, GCoM and the One Planet City Challenge tend to adopt more ambitious and measurable goals."
+				}
+			],
+			"formats": [],
+			"relations": [],
+			"unconfirmed_fields": [
+				"actor_messages",
+				"dimensions",
+				"principles",
+				"regions",
+				"teaser"
+			],
+			"confirmed": false
+		},
+		{
+			"source_key": "assessing-the-robustness-of-the-action-agendas-of-the-rio-conventions",
+			"kind": "publication",
+			"code": null,
+			"title": "Assessing the robustness of the Action Agendas of the Rio Conventions",
+			"slug": "assessing-the-robustness-of-the-action",
+			"source_sheet": "Other publications",
+			"sheetRow": 20,
+			"status": "published",
+			"date": "2026-04-17",
+			"work_package": null,
+			"output_type": "Journal article",
+			"lead_partner": "RU",
+			"contributors": [],
+			"authors": "Folkard-Tapp, H., Chan, S., Reyes de la Lanza, S., & Pettorelli, N.",
+			"teaser": "A '5C' scorecard of the climate, biodiversity and desertification action agendas: the UNFCCC's is catalytic but low on credibility; the CBD's scores poorly throughout.",
+			"abstract": "<p>Robust orchestration of non-state and subnational action is critical for meeting global targets and shaping how people perceive, relate to, and act for climate and nature in an era of socio-environmental emergency. Despite Action Agendas forming a key component of polycentric environmental governance, understanding remains limited about what makes these mechanisms robust. This study assesses the robustness of the Action Agendas of the United Nations Framework Convention on Climate Change (Marrakech Partnership), the Convention on Biological Diversity (Sharm El-Sheikh to Kunming and Montreal Action Agenda for Nature and People), and the United Nations Convention to Combat Desertification (Riyadh Action Agenda). Robustness is assessed using a scorecard based on the “5C” principles: Complementary, Catalytic, Collaborative, Comprehensive, and Credible, operationalised through 16 questions and 28 indicators applied to publicly available documentation. The results reveal substantial variation across the Action Agendas: the Marrakech Partnership demonstrates strong catalytic and collaborative capacity but is undermined by low credibility, particularly limited quality control and reporting oversight of the initiatives registered on the Global Climate Action Portal. The CBD’s Action Agenda performs consistently poorly across the five, reflecting a lack of strategic coherence. The nascent Riyadh Action Agenda exhibits promising design features, but robustness appears highly contingent on how governance arrangements are implemented as it moves beyond the planning phase. By operationalising robustness in a transparent and replicable manner, this study contributes an evaluative framework for analysing orchestration mechanisms and identifies key areas for strengthening oversight of non-state actions, strategic coordination, and cross-convention alignment.</p>",
+			"link": "https://www.frontiersin.org/journals/environmental-science/articles/10.3389/fenvs.2026.1698286/full",
+			"pid_type": "url",
+			"citation": "Folkard-Tapp, H., Chan, S., Reyes de la Lanza, S., & Pettorelli, N. Assessing the Robustness of the Action Agendas of the Rio Conventions. Frontiers in Environmental Science, 14, 1698286.",
+			"publisher": "Frontiers Media SA",
+			"issn": null,
+			"book_rid": null,
+			"book_title": null,
+			"open_access": true,
+			"peer_reviewed": true,
+			"webinar": null,
+			"actors": [
+				"ccis",
+				"regulators"
+			],
+			"principles": [
+				"p1",
+				"p3"
+			],
+			"dimensions": [
+				"monitoring-verification",
+				"compliance-enforcement",
+				"policy-governance",
+				"integrated-practices"
+			],
+			"regions": [
+				"global"
+			],
+			"visuals": [],
+			"actor_messages": [
+				{
+					"actor": "ccis",
+					"message": "Initiatives registered on the Global Climate Action Portal face little quality control or reporting oversight, which undermines the agenda's credibility."
+				},
+				{
+					"actor": "regulators",
+					"message": "Convention secretariats should strengthen oversight of non-state action, strategic coordination and cross-convention alignment; the Riyadh agenda's promise depends on implementation."
+				}
+			],
+			"formats": [],
+			"relations": [],
+			"unconfirmed_fields": [
+				"actor_messages",
+				"dimensions",
+				"principles",
+				"regions",
+				"teaser"
+			],
+			"confirmed": false
+		},
+		{
+			"source_key": "using-international-carbon-credits-towards-the-eu-2040-climate-target",
+			"kind": "publication",
+			"code": null,
+			"title": "Using International Carbon Credits towards the EU 2040 Climate Target",
+			"slug": "using-international-carbon-credits",
+			"source_sheet": "Other publications",
+			"sheetRow": 21,
+			"status": "published",
+			"date": "2026-05-01",
+			"work_package": null,
+			"output_type": "Policy Brief",
+			"lead_partner": "OEKO",
+			"contributors": [],
+			"authors": "Schneider, L. , Graichen, J., Gores, S., Lauer, S.",
+			"teaser": "Options for how the EU could use international carbon credits towards its 2040 target, drawing on lessons from the CDM, JI and the voluntary carbon market.",
+			"abstract": "<p>Using International Carbon Credits towards the EU 2040 Climate Target This policy brief explores key options for how the EU could use international carbon credits towards its 2040 climate target, drawing on the lessons learned from the previous use of credits under the Clean Development Mechanism (CDM) and Joint Implementation (JI) and the experience with the voluntary carbon market. It also explores the implications of the EU’s approach for the voluntary carbon market. This policy brief is prepared under the EU Horizon ACHIEVE project and amends previous publications by Oeko-Institut on this matter. Key recommendations • Using a share of the international carbon credits as safety reserve, in particular due to the uncertainty of the contribution of the land-use sector. • Purchasing carbon credits mainly through a central purchasing facility and not allowing ETS entities to directly purchase carbon credits. • Clarifying the maximum amount of carbon credits which can be used, bearing in mind that high-quality carbon credits will not be available at low cost. • Using the Paris Agreement Crediting Mechanism (PACM) as a minimum integrity benchmark, with additional criteria and safeguards (positive and negative lists). • Ensuring that third-party auditors are not selected or paid by project developers. • Engaging in strategic partnerships with third countries at an early stage. • Establishing minimum thresholds for a fair sharing of emission reductions or removals between third countries, the Adaptation Fund, global mitigation and the EU. • Addressing accounting gaps in the Paris Agreement, in particular using multi-year accounting approaches in the EU and in third countries. • Implementing a ‘like-for-like’ approach for carbon credits subject to reversal risks. • Not counting carbon credits used towards the EU NDC as climate finance.</p>",
+			"link": "https://www.oeko.de/publikation/using-international-carbon-credits-towards-the-eu-2040-climate-target/",
+			"pid_type": "url",
+			"citation": "Schneider, L. , Graichen, J., Gores, S., Lauer, S. (2026). Using International Carbon Credits towards the EU 2040 Climate Target",
+			"publisher": "Oeko-Institut",
+			"issn": null,
+			"book_rid": null,
+			"book_title": null,
+			"open_access": false,
+			"peer_reviewed": false,
+			"webinar": null,
+			"actors": [
+				"regulators",
+				"carbon-markets"
+			],
+			"principles": [
+				"p1",
+				"p3",
+				"p2"
+			],
+			"dimensions": [
+				"standard-setting",
+				"monitoring-verification",
+				"systemic-environmental-integrity",
+				"differentiated-responsibilities",
+				"policy-governance"
+			],
+			"regions": [
+				"europe"
+			],
+			"visuals": [],
+			"actor_messages": [
+				{
+					"actor": "regulators",
+					"message": "Buy credits through a central facility, cap the amount, keep a share as a safety reserve, and do not count credits as climate finance."
+				},
+				{
+					"actor": "carbon-markets",
+					"message": "Use the Paris Agreement Crediting Mechanism as a minimum integrity benchmark with extra safeguards, and stop project developers from choosing or paying their own auditors."
+				}
+			],
+			"formats": [],
+			"relations": [
+				{
+					"to": "conditions-for-using-international-carbon-credits-towards-the-eus-2040-climate-target",
+					"type": "supersedes",
+					"note": "partly"
+				}
+			],
+			"unconfirmed_fields": [
+				"actor_messages",
+				"dimensions",
+				"principles",
+				"regions",
+				"relations",
+				"teaser"
+			],
+			"confirmed": false
+		}
+	]
+}
