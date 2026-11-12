@@ -20,15 +20,27 @@ export interface Doc {
 
 const cache = new Map<string, { at: number; value: Doc }>();
 
+const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
+
+/** Fetch one JSON:API page; a network error or a 5xx/429 is retried once (shared hosting can be briefly busy). */
 async function get(url: string): Promise<any> {
-	let res: Response;
-	try {
-		res = await fetch(url, { headers: { Accept: 'application/vnd.api+json' } });
-	} catch {
-		error(503, 'The content service is not reachable right now. Please try again in a few minutes.');
+	for (let attempt = 1; ; attempt++) {
+		let res: Response | undefined;
+		try {
+			res = await fetch(url, { headers: { Accept: 'application/vnd.api+json' }, signal: AbortSignal.timeout(15_000) });
+		} catch {
+			// network error or timeout: retried below
+		}
+		if (res?.ok) return res.json();
+		if (res && (res.status === 403 || res.status === 404)) error(404, 'Content could not be loaded.');
+		const transient = !res || res.status >= 500 || res.status === 429;
+		if (transient && attempt < 2) {
+			await sleep(400);
+			continue;
+		}
+		console.error(`drupal: read failed (${res?.status ?? 'no response'}) ${new URL(url).pathname}`);
+		error(503, res ? 'Content could not be loaded.' : 'The content service is not reachable right now. Please try again in a few minutes.');
 	}
-	if (!res.ok) error(res.status === 403 || res.status === 404 ? 404 : 503, 'Content could not be loaded.');
-	return res.json();
 }
 
 /**
@@ -41,11 +53,17 @@ export async function read(path: string, langPrefix = ''): Promise<Doc> {
 	if (hit && Date.now() - hit.at < CONTENT_CACHE_SECONDS * 1000) return hit.value;
 	const doc: Doc = { data: [], included: [] };
 	let url: string | undefined = first;
-	for (let page = 0; url && page < 50; page++) {
-		const json: any = await get(url);
-		doc.data.push(...(Array.isArray(json.data) ? json.data : json.data ? [json.data] : []));
-		doc.included.push(...(json.included ?? []));
-		url = json.links?.next?.href;
+	try {
+		for (let page = 0; url && page < 50; page++) {
+			const json: any = await get(url);
+			doc.data.push(...(Array.isArray(json.data) ? json.data : json.data ? [json.data] : []));
+			doc.included.push(...(json.included ?? []));
+			url = json.links?.next?.href;
+		}
+	} catch (e) {
+		// Drupal unavailable: an expired copy is better than an error page (not for a 404).
+		if (hit && (e as { status?: number })?.status === 503) return hit.value;
+		throw e;
 	}
 	cache.set(first, { at: Date.now(), value: doc });
 	return doc;
