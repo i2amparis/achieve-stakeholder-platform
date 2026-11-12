@@ -6,6 +6,7 @@
 		"node": ">=24"
 	},
 	"scripts": {
+		"build": "npm --prefix web run build",
 		"test": "vitest run",
 		"typecheck": "tsc --noEmit",
 		"import": "node scripts/import/import.ts",
