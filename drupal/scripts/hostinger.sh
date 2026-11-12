@@ -101,8 +101,8 @@ install)
 	echo "  DRUPAL_URL=https://$SITE"
 	echo "  DRUPAL_FEEDBACK_SECRET=$FEEDBACK_SECRET"
 	echo
-	echo "Cron (hPanel → Advanced → Cron Jobs), hourly:"
-	echo "  cd $DRUPAL && vendor/bin/drush cron --quiet"
+	echo "Cron (hPanel → Advanced → Cron Jobs → Custom), hourly at an odd minute, e.g. 17 * * * *:"
+	echo "  cd $DRUPAL && $(php -r "echo PHP_BINARY;") vendor/drush/drush/drush.php cron --quiet"
 	;;
 update)
 	[ -d "$APP/.git" ] || die "$APP is not a checkout: use 'install'."
