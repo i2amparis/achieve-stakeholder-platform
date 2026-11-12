@@ -102,7 +102,7 @@ install)
 	echo "  DRUPAL_FEEDBACK_SECRET=$FEEDBACK_SECRET"
 	echo
 	echo "Cron (hPanel → Advanced → Cron Jobs → Custom), hourly at an odd minute, e.g. 17 * * * *:"
-	echo "  cd $DRUPAL && $(php -r "echo PHP_BINARY;") vendor/drush/drush/drush.php cron --quiet"
+	echo "  cd $DRUPAL && $(php -r "echo PHP_BINARY;") vendor/drush/drush/drush.php cron"   # silent on success; errors show in the cron output
 	;;
 update)
 	[ -d "$APP/.git" ] || die "$APP is not a checkout: use 'install'."
