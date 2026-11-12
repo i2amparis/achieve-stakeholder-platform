@@ -13,6 +13,8 @@ zero and Paris alignment.
 Record every decision that changes the stack, the content model, routes or hosting here,
 newest first, and update the sections below to match.
 
+- **2026-11-12: Portuguese is Brazilian Portuguese (`pt-br`)**, for the Latin American
+  audience; Spanish is `es`. Drupal languages: `en` (source), `es`, `pt-br`.
 - **2026-11-12: move the backend from Directus to Drupal (headless), keep the SvelteKit
   frontend, host both on HOL's Hostinger Business plan** (Frankfurt, EU): Drupal as a PHP
   site on a subdomain, SvelteKit as a Node.js web app deployed from GitHub. Reason: run on

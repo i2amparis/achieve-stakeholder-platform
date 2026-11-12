@@ -2,7 +2,7 @@ _core:
   default_config_hash: EMWe7Yu4Q5eD-NUfNuQAWGBvYUNZPIinztEtONSmsDc
 map:
   'no': nb
-  pt: pt-pt
+  pt: pt-br
   zh: zh-hans
   zh-tw: zh-hant
   zh-hk: zh-hant
