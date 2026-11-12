@@ -1,0 +1,19 @@
+uuid: 44ac176d-36f5-4467-8c83-9a4db8bbcd26
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_term
+    - paragraphs.paragraphs_type.glossary_term
+id: paragraph.glossary_term.field_term
+field_name: field_term
+entity_type: paragraph
+bundle: glossary_term
+label: Term
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

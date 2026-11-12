@@ -226,3 +226,22 @@ The Directus schema (`directus/snapshot.yaml`) implements the model above with t
 | Administrator (HOL) | Yes | Everything: taxonomies, static and legal pages, feedback prompts, schema; the only role that sees follow-up emails and community sign-ups, and that deletes responses (for example on an erasure request). |
 
 The permission rules live in `directus/setup/permissions.ts`; `npm run setup` applies them.
+
+## Data model in Drupal (November 2026)
+
+The backend moves from Directus to Drupal 11 (see `CLAUDE.md`, Decisions). The model above
+and the agreed changes in "Data model as built" still apply; this is how they map to Drupal.
+
+| Model | Drupal |
+| --- | --- |
+| Actor, Principle, Dimension, Region, Output type, Partner | Taxonomy vocabularies `actor` (`field_slug`, `field_is_hub`, `field_shown_in`, `field_intro`), `principle` (`field_code`, `field_slug`, `field_short_name`), `dimension` (`field_slug`, `field_principle`), `region`, `output_type` (`field_slug`), `partner` (`field_code`, `field_website`) |
+| Output | Content type `output`; fields as in the Output table, prefixed `field_` (`field_status` = research status; the node's published status = visible on the site) |
+| Ordered actors, principles, dimensions, regions, contributors | Multi-value term reference fields; the value order is the tag order |
+| Key messages, other formats, typed relations | Paragraphs `actor_message`, `format`, `relation` |
+| Visual | Media type `infographic` (file, `field_filename`, `field_alt_text`, `field_html_text`, `field_interactive`, `field_embed_url`, `field_confirmed`), referenced by outputs |
+| Webinar | Content type `webinar` (`field_url`, `field_date`, `field_recording`) |
+| Roadmap | Content type `roadmap`, with Paragraphs `milestone`, `recommendation`, `glossary_term` |
+| Static pages | Content type `page` (`field_slug`, `field_body`) |
+| Feedback prompt | Content type `feedback_prompt` (title = question; `field_key`, `field_stream`, `field_placement`, `field_research_tasks`, `field_open_until`) |
+| Feedback response, community sign-up | Custom entities in the `achieve_feedback` module (not content types: no revisions, not in the API) |
+| Translations | Core content and config translation; English is the source; Spanish and Portuguese enabled for the text fields |

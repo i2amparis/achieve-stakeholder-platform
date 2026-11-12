@@ -1,0 +1,6 @@
+view achieve internal fields:
+  title: 'View internal fields'
+  description: 'See partner-confirmation and import fields on outputs (never public).'
+delete unpublished achieve content:
+  title: 'Delete unpublished outputs and roadmaps'
+  description: 'Delete outputs and roadmaps that are not published.'

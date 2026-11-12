@@ -1,0 +1,18 @@
+uuid: d4801534-79e3-4dd0-a551-3ed3db1066c2
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.feedback_prompt
+id: node.feedback_prompt.title
+field_name: title
+entity_type: node
+bundle: feedback_prompt
+label: Question
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

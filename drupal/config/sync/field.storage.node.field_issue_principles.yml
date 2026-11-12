@@ -1,0 +1,20 @@
+uuid: d91e0fd9-15ec-400c-82fe-406a7402c2e0
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.field_issue_principles
+field_name: field_issue_principles
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,21 @@
+uuid: 2ff76750-34f3-4b0f-8ccc-0f2411b4171f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_confirmed
+    - media.type.infographic
+id: media.infographic.field_confirmed
+field_name: field_confirmed
+entity_type: media
+bundle: infographic
+label: 'Alt text confirmed by partners'
+description: 'Editorial note only.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

@@ -1,0 +1,27 @@
+uuid: 08e9b636-453b-4694-b099-31eb904831d1
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_status
+field_name: field_status
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: published
+      label: Published
+    -
+      value: upcoming
+      label: Upcoming
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

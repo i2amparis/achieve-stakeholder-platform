@@ -1,0 +1,19 @@
+achieve_feedback.submit_response:
+  path: '/api/achieve/feedback'
+  methods: [POST]
+  defaults:
+    _controller: '\Drupal\achieve_feedback\Controller\SubmitController::response'
+  requirements:
+    _custom_access: '\Drupal\achieve_feedback\Access\SecretAccessCheck::access'
+  options:
+    no_cache: TRUE
+
+achieve_feedback.submit_signup:
+  path: '/api/achieve/signup'
+  methods: [POST]
+  defaults:
+    _controller: '\Drupal\achieve_feedback\Controller\SubmitController::signup'
+  requirements:
+    _custom_access: '\Drupal\achieve_feedback\Access\SecretAccessCheck::access'
+  options:
+    no_cache: TRUE

@@ -1,0 +1,19 @@
+uuid: 794ac4e4-846e-4932-9b19-8de7b435c484
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_teaser
+    - node.type.output
+id: node.output.field_teaser
+field_name: field_teaser
+entity_type: node
+bundle: output
+label: Teaser
+description: 'Card text, at most 200 characters.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,21 @@
+uuid: 3bc2f0fa-a324-44c5-996c-94dc249f4446
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_interactive
+    - media.type.infographic
+id: media.infographic.field_interactive
+field_name: field_interactive
+entity_type: media
+bundle: infographic
+label: 'Rebuilt as an interactive chart'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

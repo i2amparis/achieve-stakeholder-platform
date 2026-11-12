@@ -1,0 +1,25 @@
+uuid: 38b81605-9f91-44f5-958c-6e64dd088106
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_issue_dimensions
+    - node.type.roadmap
+    - taxonomy.vocabulary.dimension
+id: node.roadmap.field_issue_dimensions
+field_name: field_issue_dimensions
+entity_type: node
+bundle: roadmap
+label: '5. Integrity issues: dimensions'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      dimension: dimension
+    auto_create: false
+field_type: entity_reference

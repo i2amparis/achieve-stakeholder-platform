@@ -1,0 +1,16 @@
+uuid: caff312e-a06b-42a8-b0a3-74864b91eb6d
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.actor
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+id: taxonomy_term.actor
+target_entity_type_id: taxonomy_term
+target_bundle: actor
+default_langcode: en
+language_alterable: false

@@ -1,0 +1,11 @@
+uuid: 43cf3a49-5851-4740-998e-107f946fab76
+langcode: en
+status: true
+dependencies: {  }
+name: 'Feedback prompt'
+type: feedback_prompt
+description: 'One prompt per page, at most three questions inline.'
+help: null
+new_revision: true
+preview_mode: 0
+display_submitted: false

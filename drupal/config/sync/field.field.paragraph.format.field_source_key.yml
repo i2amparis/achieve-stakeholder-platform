@@ -1,0 +1,19 @@
+uuid: 408580b2-7936-4e0e-8dc5-f80eeb15ed78
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_source_key
+    - paragraphs.paragraphs_type.format
+id: paragraph.format.field_source_key
+field_name: field_source_key
+entity_type: paragraph
+bundle: format
+label: 'Import key'
+description: 'Set by the content-sheet import.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

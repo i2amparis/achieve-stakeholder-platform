@@ -1,0 +1,16 @@
+uuid: 8d24dfc5-8590-4f6e-af73-7e54a5fd691e
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.milestone
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+id: paragraph.milestone
+target_entity_type_id: paragraph
+target_bundle: milestone
+default_langcode: en
+language_alterable: false

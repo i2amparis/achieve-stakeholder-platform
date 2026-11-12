@@ -1,0 +1,7 @@
+triage achieve feedback:
+  title: 'Read and triage feedback responses'
+  description: 'See feedback text and page context, and set triage status and notes. Never contact details.'
+administer achieve feedback:
+  title: 'Administer feedback and community sign-ups'
+  description: 'Full access, including follow-up emails and community sign-ups (personal data).'
+  restrict access: true

@@ -1,0 +1,19 @@
+uuid: feb3fc58-2de1-4865-a804-9d37a303c774
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_definition
+    - paragraphs.paragraphs_type.glossary_term
+id: paragraph.glossary_term.field_definition
+field_name: field_definition
+entity_type: paragraph
+bundle: glossary_term
+label: Definition
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

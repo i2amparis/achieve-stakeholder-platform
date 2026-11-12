@@ -1,0 +1,24 @@
+uuid: 89bf0c0b-4b8c-423d-80e3-db2cee732195
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_html_text
+    - filter.format.basic_html
+    - media.type.infographic
+  module:
+    - text
+id: media.infographic.field_html_text
+field_name: field_html_text
+entity_type: media
+bundle: infographic
+label: 'Full text as HTML'
+description: "The visual's full text (WCAG 2.1 AA)."
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - basic_html
+field_type: text_long

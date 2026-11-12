@@ -1,0 +1,24 @@
+uuid: 3d112264-5aa9-4204-b420-00b7a614b6b3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_barriers
+    - filter.format.basic_html
+    - node.type.roadmap
+  module:
+    - text
+id: node.roadmap.field_barriers
+field_name: field_barriers
+entity_type: node
+bundle: roadmap
+label: '6. Barriers'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - basic_html
+field_type: text_long

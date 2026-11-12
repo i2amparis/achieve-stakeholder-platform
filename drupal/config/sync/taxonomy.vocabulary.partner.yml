@@ -1,0 +1,9 @@
+uuid: ad90a645-0a16-49e0-85db-a6f457ebf435
+langcode: en
+status: true
+dependencies: {  }
+name: Partners
+vid: partner
+description: 'Consortium partners (acronyms).'
+weight: 0
+new_revision: false

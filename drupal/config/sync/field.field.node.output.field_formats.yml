@@ -1,0 +1,27 @@
+uuid: 37eaa5d3-f7ea-4845-a498-934db8260790
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_formats
+    - node.type.output
+    - paragraphs.paragraphs_type.format
+  module:
+    - entity_reference_revisions
+id: node.output.field_formats
+field_name: field_formats
+entity_type: node
+bundle: output
+label: 'Other formats'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      format: format
+    negate: 0
+field_type: entity_reference_revisions

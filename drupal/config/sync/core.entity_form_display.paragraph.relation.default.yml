@@ -1,0 +1,41 @@
+uuid: db7c63af-7e1a-410d-a368-8dc8651233a6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.relation.field_note
+    - field.field.paragraph.relation.field_related_output
+    - field.field.paragraph.relation.field_relation_type
+    - paragraphs.paragraphs_type.relation
+id: paragraph.relation.default
+targetEntityType: paragraph
+bundle: relation
+mode: default
+content:
+  field_note:
+    type: string_textfield
+    weight: 13
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_related_output:
+    type: entity_reference_autocomplete
+    weight: 11
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_relation_type:
+    type: options_select
+    weight: 12
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

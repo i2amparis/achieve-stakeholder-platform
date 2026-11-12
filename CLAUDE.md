@@ -131,6 +131,45 @@ change them in Directus):
 Hubs and principle pages are preset library queries. Every filtered view must
 have a shareable URL (for example `/library?actor=cities&principle=p2`).
 
+## Drupal backend (`drupal/`) — replacing Directus
+
+- Drupal 11 (Composer project, Drush 13), headless: JSON:API **read-only**, used by the
+  SvelteKit server. Contrib modules: Paragraphs (+ Entity Reference Revisions) and Admin
+  Toolbar only; add others only after asking (each one adds security updates).
+- Local: DDEV (`cd drupal && ddev start`), PHP 8.3 and MariaDB 11.8 as on Hostinger, at
+  `http://achieve-cms.ddev.site:8580` (router ports 8580/8543, because Docker Desktop cannot
+  open 80/443 here). Admin login: `ddev drush user:login`.
+- **Config is the source of truth for the content model** (`drupal/config/sync`): change it
+  in the admin UI or code, then `ddev drush config:export`, commit with the code that needs
+  it. A fresh site is built with `drush site:install --existing-config`; deployments apply it
+  with `drush deploy`. Content is not in git.
+- Secrets and per-environment values live in `web/sites/default/settings.local.php` (git
+  ignores it; template `settings.local.php.example`): database, hash salt, trusted host,
+  `achieve_feedback_secret`. `settings.php` is tracked and holds no secrets.
+- Custom modules:
+  - `achieve_core`: internal output fields (`field_confirmed`, `field_unconfirmed_fields`,
+    `field_source_key`, `field_source_sheet`, `field_imported_at`) are never public;
+    import-owned fields are not editable in the UI; unique slugs, codes and keys; editors
+    delete only unpublished outputs and roadmaps; no user names or authorship for
+    anonymous visitors.
+  - `achieve_feedback`: `feedback_response` and `community_signup` entities (internal: not
+    in JSON:API; no IP, no revisions). Editors (permission "triage achieve feedback") see
+    responses without contact details and edit only the triage status and note; emails and
+    sign-ups are admin-only. The website posts to `/api/achieve/feedback` and
+    `/api/achieve/signup` with the `X-Achieve-Secret` header; the endpoint applies the same
+    rules as the website forms.
+- Content model: taxonomies `actor`, `principle`, `dimension`, `region`, `output_type`,
+  `partner`; content types `output`, `webinar`, `roadmap`, `page`, `feedback_prompt`;
+  Paragraphs `actor_message`, `format`, `relation`, `milestone`, `recommendation`,
+  `glossary_term`; media type `infographic`. Ordered tags are multi-value reference fields
+  (Drupal keeps the order); "workflow state" is the node's published status. Mapping in
+  `docs/content-model.md`.
+- Roles: Editor (partners) and Administrator (HOL). Anonymous: `access content`, `view media`.
+- Tests: `npx vitest run drupal` (root) runs `drupal/tests/drupal.test.ts` against DDEV:
+  public JSON:API, the feedback endpoint, and editor/anonymous access via
+  `tests/probe.php`. Needs `DRUPAL_FEEDBACK_SECRET` in the root `.env` (same value as in
+  the local `settings.local.php`).
+
 ## Frontend (`web/`)
 
 - SvelteKit 3 (`#lib/…` imports with file extensions, `$app/state`), adapter-node, server-rendered so

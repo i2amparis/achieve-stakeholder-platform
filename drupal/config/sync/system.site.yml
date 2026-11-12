@@ -1,0 +1,15 @@
+_core:
+  default_config_hash: HlN7eAN2N4JIHsYv56V4E7sqC9bS609KwvGFjyD_mgk
+langcode: en
+uuid: b6cba68b-7800-4418-9a7a-b8172a22e293
+name: 'ACHIEVE CMS'
+mail: admin@example.com
+slogan: ''
+page:
+  403: ''
+  404: ''
+  front: /user/login
+admin_compact_mode: false
+weight_select_max: 100
+default_langcode: en
+mail_notification: null

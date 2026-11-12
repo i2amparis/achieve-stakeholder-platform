@@ -22,3 +22,15 @@ npm test
 ```
 
 Keep the database volume: the Directus licence binds to the local project. Avoid `docker compose down -v`.
+
+### Drupal backend (replacing Directus)
+
+```sh
+cd drupal
+ddev start                          # http://achieve-cms.ddev.site:8580
+ddev composer install
+cp web/sites/default/settings.local.php.example web/sites/default/settings.local.php   # locally: only the feedback secret
+ddev drush site:install --existing-config --yes
+ddev drush user:login               # one-time admin login link
+cd .. && npx vitest run drupal      # needs DRUPAL_FEEDBACK_SECRET in .env
+```

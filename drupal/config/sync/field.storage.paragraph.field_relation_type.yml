@@ -1,0 +1,27 @@
+uuid: aa6a7f57-ef9c-4901-b6e7-7befb759ecd4
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_relation_type
+field_name: field_relation_type
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: supersedes
+      label: Supersedes
+    -
+      value: related
+      label: Related
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

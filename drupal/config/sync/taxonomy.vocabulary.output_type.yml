@@ -1,0 +1,9 @@
+uuid: cd006a2b-a322-401e-9d2b-52658eea7081
+langcode: en
+status: true
+dependencies: {  }
+name: 'Output types'
+vid: output_type
+description: ''
+weight: 0
+new_revision: false

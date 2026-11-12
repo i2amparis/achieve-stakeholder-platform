@@ -1,0 +1,9 @@
+uuid: f530ddd0-5fb1-48cc-9d4e-396364bc5409
+langcode: en
+status: true
+dependencies: {  }
+name: 'Integrity principles'
+vid: principle
+description: 'Secondary navigation axis (P1–P4).'
+weight: 0
+new_revision: false

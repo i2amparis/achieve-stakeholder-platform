@@ -1,0 +1,21 @@
+uuid: a794a761-74be-4a8c-b863-929f430eba75
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_open_until
+    - node.type.feedback_prompt
+  module:
+    - datetime
+id: node.feedback_prompt.field_open_until
+field_name: field_open_until
+entity_type: node
+bundle: feedback_prompt
+label: 'Open until'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

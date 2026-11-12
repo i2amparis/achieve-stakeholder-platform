@@ -1,0 +1,16 @@
+uuid: f1647288-eb9c-4f8a-af97-262810828985
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.feedback_prompt
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+id: node.feedback_prompt
+target_entity_type_id: node
+target_bundle: feedback_prompt
+default_langcode: en
+language_alterable: false

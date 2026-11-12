@@ -1,0 +1,21 @@
+uuid: 4b8d88ef-dc62-456d-a25e-4480141ed420
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_work_package
+    - node.type.output
+  module:
+    - options
+id: node.output.field_work_package
+field_name: field_work_package
+entity_type: node
+bundle: output
+label: 'Work package'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

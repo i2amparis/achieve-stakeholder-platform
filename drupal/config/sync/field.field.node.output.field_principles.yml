@@ -1,0 +1,25 @@
+uuid: 99b95b95-51aa-4457-a0e1-5a64874bf583
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_principles
+    - node.type.output
+    - taxonomy.vocabulary.principle
+id: node.output.field_principles
+field_name: field_principles
+entity_type: node
+bundle: output
+label: 'Integrity principles'
+description: 'Most relevant first: the first principle sets the card colour.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      principle: principle
+    auto_create: false
+field_type: entity_reference

@@ -1,0 +1,45 @@
+uuid: 3c6080e0-9831-4405-b1b6-282bb760e0bf
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_placement
+field_name: field_placement
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: home
+      label: Home
+    -
+      value: actor_hub
+      label: 'Actor hub'
+    -
+      value: principle_page
+      label: 'Principle page'
+    -
+      value: output_published
+      label: 'Output page (published)'
+    -
+      value: output_upcoming
+      label: 'Output page (upcoming)'
+    -
+      value: roadmap_recommendation
+      label: 'Roadmap recommendation'
+    -
+      value: library
+      label: Library
+    -
+      value: have_your_say
+      label: 'Have your say'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

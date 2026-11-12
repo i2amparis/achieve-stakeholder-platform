@@ -1,0 +1,21 @@
+uuid: 6546c70b-9bd6-49b5-a55b-ef406d7c230d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_placement
+    - node.type.feedback_prompt
+  module:
+    - options
+id: node.feedback_prompt.field_placement
+field_name: field_placement
+entity_type: node
+bundle: feedback_prompt
+label: Placement
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

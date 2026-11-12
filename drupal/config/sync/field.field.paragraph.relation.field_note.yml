@@ -1,0 +1,19 @@
+uuid: 30c4a64e-6062-4f98-9943-44cbd73fdcc9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_note
+    - paragraphs.paragraphs_type.relation
+id: paragraph.relation.field_note
+field_name: field_note
+entity_type: paragraph
+bundle: relation
+label: Note
+description: 'e.g. "partly"'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,21 @@
+uuid: 08014dd2-6928-48c9-814a-f7522220eeb7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_stream
+    - node.type.feedback_prompt
+  module:
+    - options
+id: node.feedback_prompt.field_stream
+field_name: field_stream
+entity_type: node
+bundle: feedback_prompt
+label: Stream
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

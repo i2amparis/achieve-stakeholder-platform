@@ -1,0 +1,19 @@
+uuid: e2b054f3-a665-4bd3-af86-4516a9f1647e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_code
+    - node.type.output
+id: node.output.field_code
+field_name: field_code
+entity_type: node
+bundle: output
+label: Code
+description: 'D2.2, MS9… (deliverables and milestones only).'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

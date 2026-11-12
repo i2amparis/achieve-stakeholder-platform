@@ -1,0 +1,27 @@
+uuid: 45021a08-d771-4833-85c6-216b152b9bfa
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_relations
+    - node.type.output
+    - paragraphs.paragraphs_type.relation
+  module:
+    - entity_reference_revisions
+id: node.output.field_relations
+field_name: field_relations
+entity_type: node
+bundle: output
+label: 'Related outputs'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      relation: relation
+    negate: 0
+field_type: entity_reference_revisions

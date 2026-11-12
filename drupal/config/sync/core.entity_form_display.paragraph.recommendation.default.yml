@@ -1,0 +1,56 @@
+uuid: 21edda86-85f0-49cc-ba09-186224359fff
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.recommendation.field_by_when
+    - field.field.paragraph.recommendation.field_open_for_comment
+    - field.field.paragraph.recommendation.field_principle
+    - field.field.paragraph.recommendation.field_what
+    - field.field.paragraph.recommendation.field_who
+    - paragraphs.paragraphs_type.recommendation
+id: paragraph.recommendation.default
+targetEntityType: paragraph
+bundle: recommendation
+mode: default
+content:
+  field_by_when:
+    type: string_textfield
+    weight: 13
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_open_for_comment:
+    type: boolean_checkbox
+    weight: 15
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_principle:
+    type: options_select
+    weight: 14
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_what:
+    type: string_textarea
+    weight: 12
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_who:
+    type: string_textfield
+    weight: 11
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

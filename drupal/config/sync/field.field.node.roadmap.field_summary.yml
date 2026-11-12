@@ -1,0 +1,19 @@
+uuid: 28fb3355-ba39-40d3-9cce-848d390c1d0e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_summary
+    - node.type.roadmap
+id: node.roadmap.field_summary
+field_name: field_summary
+entity_type: node
+bundle: roadmap
+label: '2. Short summary'
+description: '100–150 words.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

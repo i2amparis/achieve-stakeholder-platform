@@ -1,0 +1,19 @@
+uuid: 770c7c7f-8138-4bd9-bdf2-93a42c5d3e3e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_issn
+    - node.type.output
+id: node.output.field_issn
+field_name: field_issn
+entity_type: node
+bundle: output
+label: ISSN
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

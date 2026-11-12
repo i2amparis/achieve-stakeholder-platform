@@ -1,0 +1,25 @@
+uuid: 9312d6b8-dd23-42e9-9365-7b9115389a52
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_principle
+    - paragraphs.paragraphs_type.recommendation
+    - taxonomy.vocabulary.principle
+id: paragraph.recommendation.field_principle
+field_name: field_principle
+entity_type: paragraph
+bundle: recommendation
+label: Principle
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      principle: principle
+    auto_create: false
+field_type: entity_reference

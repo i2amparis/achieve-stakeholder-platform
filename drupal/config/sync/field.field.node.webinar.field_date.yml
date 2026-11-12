@@ -1,0 +1,21 @@
+uuid: 2129766d-757a-4980-bff3-a9b6c4cef18b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_date
+    - node.type.webinar
+  module:
+    - datetime
+id: node.webinar.field_date
+field_name: field_date
+entity_type: node
+bundle: webinar
+label: Date
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

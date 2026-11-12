@@ -1,0 +1,25 @@
+uuid: e8814925-24c6-4869-86d1-870a4dc55c62
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_principle
+    - taxonomy.vocabulary.dimension
+    - taxonomy.vocabulary.principle
+id: taxonomy_term.dimension.field_principle
+field_name: field_principle
+entity_type: taxonomy_term
+bundle: dimension
+label: Principle
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      principle: principle
+    auto_create: false
+field_type: entity_reference

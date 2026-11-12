@@ -1,0 +1,21 @@
+uuid: 2f60f9cd-f2c0-4fc3-8a8a-0d7ff568e513
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_pid_type
+    - paragraphs.paragraphs_type.format
+  module:
+    - options
+id: paragraph.format.field_pid_type
+field_name: field_pid_type
+entity_type: paragraph
+bundle: format
+label: 'PID type'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

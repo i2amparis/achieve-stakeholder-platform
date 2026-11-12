@@ -1,0 +1,21 @@
+uuid: d8fe8191-63a8-4c4f-8f13-fa4898a49d03
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_peer_reviewed
+    - node.type.output
+  module:
+    - options
+id: node.output.field_peer_reviewed
+field_name: field_peer_reviewed
+entity_type: node
+bundle: output
+label: Peer-reviewed
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

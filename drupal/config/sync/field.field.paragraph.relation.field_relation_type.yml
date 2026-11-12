@@ -1,0 +1,21 @@
+uuid: f6ace592-25d2-4363-a740-dc1b03c1dd45
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_relation_type
+    - paragraphs.paragraphs_type.relation
+  module:
+    - options
+id: paragraph.relation.field_relation_type
+field_name: field_relation_type
+entity_type: paragraph
+bundle: relation
+label: Relation
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

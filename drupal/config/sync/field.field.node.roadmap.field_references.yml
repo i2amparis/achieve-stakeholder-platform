@@ -1,0 +1,24 @@
+uuid: 66b75699-5881-4fc6-82b8-e27dce2382b8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_references
+    - node.type.output
+    - node.type.roadmap
+id: node.roadmap.field_references
+field_name: field_references
+entity_type: node
+bundle: roadmap
+label: '9. References: ACHIEVE outputs'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      output: output
+field_type: entity_reference

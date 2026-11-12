@@ -1,0 +1,24 @@
+uuid: 85a4bcbc-8a61-4891-89dd-b1e8daa1edfe
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_deliverable
+    - node.type.output
+    - node.type.roadmap
+id: node.roadmap.field_deliverable
+field_name: field_deliverable
+entity_type: node
+bundle: roadmap
+label: Deliverable
+description: 'The deliverable that publishes it (D4.6).'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      output: output
+field_type: entity_reference

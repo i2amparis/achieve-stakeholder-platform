@@ -1,0 +1,20 @@
+uuid: b9762ce7-ab3f-443c-93b6-7a93ba988d7c
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.field_actor
+field_name: field_actor
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

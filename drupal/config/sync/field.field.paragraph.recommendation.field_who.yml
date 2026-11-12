@@ -1,0 +1,19 @@
+uuid: 5b832b7d-f880-4411-a4ad-5a367a4df55f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_who
+    - paragraphs.paragraphs_type.recommendation
+id: paragraph.recommendation.field_who
+field_name: field_who
+entity_type: paragraph
+bundle: recommendation
+label: Who
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
