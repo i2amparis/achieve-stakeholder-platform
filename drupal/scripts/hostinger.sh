@@ -84,10 +84,15 @@ install)
 	ln -s "$DRUPAL/web" "$WEBROOT"
 
 	step "Site from config, then content"
+	# Read-only before installing: the installer must not write database settings into the
+	# tracked settings.php (settings.local.php holds them).
+	chmod 444 "$DRUPAL/web/sites/default/settings.php"
+	if grep -q '^\$databases' "$DRUPAL/web/sites/default/settings.php"; then die "settings.php sets \$databases: it would override settings.local.php"; fi
 	(cd "$DRUPAL" && "$DRUSH" site:install --existing-config --account-name=admin --account-pass="$(php -r 'echo bin2hex(random_bytes(16));')" --yes --quiet)
 	chmod 444 "$DRUPAL/web/sites/default/settings.php"
 	chmod 555 "$DRUPAL/web/sites/default"
 	(cd "$DRUPAL" && "$DRUSH" achieve:import && "$DRUSH" achieve:seed && "$DRUSH" cron --quiet)
+	[ -z "$(git -C "$APP" status --porcelain)" ] || { git -C "$APP" status --short; die "The install changed tracked files (see above)."; }
 
 	step "Done"
 	echo "Drupal: https://$SITE (admin login: cd $DRUPAL && vendor/bin/drush user:login --uri=https://$SITE)"
@@ -108,6 +113,7 @@ update)
 	git -C "$APP" pull --quiet --ff-only origin "$BRANCH"
 	git -C "$APP" log --oneline -1
 	composer_install
+	[ -z "$(git -C "$APP" status --porcelain)" ] || { git -C "$APP" status --short; die "Tracked files changed on the server (see above)."; }
 	step "drush deploy (database updates, config import, caches)"
 	(cd "$DRUPAL" && "$DRUSH" deploy --yes)
 	step "Content from the sheet (idempotent) and project copy (fills gaps)"
