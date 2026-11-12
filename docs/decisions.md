@@ -8,6 +8,12 @@ This project is developed with AI assistance (Claude Code). The instructions the
 works under are in [`CLAUDE.md`](../CLAUDE.md); commits it co-authored carry a
 `Co-Authored-By: Claude` line.
 
+- **2026-11-13: deployment on Hostinger web hosting by script and GitHub.** Drupal is a
+  checkout of `main` on the PHP site, updated with `drupal/scripts/hostinger.sh` (secrets are
+  generated on the server and never leave it); the SvelteKit site is a Hostinger Node.js web
+  app built from `main`. Reason: the Business plan has no Node.js over SSH and no VPS, and both
+  pieces then update from the same branch. Drupal sends `noindex` on every response, as only
+  the site is meant to be found.
 - **2026-11-13: decisions are recorded here**, not in `CLAUDE.md`, so that people can read
   them easily; the README states that the project is developed with AI assistance. Still to
   decide (consortium): a sentence on `/about` that summaries and key messages were drafted

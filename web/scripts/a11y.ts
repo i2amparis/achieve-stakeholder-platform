@@ -3,6 +3,7 @@
 //
 //   npm run build && node build &      (or npm run dev)
 //   BASE_URL=http://localhost:4173 npm run test:a11y
+//   BASE_URL=https://<demo> DEMO_PASSWORD=… npm run test:a11y      (deployed demo)
 //
 // Screenshots go to SCREENSHOT_DIR when set.
 
@@ -12,6 +13,8 @@ import AxeBuilder from '@axe-core/playwright';
 import { chromium, type Page } from 'playwright';
 
 const BASE = process.env.BASE_URL ?? 'http://localhost:4173';
+// For a password-protected demo: DEMO_USER / DEMO_PASSWORD (HTTP basic auth).
+const httpCredentials = process.env.DEMO_PASSWORD ? { username: process.env.DEMO_USER ?? 'achieve', password: process.env.DEMO_PASSWORD } : undefined;
 const SHOTS = process.env.SCREENSHOT_DIR;
 const PAGES = ['/', '/actors/cities', '/library', '/library?actor=cities&principle=p2', '/library/d2-2', '/library/d3-6', '/have-your-say', '/have-your-say/thank-you?sent=1', '/principles'];
 const WIDTHS = { desktop: 1440, mobile: 390 };
@@ -27,7 +30,7 @@ const browser = await chromium.launch();
 if (SHOTS) mkdirSync(SHOTS, { recursive: true });
 
 for (const [label, width] of Object.entries(WIDTHS)) {
-	const context = await browser.newContext({ viewport: { width, height: 900 } });
+	const context = await browser.newContext({ viewport: { width, height: 900 }, httpCredentials });
 	for (const path of PAGES) {
 		const page = await context.newPage();
 		const errors: string[] = [];
@@ -81,7 +84,7 @@ async function keyboardLibrary(page: Page) {
 	ok(`library: shareable URL ${new URL(page.url()).search}`);
 }
 
-const kb = await browser.newPage({ viewport: { width: 1440, height: 900 } });
+const kb = await browser.newPage({ viewport: { width: 1440, height: 900 }, httpCredentials });
 console.log('keyboard');
 await keyboardHub(kb);
 await keyboardLibrary(kb);
