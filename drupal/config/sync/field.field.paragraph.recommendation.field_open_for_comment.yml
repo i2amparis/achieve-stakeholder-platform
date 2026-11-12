@@ -1,0 +1,21 @@
+uuid: 1c16fee9-70fa-496a-aebc-021186bc1c54
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_open_for_comment
+    - paragraphs.paragraphs_type.recommendation
+id: paragraph.recommendation.field_open_for_comment
+field_name: field_open_for_comment
+entity_type: paragraph
+bundle: recommendation
+label: 'Show a feedback prompt under it'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

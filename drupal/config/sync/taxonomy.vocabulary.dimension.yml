@@ -1,0 +1,9 @@
+uuid: 7ed5377d-6186-445f-a414-a30e86b0bbbc
+langcode: en
+status: true
+dependencies: {  }
+name: Dimensions
+vid: dimension
+description: 'Five per principle.'
+weight: 0
+new_revision: false

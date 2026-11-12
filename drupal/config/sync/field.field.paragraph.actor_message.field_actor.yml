@@ -1,0 +1,25 @@
+uuid: 0eca3bed-4972-4dae-a9e0-555019363cc4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_actor
+    - paragraphs.paragraphs_type.actor_message
+    - taxonomy.vocabulary.actor
+id: paragraph.actor_message.field_actor
+field_name: field_actor
+entity_type: paragraph
+bundle: actor_message
+label: Actor
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      actor: actor
+    auto_create: false
+field_type: entity_reference

@@ -1,0 +1,16 @@
+uuid: c2f30c74-57f9-4c6a-9576-487ff47e6dd8
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.roadmap
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+id: node.roadmap
+target_entity_type_id: node
+target_bundle: roadmap
+default_langcode: en
+language_alterable: false

@@ -1,0 +1,23 @@
+uuid: ebd38a88-88fe-4428-96f7-0d36e9bc6c7b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_status
+    - node.type.output
+  module:
+    - options
+id: node.output.field_status
+field_name: field_status
+entity_type: node
+bundle: output
+label: 'Research status'
+description: 'Upcoming items appear under "coming soon".'
+required: true
+translatable: false
+default_value:
+  -
+    value: upcoming
+default_value_callback: ''
+settings: {  }
+field_type: list_string

@@ -1,0 +1,19 @@
+uuid: 1066474a-03b0-4c11-8cf3-90877a1948b2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_publisher
+    - paragraphs.paragraphs_type.format
+id: paragraph.format.field_publisher
+field_name: field_publisher
+entity_type: paragraph
+bundle: format
+label: Publisher
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

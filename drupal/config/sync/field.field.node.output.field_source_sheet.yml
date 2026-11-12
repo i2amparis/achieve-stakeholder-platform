@@ -1,0 +1,19 @@
+uuid: de722793-5f65-49a9-9db8-fa482e9906fa
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_source_sheet
+    - node.type.output
+id: node.output.field_source_sheet
+field_name: field_source_sheet
+entity_type: node
+bundle: output
+label: 'Source sheet'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

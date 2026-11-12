@@ -1,0 +1,19 @@
+uuid: 0b5839fc-ff75-4de9-ab31-bc0c76a227e9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_message
+    - paragraphs.paragraphs_type.actor_message
+id: paragraph.actor_message.field_message
+field_name: field_message
+entity_type: paragraph
+bundle: actor_message
+label: Message
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

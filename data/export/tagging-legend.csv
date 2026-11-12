@@ -1,0 +1,27 @@
+How to use,
+Yellow cells,"Content proposed by Claude (tags, teasers, key messages, regions, alt text). On 'Other publications' it is based on the abstracts or full texts (see 'Draft basis'). To be checked by ACHIEVE partners before the public launch; remove the highlight once confirmed."
+Grey cells,Grey cells (first sheet): content to be filled by the deliverable leads.
+Multiple values,Separated by '; '. Order = most relevant first.
+Scope,Public copy. 'Deliverables & Milestones': only rows with CDE content = Yes and Dissemination Level = Public. 'Other publications': all rows. Internal and EU-reporting columns are kept in the consortium's internal copy only.
+,
+Platform actors,
+Business,"Industry & businesses (ESG compliance, corporate targets). Finance items are also tagged with the Finance sub-tag."
+Cities,Local climate action plans and implementation
+Regulators,"Regulators/policymakers (EU, UNFCCC, national governments) and how they support voluntary action"
+Carbon markets,Voluntary carbon markets: carbon credit use and integrity
+CCIs,Cooperative Climate Initiatives (the spreadsheet's 'VCI' column)
+,
+Integrity principles,
+P1,"Integrated accountability: target coherence; policy & governance; data, reporting & transparency; monitoring & verification; compliance & enforcement"
+P2,Justice and equity: equity & inclusion; support & capacity; inclusive decision-making; just transition; differentiated responsibilities
+P3,Environmental protection: ecosystem protection & restoration; biodiversity conservation; systemic environmental integrity; integrated practices; sustainable resource use
+P4,Low-carbon & resilient transformation: ambitious policies; dealing with trade-offs; standard-setting; sector-wide change; innovation & systemic change
+,
+Region focus,"Global / Europe / Latin America, separated by '; '. '(to confirm)' marks a guess."
+Actor key messages,"One line per tagged actor, as 'Actor: message'. Upcoming items are left blank until results exist."
+Alt text,"One short description per visual file, for screen readers. The infographic's text should also appear on the page as HTML."
+,
+Actor sub-tags,
+Finance,"Sub-filter on the Business and CCIs hubs, not a sixth actor. Finance items keep Business and/or CCIs in 'Platform actors'. Column 'Actor sub-tags' on 'Other publications'."
+Draft basis,"'Other publications' only: what the drafted teaser, key messages and region rest on. Lines marked 'check' need the full text."
+Platform relation,"'Other publications' only: rows shown as one platform item with two formats, or linked because one supersedes another. Every row stays in the sheet for EU reporting."

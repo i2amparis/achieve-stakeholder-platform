@@ -1,0 +1,41 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Editors
+*.code-workspace
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.swp
+
+# Secrets: .env holds LICENSE_KEY, Directus admin credentials and tokens
+.env
+.env.*
+!.env.example
+
+# Node
+node_modules/
+npm-debug.log*
+.npm/
+coverage/
+
+# SvelteKit / Vite
+.svelte-kit/
+build/
+.vite/
+vite.config.*.timestamp-*
+
+# Directus local runtime data (database and uploads live in Docker volumes)
+directus/uploads/
+directus/extensions/.registry/
+
+# Import runs: the report is printed and kept locally; data/export/*.csv IS committed
+scripts/import/reports/
+
+# Python scratch (if anyone inspects the sheet with openpyxl)
+__pycache__/
+.venv/
+
+# Internal documentation (deployment, privacy-notice inputs): never published
+docs/internal/

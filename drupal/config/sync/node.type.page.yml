@@ -1,0 +1,11 @@
+uuid: 5591caec-ef3a-4137-becc-ed02f1052014
+langcode: en
+status: true
+dependencies: {  }
+name: 'Static page'
+type: page
+description: 'About and the legal pages.'
+help: null
+new_revision: true
+preview_mode: 0
+display_submitted: false

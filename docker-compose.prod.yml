@@ -1,0 +1,88 @@
+# Production / demo server: Caddy (HTTPS) → SvelteKit site and Directus; PostgreSQL.
+# Only Caddy publishes ports (80, 443). Settings come from .env (see .env.production.example).
+#   docker compose -f docker-compose.prod.yml up -d --build
+name: achieve
+
+services:
+  database:
+    image: postgres:17.11-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${DB_DATABASE}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER} -d ${DB_DATABASE}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  directus:
+    image: directus/directus:12.6.0
+    restart: unless-stopped
+    depends_on:
+      database:
+        condition: service_healthy
+    env_file: .env
+    environment:
+      DB_CLIENT: pg
+      DB_HOST: database
+      DB_PORT: 5432
+      PUBLIC_URL: https://${CMS_DOMAIN}
+      IP_TRUST_PROXY: "true"
+      WEBSOCKETS_ENABLED: "false"
+      GRAPHQL_INTROSPECTION: "false"
+      CORS_ENABLED: "false"
+    volumes:
+      - uploads:/directus/uploads
+      - ./directus:/directus/project
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://127.0.0.1:8055/server/ping || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+
+  web:
+    build:
+      context: ./web
+      args:
+        SITE_ORIGIN: https://${SITE_DOMAIN}
+    restart: unless-stopped
+    depends_on:
+      directus:
+        condition: service_healthy
+    environment:
+      DIRECTUS_URL: http://directus:8055
+      DIRECTUS_FEEDBACK_TOKEN: ${DIRECTUS_FEEDBACK_TOKEN}
+      # behind Caddy: take protocol, host and client address from its headers
+      PROTOCOL_HEADER: x-forwarded-proto
+      HOST_HEADER: x-forwarded-host
+      ADDRESS_HEADER: x-forwarded-for
+      XFF_DEPTH: "1"
+
+  caddy:
+    image: caddy:2.11.7-alpine
+    restart: unless-stopped
+    depends_on: [web, directus]
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    environment:
+      SITE_DOMAIN: ${SITE_DOMAIN}
+      CMS_DOMAIN: ${CMS_DOMAIN}
+      ACME_EMAIL: ${ACME_EMAIL}
+      DEMO_USER: ${DEMO_USER}
+      DEMO_PASSWORD_HASH: ${DEMO_PASSWORD_HASH}
+    volumes:
+      - ./deploy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+
+volumes:
+  db_data:
+  uploads:
+  caddy_data:
+  caddy_config:

@@ -1,0 +1,9 @@
+uuid: e5671ba3-dad5-4bf0-af9e-969487e40bdf
+langcode: en
+status: true
+dependencies: {  }
+name: Actors
+vid: actor
+description: 'Primary navigation axis. Ask before changing slugs.'
+weight: 0
+new_revision: false

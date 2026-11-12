@@ -1,0 +1,19 @@
+uuid: 43a868d2-ec0f-4a21-b084-d2f6f990365b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_code
+    - taxonomy.vocabulary.principle
+id: taxonomy_term.principle.field_code
+field_name: field_code
+entity_type: taxonomy_term
+bundle: principle
+label: Code
+description: 'p1–p4, used in library URLs (?principle=p2).'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

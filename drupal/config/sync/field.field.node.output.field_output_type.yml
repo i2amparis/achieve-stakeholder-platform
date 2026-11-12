@@ -1,0 +1,25 @@
+uuid: 4e0edb45-b8ee-4827-a584-8130e6d88f7d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_output_type
+    - node.type.output
+    - taxonomy.vocabulary.output_type
+id: node.output.field_output_type
+field_name: field_output_type
+entity_type: node
+bundle: output
+label: 'Output type'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      output_type: output_type
+    auto_create: false
+field_type: entity_reference

@@ -1,0 +1,19 @@
+uuid: d4ebcabc-bbad-4908-9f2b-57a417214c3a
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.field_enablers
+field_name: field_enablers
+entity_type: node
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

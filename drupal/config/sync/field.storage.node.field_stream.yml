@@ -1,0 +1,33 @@
+uuid: 0e26498e-9ae0-4f9f-8050-5c984fe4107d
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_stream
+field_name: field_stream
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: comment
+      label: 'Comment on our work'
+    -
+      value: suggest_research
+      label: 'Suggest research'
+    -
+      value: share_challenge
+      label: 'Share a challenge'
+    -
+      value: all
+      label: 'All three'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

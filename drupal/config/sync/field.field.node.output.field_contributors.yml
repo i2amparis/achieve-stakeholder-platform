@@ -1,0 +1,25 @@
+uuid: 72bd930a-5f01-4d3f-a505-becaf34b4cc2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_contributors
+    - node.type.output
+    - taxonomy.vocabulary.partner
+id: node.output.field_contributors
+field_name: field_contributors
+entity_type: node
+bundle: output
+label: Contributors
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      partner: partner
+    auto_create: false
+field_type: entity_reference

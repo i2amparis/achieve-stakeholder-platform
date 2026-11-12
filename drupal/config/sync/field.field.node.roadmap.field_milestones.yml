@@ -1,0 +1,27 @@
+uuid: e30b9eec-aabc-4e60-b6a8-3f9a015c9124
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_milestones
+    - node.type.roadmap
+    - paragraphs.paragraphs_type.milestone
+  module:
+    - entity_reference_revisions
+id: node.roadmap.field_milestones
+field_name: field_milestones
+entity_type: node
+bundle: roadmap
+label: '1. Timeline'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      milestone: milestone
+    negate: 0
+field_type: entity_reference_revisions

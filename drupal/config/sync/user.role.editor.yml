@@ -1,0 +1,46 @@
+uuid: 1cd958c9-c8f3-4e14-b6db-2d78a2ab515f
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.basic_html
+    - media.type.infographic
+    - node.type.output
+    - node.type.roadmap
+    - node.type.webinar
+  module:
+    - achieve_core
+    - achieve_feedback
+    - content_translation
+    - filter
+    - media
+    - node
+    - system
+    - toolbar
+id: editor
+label: Editor
+weight: 3
+is_admin: false
+permissions:
+  - 'access content'
+  - 'access content overview'
+  - 'access media overview'
+  - 'access toolbar'
+  - 'create content translations'
+  - 'create infographic media'
+  - 'create output content'
+  - 'create roadmap content'
+  - 'create webinar content'
+  - 'delete any webinar content'
+  - 'delete unpublished achieve content'
+  - 'edit any infographic media'
+  - 'edit any output content'
+  - 'edit any roadmap content'
+  - 'edit any webinar content'
+  - 'translate any entity'
+  - 'triage achieve feedback'
+  - 'update content translations'
+  - 'use text format basic_html'
+  - 'view achieve internal fields'
+  - 'view media'
+  - 'view the administration theme'

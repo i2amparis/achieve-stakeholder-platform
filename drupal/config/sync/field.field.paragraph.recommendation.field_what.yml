@@ -1,0 +1,19 @@
+uuid: a2af9bf7-35d6-4877-8378-3e9fc81fde0d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_what
+    - paragraphs.paragraphs_type.recommendation
+id: paragraph.recommendation.field_what
+field_name: field_what
+entity_type: paragraph
+bundle: recommendation
+label: What
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

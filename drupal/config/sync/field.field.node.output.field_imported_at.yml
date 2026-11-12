@@ -1,0 +1,19 @@
+uuid: e16e3ae8-bfc0-4a5c-bff4-195b9ebeb367
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_imported_at
+    - node.type.output
+id: node.output.field_imported_at
+field_name: field_imported_at
+entity_type: node
+bundle: output
+label: 'Last imported'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: timestamp

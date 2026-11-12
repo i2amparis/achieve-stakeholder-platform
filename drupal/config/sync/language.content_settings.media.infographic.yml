@@ -1,0 +1,16 @@
+uuid: 076e0a5b-9dfb-4f85-9128-f6146cd1edab
+langcode: en
+status: true
+dependencies:
+  config:
+    - media.type.infographic
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+id: media.infographic
+target_entity_type_id: media
+target_bundle: infographic
+default_langcode: en
+language_alterable: false

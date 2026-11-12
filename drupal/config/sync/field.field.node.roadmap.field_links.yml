@@ -1,0 +1,23 @@
+uuid: e1fb34ca-d1bd-4e87-bf76-e0414f1448f7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_links
+    - node.type.roadmap
+  module:
+    - link
+id: node.roadmap.field_links
+field_name: field_links
+entity_type: node
+bundle: roadmap
+label: '9. References: external links'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 2
+  link_type: 16
+field_type: link

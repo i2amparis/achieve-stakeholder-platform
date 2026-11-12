@@ -1,0 +1,27 @@
+uuid: 64be40bf-4590-48ce-800f-02ea3dba862c
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_pid_type
+field_name: field_pid_type
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: doi
+      label: DOI
+    -
+      value: url
+      label: URL
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

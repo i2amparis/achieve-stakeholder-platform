@@ -1,0 +1,21 @@
+uuid: 1338a625-fa84-402a-b23b-1f1727211276
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_pid_type
+    - node.type.output
+  module:
+    - options
+id: node.output.field_pid_type
+field_name: field_pid_type
+entity_type: node
+bundle: output
+label: 'PID type'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

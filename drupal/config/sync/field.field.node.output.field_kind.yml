@@ -1,0 +1,21 @@
+uuid: de494463-1153-41ba-a5e4-cb6450031537
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_kind
+    - node.type.output
+  module:
+    - options
+id: node.output.field_kind
+field_name: field_kind
+entity_type: node
+bundle: output
+label: Kind
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

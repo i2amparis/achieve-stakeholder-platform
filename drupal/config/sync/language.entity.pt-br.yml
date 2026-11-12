@@ -1,0 +1,9 @@
+uuid: febab375-3f1b-455d-bc3e-8bc9caede683
+langcode: en
+status: true
+dependencies: {  }
+id: pt-br
+label: 'Portuguese, Brazil'
+direction: ltr
+weight: 0
+locked: false

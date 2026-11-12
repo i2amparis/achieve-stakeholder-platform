@@ -1,0 +1,21 @@
+uuid: 3357c421-c155-4098-bc5a-5e033ce43cda
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_confirmed
+    - node.type.output
+id: node.output.field_confirmed
+field_name: field_confirmed
+entity_type: node
+bundle: output
+label: 'Confirmed by partners'
+description: 'Editorial note, never on the website. Before launch the import sets it from the yellow cells of the content sheet.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

@@ -1,0 +1,10 @@
+entity.feedback_response.collection:
+  title: 'Feedback responses'
+  route_name: entity.feedback_response.collection
+  parent: system.admin_content
+  weight: 20
+entity.community_signup.collection:
+  title: 'Community sign-ups'
+  route_name: entity.community_signup.collection
+  parent: system.admin_content
+  weight: 21

@@ -1,0 +1,10 @@
+name: ACHIEVE core
+type: module
+description: 'Content rules of the ACHIEVE platform: internal fields, unique keys, delete rules, API privacy.'
+package: ACHIEVE
+core_version_requirement: ^11
+dependencies:
+  - drupal:node
+  - drupal:taxonomy
+  - drupal:media
+  - drupal:user

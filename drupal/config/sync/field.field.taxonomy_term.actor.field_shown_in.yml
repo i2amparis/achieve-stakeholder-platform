@@ -1,0 +1,24 @@
+uuid: ad552e99-9326-49ef-b3b3-f11a99c8d4a6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_shown_in
+    - taxonomy.vocabulary.actor
+id: taxonomy_term.actor.field_shown_in
+field_name: field_shown_in
+entity_type: taxonomy_term
+bundle: actor
+label: 'Shown in hubs'
+description: 'For actors without a hub (Finance): the hubs where this actor is a filter chip.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      actor: actor
+    auto_create: false
+field_type: entity_reference

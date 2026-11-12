@@ -1,0 +1,27 @@
+<?php
+
+/**
+ * Copy to settings.local.php on the server (git ignores it) and fill in.
+ * Keep it readable only by the account: chmod 400 settings.local.php
+ */
+
+$databases['default']['default'] = [
+  'database' => '',      // with the hosting account prefix
+  'username' => '',
+  'password' => '',      // here, never in a --db-url (Drush mishandles some characters)
+  'host' => 'localhost',
+  'port' => '3306',
+  'driver' => 'mysql',
+  'prefix' => '',
+  'collation' => 'utf8mb4_general_ci',
+];
+
+// php -r 'echo bin2hex(random_bytes(32));'
+$settings['hash_salt'] = '';
+
+// The CMS host name, escaped: e.g. ['^cms\.example\.org$']
+$settings['trusted_host_patterns'] = [];
+
+// Shared secret for the feedback endpoint (the same value as the SvelteKit
+// app's DRUPAL_FEEDBACK_SECRET). php -r 'echo bin2hex(random_bytes(32));'
+$settings['achieve_feedback_secret'] = '';

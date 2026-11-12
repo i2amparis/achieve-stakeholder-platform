@@ -1,0 +1,101 @@
+<?php
+
+/**
+ * @file
+ * Content rules of the ACHIEVE platform.
+ *
+ * - Internal output fields (partner confirmation, import keys) are never public:
+ *   only roles with "view achieve internal fields" see them, including in JSON:API.
+ * - Fields owned by the content-sheet import cannot be edited in the admin UI.
+ * - Slugs, codes and import keys are unique.
+ * - Editors may delete only unpublished outputs and roadmaps.
+ * - User accounts and authorship are not exposed to anonymous visitors.
+ */
+
+use Drupal\Core\Access\AccessResult;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Entity\EntityTypeInterface;
+use Drupal\Core\Field\FieldDefinitionInterface;
+use Drupal\Core\Field\FieldItemListInterface;
+use Drupal\Core\Session\AccountInterface;
+use Drupal\node\NodeInterface;
+
+/**
+ * Fields on outputs that are editorial notes or import bookkeeping.
+ */
+function achieve_core_internal_fields(): array {
+  return ['field_confirmed', 'field_unconfirmed_fields', 'field_source_key', 'field_source_sheet', 'field_imported_at'];
+}
+
+/**
+ * Fields written only by the content-sheet import.
+ */
+function achieve_core_import_owned_fields(): array {
+  return ['field_unconfirmed_fields', 'field_source_key', 'field_source_sheet', 'field_imported_at'];
+}
+
+/**
+ * Implements hook_entity_field_access().
+ */
+function achieve_core_entity_field_access(string $operation, FieldDefinitionInterface $field_definition, AccountInterface $account, ?FieldItemListInterface $items = NULL) {
+  $entity_type = $field_definition->getTargetEntityTypeId();
+  $name = $field_definition->getName();
+
+  // Internal output fields: hidden from everyone without the permission.
+  if ($entity_type === 'node' && in_array($name, achieve_core_internal_fields(), TRUE)) {
+    if ($operation === 'view') {
+      return AccessResult::forbiddenIf(!$account->hasPermission('view achieve internal fields'))->cachePerPermissions();
+    }
+    if ($operation === 'edit' && in_array($name, achieve_core_import_owned_fields(), TRUE)) {
+      return AccessResult::forbiddenIf(!$account->hasPermission('administer nodes'))->cachePerPermissions();
+    }
+  }
+
+  // Authorship and revision metadata: not for anonymous visitors.
+  if ($operation === 'view' && in_array($name, ['uid', 'revision_uid', 'revision_user', 'revision_log', 'revision_log_message'], TRUE)) {
+    return AccessResult::forbiddenIf($account->isAnonymous())->addCacheContexts(['user.roles:anonymous']);
+  }
+
+  return AccessResult::neutral();
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_access() for user entities.
+ *
+ * Without this, JSON:API lists user display names to anonymous visitors.
+ */
+function achieve_core_user_access(EntityInterface $entity, string $operation, AccountInterface $account) {
+  if ($account->isAnonymous() && in_array($operation, ['view', 'view label'], TRUE)) {
+    return AccessResult::forbidden()->addCacheContexts(['user.roles:anonymous']);
+  }
+  return AccessResult::neutral();
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_access() for nodes: editors delete drafts only.
+ */
+function achieve_core_node_access(NodeInterface $node, string $operation, AccountInterface $account) {
+  if ($operation === 'delete' && in_array($node->bundle(), ['output', 'roadmap'], TRUE) && !$account->hasPermission('administer nodes')) {
+    if ($node->isPublished()) {
+      return AccessResult::forbidden('Published items cannot be deleted; unpublish them first.')->addCacheableDependency($node)->cachePerPermissions();
+    }
+    return AccessResult::allowedIfHasPermission($account, 'delete unpublished achieve content')->addCacheableDependency($node);
+  }
+  return AccessResult::neutral();
+}
+
+/**
+ * Implements hook_entity_bundle_field_info_alter(): unique keys.
+ */
+function achieve_core_entity_bundle_field_info_alter(array &$fields, EntityTypeInterface $entity_type, string $bundle) {
+  $unique = [
+    'node' => ['output' => ['field_slug', 'field_code', 'field_source_key'], 'page' => ['field_slug'], 'feedback_prompt' => ['field_key'], 'webinar' => ['field_url']],
+    'taxonomy_term' => ['actor' => ['field_slug'], 'principle' => ['field_slug', 'field_code'], 'dimension' => ['field_slug'], 'region' => ['field_slug'], 'output_type' => ['field_slug'], 'partner' => ['field_code']],
+    'media' => ['infographic' => ['field_filename']],
+  ];
+  foreach ($unique[$entity_type->id()][$bundle] ?? [] as $name) {
+    if (isset($fields[$name])) {
+      $fields[$name]->addConstraint('UniqueField');
+    }
+  }
+}

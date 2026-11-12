@@ -1,0 +1,21 @@
+uuid: f3c582e6-1724-457b-a38e-ad805959ded7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_horizon
+    - paragraphs.paragraphs_type.milestone
+  module:
+    - options
+id: paragraph.milestone.field_horizon
+field_name: field_horizon
+entity_type: paragraph
+bundle: milestone
+label: Horizon
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

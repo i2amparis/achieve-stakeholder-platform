@@ -1,0 +1,24 @@
+uuid: 734e023e-ed07-4697-86cb-68f08ed4b0a2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_body
+    - filter.format.basic_html
+    - node.type.page
+  module:
+    - text
+id: node.page.field_body
+field_name: field_body
+entity_type: node
+bundle: page
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - basic_html
+field_type: text_long

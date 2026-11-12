@@ -1,0 +1,21 @@
+uuid: af9a590e-128e-413f-8c9a-c4b3a284377f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_date
+    - paragraphs.paragraphs_type.milestone
+  module:
+    - datetime
+id: paragraph.milestone.field_date
+field_name: field_date
+entity_type: paragraph
+bundle: milestone
+label: Date
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

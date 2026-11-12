@@ -1,0 +1,10 @@
+uuid: 7d110c0e-d088-491f-a531-2bc621bb5ec3
+langcode: en
+status: true
+dependencies: {  }
+id: recommendation
+label: 'Roadmap recommendation'
+icon_uuid: null
+icon_default: null
+description: null
+behavior_plugins: {  }

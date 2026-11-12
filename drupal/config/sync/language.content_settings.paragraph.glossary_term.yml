@@ -1,0 +1,16 @@
+uuid: 55220ddf-37ac-4bce-a753-7473fb8ffb71
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.glossary_term
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+id: paragraph.glossary_term
+target_entity_type_id: paragraph
+target_bundle: glossary_term
+default_langcode: en
+language_alterable: false

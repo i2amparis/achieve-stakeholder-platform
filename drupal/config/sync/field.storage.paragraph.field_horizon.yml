@@ -1,0 +1,30 @@
+uuid: f88d4063-b802-4e4e-9ec1-21db0fd100a0
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_horizon
+field_name: field_horizon
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: next_1_2_years
+      label: 'Next 1–2 years'
+    -
+      value: '2030'
+      label: '2030'
+    -
+      value: '2050'
+      label: '2050'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,27 @@
+uuid: 01d5fe35-2d83-4f43-aeec-87b91b1a7b4e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_glossary
+    - node.type.roadmap
+    - paragraphs.paragraphs_type.glossary_term
+  module:
+    - entity_reference_revisions
+id: node.roadmap.field_glossary
+field_name: field_glossary
+entity_type: node
+bundle: roadmap
+label: '10. Glossary'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      glossary_term: glossary_term
+    negate: 0
+field_type: entity_reference_revisions

@@ -1,0 +1,25 @@
+uuid: 5505556b-f5e1-4a37-8dad-2ca498eebc64
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_actor
+    - node.type.roadmap
+    - taxonomy.vocabulary.actor
+id: node.roadmap.field_actor
+field_name: field_actor
+entity_type: node
+bundle: roadmap
+label: Actor
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      actor: actor
+    auto_create: false
+field_type: entity_reference

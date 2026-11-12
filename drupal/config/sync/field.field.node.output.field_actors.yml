@@ -1,0 +1,25 @@
+uuid: 372d82ec-b650-4765-a6a3-4fbb933384ba
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_actors
+    - node.type.output
+    - taxonomy.vocabulary.actor
+id: node.output.field_actors
+field_name: field_actors
+entity_type: node
+bundle: output
+label: Actors
+description: 'Most relevant first: the first actor picks the featured hub.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      actor: actor
+    auto_create: false
+field_type: entity_reference

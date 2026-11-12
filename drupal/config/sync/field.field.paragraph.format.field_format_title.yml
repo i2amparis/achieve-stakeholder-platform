@@ -1,0 +1,19 @@
+uuid: a37db796-5905-4f14-bb88-ffee6e32ab12
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_format_title
+    - paragraphs.paragraphs_type.format
+id: paragraph.format.field_format_title
+field_name: field_format_title
+entity_type: paragraph
+bundle: format
+label: Title
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

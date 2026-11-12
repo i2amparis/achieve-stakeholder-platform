@@ -1,0 +1,18 @@
+uuid: d9485a11-f6d2-46eb-803a-6282998fdf89
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.webinar
+id: node.webinar.title
+field_name: title
+entity_type: node
+bundle: webinar
+label: Title
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

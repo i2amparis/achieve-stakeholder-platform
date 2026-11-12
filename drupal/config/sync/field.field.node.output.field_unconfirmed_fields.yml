@@ -1,0 +1,19 @@
+uuid: a45c0ebc-be61-4751-b49c-977b5fc93692
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_unconfirmed_fields
+    - node.type.output
+id: node.output.field_unconfirmed_fields
+field_name: field_unconfirmed_fields
+entity_type: node
+bundle: output
+label: 'Fields awaiting partner confirmation'
+description: 'Set by the import.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

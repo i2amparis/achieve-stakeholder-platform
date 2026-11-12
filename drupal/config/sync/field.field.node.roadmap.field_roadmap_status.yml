@@ -1,0 +1,23 @@
+uuid: 622f7d9c-80a7-4c9a-a1a1-0a54f100fd65
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_roadmap_status
+    - node.type.roadmap
+  module:
+    - options
+id: node.roadmap.field_roadmap_status
+field_name: field_roadmap_status
+entity_type: node
+bundle: roadmap
+label: 'Roadmap status'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: in_preparation
+default_value_callback: ''
+settings: {  }
+field_type: list_string

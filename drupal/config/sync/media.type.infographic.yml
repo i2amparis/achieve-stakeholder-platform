@@ -1,0 +1,13 @@
+uuid: c3de093b-08f6-4ce0-b788-e185c3fe0c77
+langcode: en
+status: true
+dependencies: {  }
+id: infographic
+label: Infographic
+description: 'Infographics and figures, each with alt text and its full text as HTML.'
+source: file
+queue_thumbnail_downloads: false
+new_revision: false
+source_configuration:
+  source_field: field_media_file
+field_map: {  }

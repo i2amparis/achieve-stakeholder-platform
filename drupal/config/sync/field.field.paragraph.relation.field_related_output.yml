@@ -1,0 +1,23 @@
+uuid: ca8865e0-59fe-414f-99b4-1f3437ad3859
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_related_output
+    - paragraphs.paragraphs_type.relation
+id: paragraph.relation.field_related_output
+field_name: field_related_output
+entity_type: paragraph
+bundle: relation
+label: Output
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      output: output
+field_type: entity_reference

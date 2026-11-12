@@ -1,0 +1,24 @@
+uuid: 36185155-2829-4bbb-8319-cce12d2e9ba4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_enablers
+    - filter.format.basic_html
+    - node.type.roadmap
+  module:
+    - text
+id: node.roadmap.field_enablers
+field_name: field_enablers
+entity_type: node
+bundle: roadmap
+label: '7. Enabling factors and pathways'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_formats:
+    - basic_html
+field_type: text_long

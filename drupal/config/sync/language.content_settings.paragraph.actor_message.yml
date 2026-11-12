@@ -1,0 +1,16 @@
+uuid: aaa81aba-5b34-4ec1-8752-296c47d04bf7
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.actor_message
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+id: paragraph.actor_message
+target_entity_type_id: paragraph
+target_bundle: actor_message
+default_langcode: en
+language_alterable: false

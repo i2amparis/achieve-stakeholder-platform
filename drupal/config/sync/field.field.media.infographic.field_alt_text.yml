@@ -1,0 +1,19 @@
+uuid: 0200b682-713b-4cea-a518-12384850e89c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_alt_text
+    - media.type.infographic
+id: media.infographic.field_alt_text
+field_name: field_alt_text
+entity_type: media
+bundle: infographic
+label: 'Alt text'
+description: 'Required before publishing: short description for screen readers.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

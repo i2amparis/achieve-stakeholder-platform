@@ -1,0 +1,19 @@
+uuid: ef01c923-2b62-475a-9a61-937c29ccf73a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_slug
+    - taxonomy.vocabulary.actor
+id: taxonomy_term.actor.field_slug
+field_name: field_slug
+entity_type: taxonomy_term
+bundle: actor
+label: Slug
+description: 'URL segment of the hub (/actors/<slug>). Expensive to change after launch.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

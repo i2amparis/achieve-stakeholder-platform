@@ -1,0 +1,19 @@
+uuid: 5c6d0994-cc42-461f-b7b0-938253baedf9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_filename
+    - media.type.infographic
+id: media.infographic.field_filename
+field_name: field_filename
+entity_type: media
+bundle: infographic
+label: 'File name'
+description: 'As in the content sheet.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

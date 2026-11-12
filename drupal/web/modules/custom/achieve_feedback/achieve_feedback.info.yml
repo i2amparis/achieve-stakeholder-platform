@@ -1,0 +1,10 @@
+name: ACHIEVE feedback
+type: module
+description: 'Stores feedback responses and community sign-ups from the website: anonymous by default, contact details admin-only, no IP addresses, no revisions.'
+package: ACHIEVE
+core_version_requirement: ^11
+dependencies:
+  - drupal:node
+  - drupal:taxonomy
+  - drupal:options
+  - paragraphs:paragraphs

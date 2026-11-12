@@ -1,0 +1,30 @@
+uuid: d319d048-b43b-4982-a4d6-fc96f2a2cecd
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_kind
+field_name: field_kind
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: deliverable
+      label: Deliverable
+    -
+      value: milestone
+      label: Milestone
+    -
+      value: publication
+      label: Publication
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
