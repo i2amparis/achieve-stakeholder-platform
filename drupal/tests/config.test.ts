@@ -45,4 +45,13 @@ describe('Drupal config', () => {
 		expect(files).toContain('language.entity.pt-br.yml');
 		expect(files).not.toContain('language.entity.pt-pt.yml');
 	});
+
+	it('keeps database settings out of the tracked settings.php', () => {
+		// The installer writes $databases into settings.php when it can; on a server that would
+		// override settings.local.php (and put credentials in a tracked file).
+		const php = readFileSync(resolve(import.meta.dirname, '../web/sites/default/settings.php'), 'utf8');
+		const code = php.split('\n').filter((l) => !/^\s*(#|\*|\/\/|\/\*)/.test(l)).join('\n');
+		expect(code).not.toMatch(/\$databases\s*\[/);
+		expect(code).toMatch(/include \$app_root \. '\/' \. \$site_path \. '\/settings\.local\.php';\s*}\s*$/);
+	});
 });
