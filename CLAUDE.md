@@ -150,7 +150,8 @@ have a shareable URL (for example `/library?actor=cities&principle=p2`).
   the server only. Data layer: `web/src/lib/server/content.ts` (JSON:API → page shapes) and
   `drupal.ts` (reads, writes). Settings: `DRUPAL_URL`, `DRUPAL_FEEDBACK_SECRET`, and for the demo
   `DEMO_PASSWORD` (shared password via HTTP basic auth, plus noindex).
-- Deploy: Hostinger Node.js web app from GitHub `main`, root `web`, `npm run build`, `npm start`
+- Deploy: Hostinger Node.js web app from GitHub `main`, root `web`, `npm run build`, entry file
+  `server.cjs` (LiteSpeed loads the entry with `require()`; it imports the ESM build)
   (Node ≥ 22.17). Behind Hostinger's proxy set `ADDRESS_HEADER=x-forwarded-for` and `XFF_DEPTH=1`; if
   the client address is unknown, the feedback rate limit is skipped rather than failing the form.
 - Build for a server with `SITE_ORIGIN=https://…` (sets `paths.origin`; CSRF checks on form posts

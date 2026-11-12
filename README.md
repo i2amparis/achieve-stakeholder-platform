@@ -48,7 +48,7 @@ cd web && npm run build && node build &   # then: npm run test:a11y (axe WCAG 2.
   `… update <site-folder>` after each merge to `main`. The script asks for the database credentials and
   generates the secrets on the server; it prints the values the site needs.
 - **Site** (Node.js web app built from GitHub `main`): root directory `web`, build `npm run build`,
-  start `npm start`. Environment: `DRUPAL_URL`, `DRUPAL_FEEDBACK_SECRET`, `SITE_ORIGIN`, and for the demo
+  entry file `server.cjs` (Hostinger loads it with `require()`; locally `npm start`). Environment: `DRUPAL_URL`, `DRUPAL_FEEDBACK_SECRET`, `SITE_ORIGIN`, and for the demo
   `DEMO_USER`/`DEMO_PASSWORD`; behind a proxy `ADDRESS_HEADER=x-forwarded-for`, `XFF_DEPTH=1`.
 
 The earlier Directus version of the backend is on branch `directus` (tag `directus-demo-v1`).
